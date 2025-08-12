@@ -4,6 +4,33 @@
     font-family: 'Electrolize';
     src: url('./assets/fonts/Electrolize-Regular.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'Orbitron';
+    src: url('./assets/fonts/Orbitron Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('./assets/fonts/Orbitron Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('./assets/fonts/Orbitron Bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('./assets/fonts/Orbitron Black.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
 
 @font-face {
   font-family: 'Fira Code';
@@ -54,12 +81,39 @@
   font-style: normal;
 }
 
+*::selection {
+  background-color: var(--color-darkblue-700);
+  /* color: var(--color-primary-100); */
+}
+.hoverlight:hover {
+    text-shadow: 0 0 10px;
+    font-size: 1.02em;
+    /* transform: scale(1.1); */
+}
+
+.hovertrans:hover, .inline-hovertrans:hover {
+    text-shadow: 0 0 10px;
+    transform: scale(1.02);
+}
+
+.inline-hovertrans {
+  display: inline-block;
+}
+
+.hoverlight,
+.hovertrans, .inline-hovertrans {
+    transition: all 0.3s;
+    user-select: none;
+}
+
 @theme {
     --font-electrolize: 'Electrolize', sans-serif;
     --font-firacode: 'Fira Code', normal;
+    --font-orbitron: 'Orbitron', normal;
 
     --color-darkblue-900: oklch(0.1 0.0444 277.41);
-    --color-darkblue-800: oklch(0.2 0.0444 277.41);
+    --color-darkblue-850: oklch(0.15 0.0258 276.15);
+    --color-darkblue-800: oklch(0.2 0.0258 276.15);
     --color-darkblue-700: oklch(0.3 0.0444 277.41);
     --color-darkblue-600: oklch(0.4 0.0444 277.41);
     --color-darkblue-500: oklch(0.5 0.0444 277.41);
@@ -94,4 +148,5 @@
 
 body {
     font-family: Geist Variable, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+    overflow-x: hidden;
 }
