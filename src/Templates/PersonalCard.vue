@@ -17,7 +17,7 @@ import Tilted from './Tilted.vue';
                 </InfoItem>
                 <InfoItem>
                     <template #title>
-                        个人介绍:
+                        DESC:
                     </template>
                     <p class="hovertrans">正在四处游荡中...</p>
                     <p class="hovertrans">想被别人发现，喜欢尝试新的事物</p>
@@ -26,13 +26,15 @@ import Tilted from './Tilted.vue';
                 </InfoItem>
                 <InfoItem>
                     <template #title>
-                        正在做/学习:
+                        STACKS:
                     </template>
                     <div class="itemnavs">
-                        <IconNav class="hoverlight linenav" name="Vue.js" icon-class="fa-brands fa-vuejs"></IconNav>
-                        <IconNav class="hoverlight linenav" name="CSS" icon-class="fa-brands fa-css3"></IconNav>
-                        <IconNav class="hoverlight linenav" name="Python" icon-class="fa-brands fa-python"></IconNav>
-                        <IconNav class="hoverlight linenav" name="C-sharp" icon-class="fa-brands fa-microsoft">
+                        <IconNav class="inline-hovertrans linenav" name="Vue.js" icon-class="fa-brands fa-vuejs">
+                        </IconNav>
+                        <IconNav class="inline-hovertrans linenav" name="CSS" icon-class="fa-brands fa-css3"></IconNav>
+                        <IconNav class="inline-hovertrans linenav" name="Python" icon-class="fa-brands fa-python">
+                        </IconNav>
+                        <IconNav class="inline-hovertrans linenav" name="C-sharp" icon-class="fa-brands fa-microsoft">
                         </IconNav>
                     </div>
                 </InfoItem>

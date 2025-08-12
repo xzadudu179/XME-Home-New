@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 import { onMounted, onBeforeUnmount, ref, useTemplateRef, watch } from 'vue';
+import { useRoute } from 'vue-router';
 
 interface TargetCursorProps {
     targetSelector?: string;
@@ -10,6 +11,7 @@ interface TargetCursorProps {
 
 const props = withDefaults(defineProps<TargetCursorProps>(), {
     targetSelector: '.cursor-target',
+    resetSelector: '.reset-cursor-target',
     spinDuration: 2,
     hideDefaultCursor: true
 });
@@ -23,6 +25,64 @@ const constants = {
     cornerSize: 12,
     parallaxStrength: 0.00005
 };
+
+
+const route = useRoute(); // 新增
+
+// 封装一个重置光标为旋转模式的函数
+const resetToSpin = () => {
+    if (!cursorRef.value) return;
+    // gsap.killTweensOf(cursorRef.value, 'rotation');
+    const corners = Array.from(cornersRef.value!);
+    gsap.killTweensOf(corners);
+
+    const { cornerSize } = constants;
+    const positions = [
+        { x: -cornerSize * 1.5, y: -cornerSize * 1.5 },
+        { x: cornerSize * 0.5, y: -cornerSize * 1.5 },
+        { x: cornerSize * 0.5, y: cornerSize * 0.5 },
+        { x: -cornerSize * 1.5, y: cornerSize * 0.5 }
+    ];
+
+    const tl = gsap.timeline();
+    corners.forEach((corner, index) => {
+        tl.to(
+            corner as HTMLElement,
+            {
+                x: positions[index].x,
+                y: positions[index].y,
+                duration: 0.3,
+                ease: 'power3.out'
+            },
+            0
+        );
+    }); if (cursorRef.value && spinTl.value) {
+        const currentRotation = gsap.getProperty(cursorRef.value, 'rotation') as number;
+        const normalizedRotation = currentRotation % 360;
+
+        spinTl.value.kill();
+        spinTl.value = gsap
+            .timeline({ repeat: -1 })
+            .to(cursorRef.value, { rotation: '+=360', duration: props.spinDuration, ease: 'none' });
+
+        gsap.to(cursorRef.value, {
+            rotation: normalizedRotation + 360,
+            duration: props.spinDuration * (1 - normalizedRotation / 360),
+            ease: 'none',
+            onComplete: () => {
+                spinTl.value?.restart();
+            }
+        });
+    }
+};
+
+// 在路由变化时调用
+watch(
+    () => route.fullPath,
+    () => {
+        resetToSpin();
+    }
+);
 
 const moveCursor = (x: number, y: number) => {
     if (!cursorRef.value) return;
@@ -168,8 +228,10 @@ const setupAnimation = () => {
             const tl = gsap.timeline();
             const corners = [tlc, trc, brc, blc];
             const offsets = [tlOffset, trOffset, brOffset, blOffset];
-
+            gsap.killTweensOf(cursorRef.value, 'rotation');
+            gsap.set(cursorRef.value, { rotation: 0 });
             corners.forEach((corner, index) => {
+
                 tl.to(
                     corner as HTMLElement,
                     {
@@ -181,11 +243,11 @@ const setupAnimation = () => {
                     0
                 );
             });
+
         };
 
         isAnimatingToTarget = true;
         updateCorners();
-
         setTimeout(() => {
             isAnimatingToTarget = false;
         }, 1);
