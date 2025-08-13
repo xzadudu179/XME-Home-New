@@ -5,7 +5,7 @@ import Tilted from './Tilted.vue';
 </script>
 
 <template>
-    <Tilted width="800px" height="452.38px" :rotateAmplitude="5" card-class="card_tilt">
+    <Tilted width="800px" height="452.38px" :rotateAmplitude="5" card-class="card_tilt" :scale="true">
         <div class="card">
             <div class="avatar"></div>
             <div class="infos">
@@ -26,7 +26,7 @@ import Tilted from './Tilted.vue';
                 </InfoItem>
                 <InfoItem>
                     <template #title>
-                        STACKS:
+                        STUDING:
                     </template>
                     <div class="itemnavs">
                         <IconNav class="inline-hovertrans linenav" name="Vue.js" icon-class="fa-brands fa-vuejs">
@@ -174,10 +174,10 @@ a:hover,
     display: flex;
     justify-content: space-between;
     /* background-color: #2238; */
-    background-color: #080A1611;
+    background-color: #080A1622;
     /* backdrop-filter: blur(10px); */
     /* background-color: var(--card-color); */
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(15px);
     border-radius: 30px;
     transition: all 0.5s cubic-bezier(0.215, 0.610, 0.355, 1);
     box-shadow:
@@ -303,7 +303,8 @@ a:hover,
     .card {
         flex-direction: column;
         max-height: 850px;
-        height: 85vh;
+        height: 75vh;
+        /* height: 600px; */
         width: 75vw;
         max-width: 550px;
     }
@@ -312,7 +313,7 @@ a:hover,
         max-width: 550px;
         width: 75vw !important;
         max-height: 850px;
-        height: 85vh !important;
+        height: 75vh !important;
     }
 
     .avatar {
@@ -393,6 +394,7 @@ a:hover,
     .itemnavs {
         display: flex;
         flex-wrap: wrap;
+        height: 3em;
         gap: 10px;
     }
 
@@ -458,7 +460,7 @@ a:hover,
 
     .container {
         flex-direction: column;
-        width: 100%;
+        width: 90%;
         height: 100%;
     }
 
@@ -480,6 +482,8 @@ a:hover,
 
     .itemnavs {
         display: flex;
+        flex-wrap: wrap;
+        width: 90%;
     }
 
     .findmenav:not(:last-child)::after {
@@ -514,17 +518,17 @@ a:hover,
     .card {
         flex-direction: column;
         max-width: 100%;
-        width: max(90%, calc(100% - 10px));
+        width: 100%;
         max-height: 90%;
         margin-top: 20px;
-        height: calc(100% - 70px);
+        /* height: calc(100% - 70px); */
     }
 
     .card_tilt {
         max-height: 90%;
         max-width: 100%;
         width: max(90vw, calc(100% - 10px)) !important;
-        height: calc(100% - 70px);
+        /* height: calc(100% - 70px); */
     }
 
     .infos {

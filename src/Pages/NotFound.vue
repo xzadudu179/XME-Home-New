@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Galaxy from '@/Templates/Bit/Galaxy.vue';
+import FadeContent from '@/Templates/Bit/FadeContent.vue';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue'
 const router = useRouter();
@@ -15,13 +16,17 @@ const backhome = () => {
             :saturation="0.3" :hue-shift="240" :transparent="false" :star-speed="0.3" :rotation-speed="0.05" />
     </div>
     <div
-        class="font-orbitron font-light text-darkblue-50 w-[1000px] text-4xl text-center justify-center flex flex-col absolute top-[50%] left-[50%] content-404">
-        <p class="text-5xl mb-6"><span class="inline-hovertrans">NOTHING HERE...</span> <span
-                class="inline-hovertrans">ONLY STARS...</span></p>
-        <p class="text-4xl border-2 w-[300px] p-5 rounded-2xl text-primary-200 hover:text-primary-100 cursor-target m-auto"
-            @click="$router.push('/')">
-            BACK HOME</p>
-        <p class="text-2xl hovertrans mt-6">404 NOT FOUND</p>
+        class="font-orbitron font-light text-darkblue-50 w-full lg:w-[1000px] text-[5vw] lg:text-4xl text-center justify-center flex flex-col absolute top-[50%] left-[50%] content-404">
+        <FadeContent :blur="true" :duration="500" :delay="0" :threshold="0.1" :initial-opacity="0" easing="ease-out">
+            <p class="lg:text-5xl mb-6"><span class="inline-hovertrans">NOTHING HERE...</span> <span
+                    class="inline-hovertrans">ONLY STARS...</span></p>
+            <p class="lg:text-4xl text-[3.5vw] border-2 w-[300px] p-5 rounded-2xl text-primary-200 hover:text-primary-100 cursor-target m-auto backhome"
+                @click="$router.push('/')">
+                BACK HOME</p>
+        </FadeContent>
+        <FadeContent :blur="true" :duration="1000" :delay="400" :threshold="0.1" :initial-opacity="0" easing="ease-out">
+            <p class="text-2xl hovertrans mt-6">404 NOT FOUND</p>
+        </FadeContent>
     </div>
 
 </template>
@@ -29,5 +34,26 @@ const backhome = () => {
 <style scoped>
 .content-404 {
     transform: translate(-50%, -50%);
+}
+
+@media (max-width: 640px) {
+    .content-404 {
+        font-size: max(7vw, 30px);
+        width: 100%;
+    }
+
+    .backhome {
+        font-size: max(6vw, 20px);
+        width: 80%;
+    }
+}
+
+.backhome {
+    transition: all 0.3s;
+}
+
+.backhome:hover {
+    box-shadow: 0 0 5px;
+    text-shadow: 0 0 5px;
 }
 </style>

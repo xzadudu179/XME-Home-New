@@ -8,12 +8,14 @@
 <script setup lang="ts">
 import { ref, reactive, computed } from 'vue';
 import { throttle } from 'lodash';
+import { scale } from 'motion-v';
 
 const props = defineProps<{
     width: string;
     height: string;
     rotateAmplitude: number;
     cardClass: string;
+    scale: boolean;
 }>()
 
 const cardRef = ref<HTMLElement | null>(null);

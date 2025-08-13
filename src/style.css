@@ -91,6 +91,17 @@
     /* transform: scale(1.1); */
 }
 
+.hide-scrollbar {
+  scrollbar-width: none;
+  overflow: auto;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
 .hovertrans:hover, .inline-hovertrans:hover {
     text-shadow: 0 0 10px;
     transform: scale(1.02);
@@ -105,11 +116,12 @@
     transition: all 0.3s;
     user-select: none;
 }
-
 @theme {
     --font-electrolize: 'Electrolize', sans-serif;
     --font-firacode: 'Fira Code', normal;
     --font-orbitron: 'Orbitron', normal;
+
+    --breakpoint-hg: 1680px;
 
     --color-darkblue-900: oklch(0.1 0.0444 277.41);
     --color-darkblue-850: oklch(0.15 0.0258 276.15);
