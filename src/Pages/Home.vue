@@ -134,8 +134,9 @@ const curYear = ref(new Date().getFullYear());
                 parallax-class-name="custom-parallax" scroller-class-name="custom-scroller" />
         </div>
         <!-- <hr class="border-b-2 border-darkblue-300"> -->
-        <div>
-
+        <div class="text-5xl font-orbitron text-darkblue-200 text-center">
+            <h2 class="mt-50 text-8xl">/ WORK IN PROCESS /</h2>
+            <h2 class="pt-5">...页面制作中...</h2>
         </div>
 
         <footer class="font-orbitron font-light mt-[500px] flex justify-center">

@@ -64,7 +64,7 @@ const beleft = () => {
   <!-- Nav -->
   <div class="w-[100vw] lg:w-[100vw] top-0 text-darkblue-100 hidden md:block fixed z-[1000] border-darkblue-500">
     <NavBlock
-      :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Contact', href: '/contact' }]" />
+      :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Contact', href: '/contact' }, { text: 'Links', href: '/links' }]" />
   </div>
   <!-- Mobile Nav -->
   <div
@@ -81,7 +81,7 @@ const beleft = () => {
   <div id="mobile-nav"
     class="fixed w-[100vw] h-[100vh] overflow-hidden bg-darkblue-900 z-100 left-[100vw] mobile-nav-item md:hidden">
     <MobileNavBlock
-      :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Contact', href: '/contact' }]" />
+      :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Contact', href: '/contact' }, { text: 'Links', href: '/links' }]" />
     <p class="text-darkblue-200 font-orbitron absolute bottom-5 w-full p-5 pr-10 text-center">CREATING, DESIGNING</p>
   </div>
   <!-- Main -->
