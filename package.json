@@ -11,7 +11,8 @@
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build"
+    "type-check": "vue-tsc --build",
+    "deploy": "npm run build && git -C dist add . && git -C dist commit -m deploy && git -C dist push -u origin main"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",

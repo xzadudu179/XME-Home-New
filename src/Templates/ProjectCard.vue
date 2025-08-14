@@ -9,8 +9,8 @@
 </template>
 
 <script setup lang="ts">
-import SpotlightCard from "./Templates/Bit/SpotlightCard.vue";
-import Magnet from "./Templates/Bit/Magnet.vue";
+import SpotlightCard from "@/Templates/Bit/SpotlightCard.vue";
+import Magnet from "@/Templates/Bit/Magnet.vue";
 
 interface Props {
     imageSrc?: string,
