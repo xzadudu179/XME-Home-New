@@ -25,7 +25,7 @@ const backhome = () => {
                 BACK HOME</p>
         </FadeContent>
         <FadeContent :blur="true" :duration="1000" :delay="400" :threshold="0.1" :initial-opacity="0" easing="ease-out">
-            <p class="text-2xl hovertrans mt-6">404 NOT FOUND</p>
+            <p class="text-2xl hovertrans mt-6">[ 404 NOT FOUND ]</p>
         </FadeContent>
     </div>
 

@@ -24,10 +24,10 @@ const curYear = ref(new Date().getFullYear());
 
 <template>
     <div class="particles-container">
-        <Particles :particle-count="200" :particle-spread="13" :speed="0.2"
-            :particle-colors="['#97DAFF', '#FFFFFF', '#B89DFF']" :move-particles-on-hover="false"
-            :particle-hover-factor="0.5" :alpha-particles="true" :particle-base-size="100" :size-randomness="1"
-            :camera-distance="20" :disable-rotation="true" class="w-full h-full" />
+        <Particles :particle-count="200" :particle-spread="13" :speed="0.2" :particle-colors="['#97DAFF', '#FFFFFF']"
+            :move-particles-on-hover="false" :particle-hover-factor="0.5" :alpha-particles="true"
+            :particle-base-size="100" :size-randomness="1" :camera-distance="20" :disable-rotation="true"
+            class="w-full h-full" />
     </div>
     <div class="text-darkblue-50 hide-scrollbar">
         <div class="w-full h-[100vh] font-electrolize pb-[100px] md:text-2xl" id="first-header">
@@ -59,7 +59,7 @@ const curYear = ref(new Date().getFullYear());
         <div class="mt-40">
             <ScrollVelocity :texts="['CREATING // DESIGNING', 'EXPLORING \\\\ DISCOVERING']" :velocity="100"
                 :damping="50" :stiffness="400" :velocity-mapping="{ input: [0, 1000], output: [0, 5] }"
-                class-name="font-electrolize font-light lg:text-[8rem]/40 select-none text-darkblue-200"
+                class-name="font-electrolize text-[4rem] font-light lg:text-[8rem]/40 select-none text-darkblue-200"
                 parallax-class-name="custom-parallax" scroller-class-name="custom-scroller" />
         </div>
         <div class="font-electrolize">
@@ -130,7 +130,7 @@ const curYear = ref(new Date().getFullYear());
         <div class="mt-60">
             <ScrollVelocity :texts="['PROJECTS //', '\\\\ PROJECTS']" :velocity="100" :damping="50" :stiffness="400"
                 :velocity-mapping="{ input: [0, 1000], output: [0, 5] }"
-                class-name="font-electrolize font-light lg:text-[8rem]/40 select-none text-darkblue-200"
+                class-name="font-electrolize font-light text-[4rem] lg:text-[8rem]/40 select-none text-darkblue-200"
                 parallax-class-name="custom-parallax" scroller-class-name="custom-scroller" />
         </div>
         <!-- <hr class="border-b-2 border-darkblue-300"> -->
@@ -216,6 +216,8 @@ const curYear = ref(new Date().getFullYear());
         justify-content: center;
         align-items: center;
         width: 100%;
+        margin-bottom: 150px;
+        margin-top: 50px;
         min-width: 0px !important;
     }
 
