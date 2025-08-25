@@ -110,9 +110,10 @@ const loading: loading = {
         }
 
         const animate = gsap.timeline()
+
         if (isSafari) {
             animate.set(this.blocks, {
-                "stroke-dashoffset": 0,
+                "stroke-dashoffset": () => { return Math.random() * 600 * hexratio - 300 * hexratio },
                 "stroke": "#3D78F2",
                 scale: 1,
                 autoAlpha: 0,
@@ -128,7 +129,7 @@ const loading: loading = {
         }
         animate
             .to(this.blocks, {
-                "stroke-dashoffset": isSafari ? () => { return Math.random() * 600 * hexratio - 300 * hexratio } : 0,
+                "stroke-dashoffset": 0,
                 "stroke-opacity": 1,
                 scale: 1,
                 duration: 0.5,
