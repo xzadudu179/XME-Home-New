@@ -26,7 +26,7 @@ let hexratio = 1.5
 const wideRatio = 2
 
 if (aspectRatio > wideRatio) {
-    hexratio = 1.2
+    hexratio = 1.1
 }
 
 const create = (next: CallableFunction, check: CallableFunction) => {
@@ -109,13 +109,25 @@ const loading: loading = {
 
         }
 
-        gsap.timeline()
-            .set(this.blocks, {
+        const animate = gsap.timeline()
+
+        if (isSafari) {
+            animate.set(this.blocks, {
                 "stroke-dashoffset": () => { return Math.random() * 600 * hexratio - 300 * hexratio },
                 "stroke": "#3D78F2",
                 scale: 1,
                 autoAlpha: 0,
             })
+        }
+        else {
+            animate.set(this.blocks, {
+                "stroke-dashoffset": () => { return Math.random() * 600 * hexratio - 300 * hexratio },
+                "stroke": "#3D78F2",
+                scale: 0,
+                autoAlpha: 0,
+            })
+        }
+        animate
             .to(this.blocks, {
                 "stroke-dashoffset": 0,
                 "stroke-opacity": 1,
@@ -128,6 +140,7 @@ const loading: loading = {
                     each: 0.004
                 }
             })
+
         this.loop_color.to(
             this.blocks, {
             "stroke": "#78B9FF",
@@ -144,7 +157,7 @@ const loading: loading = {
     hidden() {
         const animate = gsap.timeline()
             .set(this.blocks, {
-                "stroke-dasharray": 450,
+                "stroke-dasharray": 300 * hexratio,
                 "stroke-opacity": 1,
                 scale: 1,
                 autoAlpha: 1,
@@ -202,7 +215,7 @@ defineExpose({
 
 .loading_block {
     stroke: #3D78F2;
-    stroke-width: 0.8;
+    stroke-width: 0.5;
     stroke-dasharray: 100;
     background-color: #131522;
     stroke-opacity: 0;

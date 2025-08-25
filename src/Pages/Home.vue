@@ -33,7 +33,7 @@ const curYear = ref(new Date().getFullYear());
         <div class="w-full h-[100vh] font-electrolize pb-[100px] md:text-2xl" id="first-header">
             <div class="flex-col flex justify-center content-center items-center h-full select-none">
                 <AnimatedContent :distance="100" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
-                    :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.1">
+                    :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="1.2">
                     <p><span class="inline-hovertrans">CREATING</span> <i
                             class="fa-light fa-sparkles inline-hovertrans"></i> <span
                             class="text-primary-200 inline-hovertrans">DREAMS</span><span
@@ -41,7 +41,7 @@ const curYear = ref(new Date().getFullYear());
                     </p>
                 </AnimatedContent>
                 <AnimatedContent :distance="100" direction="vertical" :reverse="false" :duration="1.5" ease="power3.out"
-                    :initial-opacity="0" :animate-opacity="true" :scale="1.2" :threshold="0.1" :delay="0.3">
+                    :initial-opacity="0" :animate-opacity="true" :scale="1.2" :threshold="0.1" :delay="1.5">
                     <p><span class="inline-hovertrans">ACROSS</span> <span class="inline-hovertrans">THE</span> <span
                             class="text-primary-200 inline-hovertrans">W<i
                                 class="fa-light fa-earth-asia text-[0.8em] relative bottom-[0.05em]"></i>RLD</span>
