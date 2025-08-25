@@ -1,24 +1,41 @@
 <template>
-    <svg class="loading z-[10000000] fixed overflow-hidden pointer-events-auto" viewBox="0 0 1000 1000">
+    <svg class="loading z-[10000000] fixed overflow-hidden" viewBox="0 0 1000 1000">
         <defs>
             <polygon id="loading_hexagon" class=""
-                points="0.0,-75.0 64.95,-37.5 64.95,37.5 0.0,75.0 -64.95,37.5 -64.95,-37.5" fill="#131522" />
+                points="0.0, -75.0 64.95,-37.5 64.95,37.5 0.0,75.0 -64.95,37.5 -64.95,-37.5" fill="#131522" />
         </defs>
     </svg>
 </template>
 
 <script setup lang="ts">
 import { gsap } from 'gsap';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
+
+const screenWidth = window.innerWidth;
+const screenHeight = window.innerHeight;
+const aspectRatio = screenWidth / screenHeight;
 
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+const getHexagonPoints = (ratio: number) => {
+    return `
+    0,${-50 * ratio} ${43.3 * ratio},${-25 * ratio} ${43.3 * ratio},${25 * ratio} 0,${50 * ratio} ${-43.3 * ratio}, ${25 * ratio} ${-43.3 * ratio},${-25 * ratio}`;
+}
+
+let hexratio = 1.5
+const wideRatio = 2
+
+if (aspectRatio > wideRatio) {
+    hexratio = 1.2
+}
+
 const create = (next: CallableFunction, check: CallableFunction) => {
     loading.show()
     setTimeout(() => {
         next();
         // this.$parent.check_loading();
         check();
-    }, 800);
+    }, 550);
 }
 const hide = () => {
     console.log("hiding")
@@ -38,6 +55,8 @@ interface loading {
 }
 
 onMounted(() => {
+    const polygon = document.getElementById('loading_hexagon');
+    polygon!.setAttribute('points', getHexagonPoints(hexratio));
     loading.init()
 })
 
@@ -50,6 +69,12 @@ const loading: loading = {
     init() {
         this.container = document.querySelector('.loading');
         // this.container!.innerHTML = "";
+        if (aspectRatio > wideRatio) {
+            console.log("宽屏")
+            // 宽屏，显示更多列
+            this.row = 15;
+            this.line = 10;
+        }
         this.blocks = [];
         // this.create_blocks();
         this.create_blocks();
@@ -64,8 +89,8 @@ const loading: loading = {
                 let use = document.createElementNS("http://www.w3.org/2000/svg", "use");
                 use.setAttribute("class", "loading_block");
                 use.setAttribute("href", "#loading_hexagon");
-                use.setAttribute("x", `${l % 2 ? 86.5 * 1.5 * r : 86.5 * 1.5 * r + 43.3 * 1.5}`);
-                use.setAttribute("y", `${74.5 * 1.5 * l}`);
+                use.setAttribute("x", `${l % 2 ? 86.5 * hexratio * r : 86.5 * hexratio * r + 43.3 * hexratio}`);
+                use.setAttribute("y", `${74.5 * hexratio * l}`);
                 use.setAttribute("transform-origin", "50 50")
                 // gsap.set(this.blocks, { transformOrigin: "50% 50%" })
                 g.appendChild(use);
@@ -86,8 +111,7 @@ const loading: loading = {
 
         gsap.timeline()
             .set(this.blocks, {
-                transformOrigin: "50% 50%",
-                "stroke-dashoffset": () => { return Math.random() * 900 - 450 },
+                "stroke-dashoffset": () => { return Math.random() * 600 * hexratio - 300 * hexratio },
                 "stroke": "#3D78F2",
                 scale: 1,
                 autoAlpha: 0,
@@ -96,12 +120,12 @@ const loading: loading = {
                 "stroke-dashoffset": 0,
                 "stroke-opacity": 1,
                 scale: 1,
-                duration: 0.6,
+                duration: 0.5,
                 autoAlpha: 1,
                 ease: "power2.out",
                 stagger: {
                     from: "start",
-                    each: 0.006
+                    each: 0.004
                 }
             })
         this.loop_color.to(
