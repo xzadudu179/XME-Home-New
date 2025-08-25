@@ -1,8 +1,8 @@
 <template>
-    <svg class="loading z-[10000000] fixed overflow-hidden" viewBox="0 0 1000 1000">
+    <svg class="loading z-[10000000] fixed overflow-hidden pointer-events-auto" viewBox="0 0 1000 1000">
         <defs>
             <polygon id="loading_hexagon" class=""
-                points="0.0,-75.0 64.95,-37.5 64.95,37.5 0.0,75.0 -64.95,37.5 -64.95,-37.5" fill="#080A16" />
+                points="0.0,-75.0 64.95,-37.5 64.95,37.5 0.0,75.0 -64.95,37.5 -64.95,-37.5" fill="#131522" />
         </defs>
     </svg>
 </template>
@@ -10,6 +10,8 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 import { onMounted } from 'vue';
+
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 const create = (next: CallableFunction, check: CallableFunction) => {
     loading.show()
     setTimeout(() => {
@@ -116,14 +118,26 @@ const loading: loading = {
 
     },
     hidden() {
-        gsap.timeline()
+        const animate = gsap.timeline()
             .set(this.blocks, {
                 "stroke-dasharray": 450,
                 "stroke-opacity": 1,
                 scale: 1,
                 autoAlpha: 1,
             })
-            .to(this.blocks, {
+        if (isSafari) {
+            animate.to(this.blocks, {
+                duration: 0.6,
+                // scale: 0,
+                autoAlpha: 0,
+                ease: "power2.in",
+                stagger: {
+                    from: "random",
+                    each: 0.004
+                }
+            });
+        } else {
+            animate.to(this.blocks, {
                 duration: 0.6,
                 scale: 0,
                 ease: "power2.in",
@@ -132,9 +146,12 @@ const loading: loading = {
                     each: 0.004
                 }
             });
+        }
+
+
         setTimeout(() => {
             this.container?.classList.add("hidden")
-        }, 1300)
+        }, 1000)
         this.loop_color.clear();
     }
 }
@@ -148,7 +165,6 @@ defineExpose({
 
 <style scoped>
 .loading {
-    pointer-events: none;
     width: 100%;
     height: auto;
 }
