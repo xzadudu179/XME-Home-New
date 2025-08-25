@@ -84,6 +84,7 @@ const loading: loading = {
 
         gsap.timeline()
             .set(this.blocks, {
+                transformOrigin: "50% 50%",
                 "stroke-dashoffset": () => { return Math.random() * 900 - 450 },
                 "stroke": "#3D78F2",
                 scale: 1,
