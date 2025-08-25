@@ -175,7 +175,7 @@ const loading: loading = {
 
         setTimeout(() => {
             this.container?.classList.add("hidden")
-        }, 1000)
+        }, 1200)
         this.loop_color.clear();
     }
 }
