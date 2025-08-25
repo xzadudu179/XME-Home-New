@@ -15,7 +15,7 @@ const props = defineProps<{
             <li class="lg:mr-5 font-orbitron font-normal text-3xl"><i class="fa-regular fa-planet-ringed"></i> XME-HOME
             </li>
             <li v-for="item in props.navItems" @click="$router.push(item.href)"
-                class="inline-block lg:p-2 p-[0.6vw] pt-1 pb-1 cursor-target mt-5 mb-5 lg:m-3 lg:mt-3 lg:mb-3 mr-[2vw] ml-[2vw] active:text-darkblue-200 transition-all hover:text-shadow-darkblue-100 litem">
+                class="pointer-events-auto inline-block lg:p-2 p-[0.6vw] pt-1 pb-1 cursor-target mt-5 mb-5 lg:m-3 lg:mt-3 lg:mb-3 mr-[2vw] ml-[2vw] active:text-darkblue-200 transition-all hover:text-shadow-darkblue-100 litem">
                 <p>{{ item.text }}</p>
             </li>
         </ul>

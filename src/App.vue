@@ -15,7 +15,29 @@ console.log(`
 `);
 
 import { VueLenis, useLenis } from 'lenis/vue' // Also available as global imports, no need to import them manually
-import { watch } from 'vue'
+import { watch, ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+
+const loading = ref<InstanceType<typeof Loading> | null>(null);
+const check_loading = () => {
+  let timer = setInterval(() => {
+    console.log("checking")
+    if (document.readyState === "complete") {
+      console.log("complete")
+      clearInterval(timer);
+      loading.value!.hide();
+    }
+  }, 500);
+}
+
+onMounted(() => {
+  console.log("animate")
+  useRouter().beforeEach((to, from, next) => {
+    loading.value!.create(next, check_loading);
+  });
+})
+
+
 
 const lenisOptions = {
   // lenis options (optional)
@@ -49,7 +71,7 @@ const beleft = () => {
 
 
 <template>
-  <Loading></Loading>
+  <Loading ref="loading"></Loading>
   <!-- Lenis -->
   <VueLenis root :options="lenisOptions" />
   <!-- Background -->
@@ -62,7 +84,8 @@ const beleft = () => {
       class-name="custom-dot-grid" />
   </div>
   <!-- Nav -->
-  <div class="w-[100vw] lg:w-[100vw] top-0 text-darkblue-100 hidden md:block fixed z-[1000] border-darkblue-500">
+  <div
+    class="w-[100vw] lg:w-[100vw] top-0 text-darkblue-100 hidden md:block fixed z-[1000] border-darkblue-500 pointer-events-none">
     <NavBlock
       :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Contact', href: '/contact' }, { text: 'Links', href: '/links' }]" />
   </div>
