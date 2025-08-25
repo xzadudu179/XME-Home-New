@@ -28,7 +28,7 @@ interface loading {
     line: number;
     container: Element | null;
     blocks: Array<SVGUseElement>;
-    // loop_color: GSAPTimeline;
+    loop_color: GSAPTimeline;
     init: CallableFunction;
     create_blocks: CallableFunction;
     show: CallableFunction;
@@ -44,7 +44,7 @@ const loading: loading = {
     line: 10,
     container: null,
     blocks: [],
-    // loop_color: gsap.timeline({ yoyo: true, repeat: -1 }),
+    loop_color: gsap.timeline({ yoyo: true, repeat: -1 }),
     init() {
         this.container = document.querySelector('.loading');
         // this.container!.innerHTML = "";
@@ -74,7 +74,7 @@ const loading: loading = {
     },
     show() {
         // loop_color.restart()
-        // this.loop_color.clear();
+        this.loop_color.clear();
         try {
             this.container?.classList.remove("hidden")
         }
@@ -101,17 +101,17 @@ const loading: loading = {
                     each: 0.006
                 }
             })
-        // this.loop_color.to(
-        //     this.blocks, {
-        //     "stroke": "#78B9FF",
-        //     ease: "power2.in",
-        //     duration: 0.6,
-        //     stagger: {
-        //         from: "random",
-        //         each: 0.01
-        //     },
-        // }
-        // );
+        this.loop_color.to(
+            this.blocks, {
+            "stroke": "#78B9FF",
+            ease: "power2.in",
+            duration: 0.6,
+            stagger: {
+                from: "random",
+                each: 0.01
+            },
+        }
+        );
 
     },
     hidden() {
@@ -134,7 +134,7 @@ const loading: loading = {
         setTimeout(() => {
             this.container?.classList.add("hidden")
         }, 1300)
-        // this.loop_color.clear();
+        this.loop_color.clear();
     }
 }
 
