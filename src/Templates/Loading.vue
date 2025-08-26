@@ -1,5 +1,6 @@
 <template>
-    <svg class="loading z-[10000000] fixed overflow-hidden pointer-events-none" viewBox="0 0 1000 1000">
+    <svg id="loading-container" class="loading z-[10000000] fixed overflow-hidden pointer-events-none"
+        viewBox="0 0 1000 1000">
         <defs>
             <polygon id="loading_hexagon" class="pointer-events-auto"
                 points="0.0, -75.0 64.95,-37.5 64.95,37.5 0.0,75.0 -64.95,37.5 -64.95,-37.5" fill="#131522" />
@@ -42,7 +43,7 @@ const create = (next: CallableFunction, check: CallableFunction) => {
     }, 550);
 }
 const hide = () => {
-    console.log("hiding")
+    // console.log("hiding")
     loading.hidden()
 }
 
@@ -76,8 +77,12 @@ const loading: loading = {
         if (aspectRatio > wideRatio) {
             console.log("宽屏")
             // 宽屏，显示更多列
-            this.row = 15;
-            this.line = 10;
+            this.row = 18;
+            this.line = 8;
+        } else if (aspectRatio > 2.3) {
+            console.log("很宽")
+            this.row = 20;
+            this.line = 6
         }
         this.blocks = [];
         // this.create_blocks();
@@ -106,11 +111,11 @@ const loading: loading = {
     show() {
         // loop_color.restart()
         if (isInner) {
-            console.log("因为状态不符，不播放 in 动画")
+            // console.log("因为状态不符，不播放 in 动画")
             return
         }
         if (isAnimatingIn) {
-            console.log("不播放 in 动画")
+            // console.log("不播放 in 动画")
             return
         }
         this.loop_color.clear();
@@ -171,11 +176,11 @@ const loading: loading = {
         const animate = gsap.timeline()
         console.log("outer in out", isAnimatingIn, isAnimatingOut)
         if (!isInner) {
-            console.log("因为状态不符，不播放 out 动画")
+            // console.log("因为状态不符，不播放 out 动画")
             return
         }
         if (isAnimatingOut) {
-            console.log("不播放 out 动画")
+            // console.log("不播放 out 动画")
             return
         }
         if (!isAnimatingOut && !isAnimatingIn) {
@@ -187,7 +192,7 @@ const loading: loading = {
             })
         }
 
-        console.log("播放 out 动画")
+        // console.log("播放 out 动画")
         isAnimatingOut = true
         if (isSafari) {
             animate.to(this.blocks, {

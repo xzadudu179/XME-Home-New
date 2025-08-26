@@ -97,7 +97,7 @@ watch(
         gsap.set(el, {
             [axis]: offset,
             scale: props.scale,
-            opacity: props.animateOpacity ? props.initialOpacity : 1
+            opacity: props.animateOpacity ? props.initialOpacity : 1,
         });
 
         gsap.to(el, {

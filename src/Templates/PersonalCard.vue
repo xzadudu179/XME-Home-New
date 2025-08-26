@@ -304,7 +304,7 @@ a:hover,
     .card {
         flex-direction: column;
         max-height: 850px;
-        height: 75vh;
+        height: 70vh;
         /* height: 600px; */
         width: 75vw;
         max-width: 550px;
@@ -314,7 +314,7 @@ a:hover,
         max-width: 550px;
         width: 75vw !important;
         max-height: 850px;
-        height: 75vh !important;
+        height: 70vh !important;
     }
 
     .avatar {
@@ -520,7 +520,7 @@ a:hover,
         flex-direction: column;
         max-width: 100%;
         width: 100%;
-        max-height: 90%;
+        /* max-height: 90%; */
         margin-top: 20px;
         /* height: calc(100% - 70px); */
     }

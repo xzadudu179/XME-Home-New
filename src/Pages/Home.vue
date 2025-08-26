@@ -203,7 +203,7 @@ const curYear = ref(new Date().getFullYear());
 }
 
 .subtitle {
-    font-size: 13vw;
+    font-size: max(10vw, 3rem);
 
     text-align: center;
 
@@ -215,7 +215,7 @@ const curYear = ref(new Date().getFullYear());
 }
 
 #subtitle2 {
-    font-size: 12vw;
+    font-size: 10vw;
 
     @media (width >=64rem) {
         font-size: 7em;
@@ -223,12 +223,21 @@ const curYear = ref(new Date().getFullYear());
 }
 
 .about p {
+    /* font-size: 2rem; */
     line-height: 1.8em;
     letter-spacing: 0.2em;
 }
 
+.about {
+    /* width: 80vw; */
+}
+
 #about2 p {
     line-height: 1.6em;
+
+    @media (width <=64rem) {
+        font-size: max(1.7rem, 5vw);
+    }
 }
 
 .about p span {

@@ -13,14 +13,15 @@
                 </div>
                 <div class="w-full p-5 border-t-8 md:border-t-0 md:border-l-8 border-darkblue-700 z-5">
                     <div>
-                        <p
-                            class="hovertrans text-[1.8rem] md:text-[2.5vw] pb-5 mb-4 border-b-2 md:font-light border-darkblue-600">
+                        <p class="hovertrans text-[1.8rem] md:text-[2.5vw] pb-5 md:font-light">
                             {{ props.title }}
                         </p>
 
-                        <p v-for="item in props.descs" class="desc">
-                            {{ item }}
-                        </p>
+                        <div class="pt-4 border-t-2 border-darkblue-600">
+                            <p v-for="item in props.descs" class="desc">
+                                {{ item }}
+                            </p>
+                        </div>
                     </div>
                     <div class="hidden md:flex">
                         <p class="arrow hovertrans font-light text-darkblue-500 ml-[1vw] lg:ml-[2vw] absolute"><a
@@ -79,6 +80,10 @@ const props = withDefaults(defineProps<Props>(), {
     bottom: 1.25rem;
     transition: all 0.5s ease;
     /* padding-top: -15px; */
+}
+
+.imgcard {
+    z-index: -2;
 }
 
 @media (min-width: 48rem) {
@@ -154,6 +159,7 @@ const props = withDefaults(defineProps<Props>(), {
 .cardimg {
     border-radius: calc(1.5rem - max(0.2vw, 2px) * 2);
     transition: transform 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
+    z-index: -1;
 }
 
 .cardimg:hover {
