@@ -16,6 +16,7 @@ const rootRoutePage404: RouteRecordRaw[] = [
 const routes = [
     { path: '/', component: () => import('../Pages/Home.vue')},
     { path: '/about', component: () => import('../Pages/About.vue')},
+    { path: '/contact', component: () => import('../Pages/Contact.vue')},
     { path: '/404', name: 'NotFound', component: () => import('../Pages/NotFound.vue') },
     ...rootRoutePage404
 ]

@@ -1,7 +1,7 @@
 <template>
-    <svg class="loading z-[10000000] fixed overflow-hidden" viewBox="0 0 1000 1000">
+    <svg class="loading z-[10000000] fixed overflow-hidden pointer-events-none" viewBox="0 0 1000 1000">
         <defs>
-            <polygon id="loading_hexagon" class=""
+            <polygon id="loading_hexagon" class="pointer-events-auto"
                 points="0.0, -75.0 64.95,-37.5 64.95,37.5 0.0,75.0 -64.95,37.5 -64.95,-37.5" fill="#131522" />
         </defs>
     </svg>
@@ -28,6 +28,10 @@ const wideRatio = 2
 if (aspectRatio > wideRatio) {
     hexratio = 1.1
 }
+
+let isAnimatingIn = false
+let isInner = false
+let isAnimatingOut = false
 
 const create = (next: CallableFunction, check: CallableFunction) => {
     loading.show()
@@ -101,32 +105,37 @@ const loading: loading = {
     },
     show() {
         // loop_color.restart()
+        if (isInner) {
+            console.log("因为状态不符，不播放 in 动画")
+            return
+        }
+        if (isAnimatingIn) {
+            console.log("不播放 in 动画")
+            return
+        }
         this.loop_color.clear();
-        try {
-            this.container?.classList.remove("hidden")
-        }
-        catch {
-
-        }
-
         const animate = gsap.timeline()
-
-        if (isSafari) {
-            animate.set(this.blocks, {
-                "stroke-dashoffset": () => { return Math.random() * 600 * hexratio - 300 * hexratio },
-                "stroke": "#3D78F2",
-                scale: 1,
-                autoAlpha: 0,
-            })
+        console.log("inner in out", isAnimatingIn, isAnimatingOut)
+        if (!isAnimatingIn && !isAnimatingOut) {
+            if (isSafari) {
+                animate.set(this.blocks, {
+                    "stroke-dashoffset": () => { return Math.random() * 600 * hexratio - 300 * hexratio },
+                    "stroke": "#3D78F2",
+                    scale: 1,
+                    autoAlpha: 0,
+                })
+            }
+            else {
+                animate.set(this.blocks, {
+                    "stroke-dashoffset": () => { return Math.random() * 600 * hexratio - 300 * hexratio },
+                    "stroke": "#3D78F2",
+                    scale: 0,
+                    autoAlpha: 0,
+                })
+            }
         }
-        else {
-            animate.set(this.blocks, {
-                "stroke-dashoffset": () => { return Math.random() * 600 * hexratio - 300 * hexratio },
-                "stroke": "#3D78F2",
-                scale: 0,
-                autoAlpha: 0,
-            })
-        }
+        console.log("播放 in 动画")
+        isAnimatingIn = true
         animate
             .to(this.blocks, {
                 "stroke-dashoffset": 0,
@@ -138,9 +147,13 @@ const loading: loading = {
                 stagger: {
                     from: "start",
                     each: 0.004
+                },
+                onComplete: () => {
+                    isAnimatingIn = false;
+                }, onStart: () => {
+                    isInner = true;
                 }
             })
-
         this.loop_color.to(
             this.blocks, {
             "stroke": "#78B9FF",
@@ -156,12 +169,26 @@ const loading: loading = {
     },
     hidden() {
         const animate = gsap.timeline()
-            .set(this.blocks, {
+        console.log("outer in out", isAnimatingIn, isAnimatingOut)
+        if (!isInner) {
+            console.log("因为状态不符，不播放 out 动画")
+            return
+        }
+        if (isAnimatingOut) {
+            console.log("不播放 out 动画")
+            return
+        }
+        if (!isAnimatingOut && !isAnimatingIn) {
+            animate.set(this.blocks, {
                 "stroke-dasharray": 300 * hexratio,
                 "stroke-opacity": 1,
                 scale: 1,
                 autoAlpha: 1,
             })
+        }
+
+        console.log("播放 out 动画")
+        isAnimatingOut = true
         if (isSafari) {
             animate.to(this.blocks, {
                 duration: 0.6,
@@ -171,6 +198,10 @@ const loading: loading = {
                 stagger: {
                     from: "random",
                     each: 0.004
+                }, onComplete: () => {
+                    isAnimatingOut = false;
+                }, onStart: () => {
+                    isInner = false;
                 }
             });
         } else {
@@ -181,14 +212,18 @@ const loading: loading = {
                 stagger: {
                     from: "random",
                     each: 0.004
+                }, onComplete: () => {
+                    isAnimatingOut = false;
+                }, onStart: () => {
+                    isInner = false;
                 }
             });
         }
 
 
-        setTimeout(() => {
-            this.container?.classList.add("hidden")
-        }, 1200)
+        // setTimeout(() => {
+        //     this.container?.classList.add("hidden")
+        // }, 1200)
         this.loop_color.clear();
     }
 }

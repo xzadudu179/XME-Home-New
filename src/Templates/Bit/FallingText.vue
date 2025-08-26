@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch, nextTick, useTemplateRef } from 'vue';
 import Matter from 'matter-js';
+import { mapRange } from 'gsap';
 
 interface FallingTextProps {
     text?: string;
@@ -167,9 +168,34 @@ const startPhysics = async () => {
     const updateLoop = () => {
         wordBodies.forEach(({ body, elem }) => {
             const { x, y } = body.position;
+            const margin = 200;
+            const verticalMargin = 30
+            // const backPadding = 250;
             elem.style.left = `${x}px`;
             elem.style.top = `${y}px`;
             elem.style.transform = `translate(-50%, -50%) rotate(${body.angle}rad)`;
+            // console.log(x, y, width, height, margin)
+            if (mouseConstraint?.body === body) {
+                return;
+            }
+            if (x < 0 - margin || x > width + margin || y > height + verticalMargin || y < 0 - verticalMargin) {
+                // console.log(x, y)
+                let newX = width / 2
+                let newY = height / 2
+                // if (x < 0 - margin) {
+                //     newX = 0 + backPadding;
+                // } else if (x > width + margin) {
+                //     newX = width - backPadding
+                // }
+                // if (y < 0 - verticalMargin) {
+                //     newY = 0 + backPadding
+                // } else if (y > height + verticalMargin) {
+                //     newY = height - backPadding
+                // }
+                elem.style.left = `${newX}px`
+                elem.style.top = `${newY}px`
+                Matter.Body.setPosition(body, { x: newX, y: newY });
+            }
         });
         Matter.Engine.update(engine!);
         animationFrameId = requestAnimationFrame(updateLoop);

@@ -116,6 +116,41 @@
     transition: all 0.3s;
     user-select: none;
 }
+
+.color-on-hover {
+  /* filter: grayscale(100%); */
+  /* transition: filter .8s cubic-bezier(0.215, 0.610, 0.355, 1); */
+}
+.color-on-hover::after {
+  @media (pointer: fine) {
+    background: var(--color-darkblue-100);
+    /* backdrop-filter: ; */
+    backdrop-filter: grayscale(60%);
+    transition: all .8s cubic-bezier(0.215, 0.610, 0.355, 1);
+    /* 正片叠底 */
+    mix-blend-mode: multiply;
+  }
+  content: "";
+  position: absolute;
+
+  inset: 0;
+  z-index: 20;
+
+  pointer-events: none;
+}
+
+.color-on-hover:hover::after {
+  background: none;
+  backdrop-filter: none;
+}
+
+
+.color-on-hover:hover {
+  /* filter: grayscale(0); */
+  filter: none;
+}
+
+
 @theme {
     --font-electrolize: 'Electrolize', sans-serif;
     --font-firacode: 'Fira Code', normal;
@@ -126,6 +161,7 @@
     --color-darkblue-900: oklch(0.1 0.0444 277.41);
     --color-darkblue-850: oklch(0.15 0.0258 276.15);
     --color-darkblue-800: oklch(0.2 0.0258 276.15);
+    --color-darkblue-750: oklch(0.25 0.0444 277.41);
     --color-darkblue-700: oklch(0.3 0.0444 277.41);
     --color-darkblue-600: oklch(0.4 0.0444 277.41);
     --color-darkblue-500: oklch(0.5 0.0444 277.41);

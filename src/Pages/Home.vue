@@ -134,9 +134,30 @@ const curYear = ref(new Date().getFullYear());
                 parallax-class-name="custom-parallax" scroller-class-name="custom-scroller" />
         </div>
         <!-- <hr class="border-b-2 border-darkblue-300"> -->
-        <div class="text-5xl font-orbitron text-darkblue-200 text-center">
-            <h2 class="mt-50 text-4xl md:text-8xl">/ WORK IN PROCESS /</h2>
-            <h2 class="pt-5">...页面制作中...</h2>
+        <div class="text-5xl projects font-orbitron text-darkblue-200 text-center pt-[10rem]">
+            <!-- <h2 class="mt-50 text-4xl md:text-8xl">/ WORK IN PROCESS /</h2>
+            <h2 class="pt-5">...页面制作中...</h2> -->
+            <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="https://image.179.life/images/deon_avatar.jpg"
+                title="XME-Deon-Bot" href="https://docs.xme.179.life/#/"
+                :descs="['One of my QQ bot services. Mainly provide some entertainment functions.', 'Built with Python & FastAPI.']"
+                date="2024.10.11"></ProjectCard>
+            <ProjectCard class="mr-0 hg:mr-[13vw]"
+                imageSrc="https://image.179.life/images/background-dark-with-header.webp" title="XME Notes Library"
+                href="https://blog.xzadudu179.top/"
+                :descs="['Personal blog for sharing my life, introducing myself, and showcasing my personality.']"
+                date="2024.09.03"></ProjectCard>
+            <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="https://image.179.life/images/destar-cover.webp"
+                title="XDS-Bot (WIP)" href="https://github.com/xzadudu179/XDS-bot-qq"
+                :descs="['A QQ bot designed for group member management, with core features still under development.']"
+                date="2025.07.24"></ProjectCard>
+            <ProjectCard class="mr-0 hg:mr-[13vw]" imageSrc="https://image.179.life/images/aerno-cover.webp"
+                title="Aerno Theme" href="https://github.com/xzadudu179/Aerno-Theme"
+                :descs="['A clean blue-purple Visual Studio Code theme designed for dark mode.']" date="2024.03.07">
+            </ProjectCard>
+            <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="src/assets/img/home.png" title="XME-Home"
+                href="https://www.xzadudu179.top"
+                :descs="['Homepage for showcasing my uniqueness and introducing myself, filled with everything about me.', 'YOU\'RE AT HERE.']"
+                date="2025.07.24"></ProjectCard>
         </div>
 
         <footer class="font-orbitron font-light mt-[500px] flex justify-center">
@@ -175,6 +196,10 @@ const curYear = ref(new Date().getFullYear());
 
 .matter-box:hover {
     box-shadow: 0 0 15px;
+}
+
+.projects {
+    letter-spacing: 0.03em;
 }
 
 .subtitle {

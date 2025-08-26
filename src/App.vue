@@ -14,29 +14,10 @@ console.log(`
     \\____________________________________________________________________________________________________/
 `);
 
-import { VueLenis, useLenis } from 'lenis/vue' // Also available as global imports, no need to import them manually
-import { watch, ref, onMounted } from 'vue'
+import { watch, ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 
-const loading = ref<InstanceType<typeof Loading> | null>(null);
-const check_loading = () => {
-  let timer = setInterval(() => {
-    console.log("checking")
-    if (document.readyState === "complete") {
-      console.log("complete")
-      clearInterval(timer);
-      loading.value!.hide();
-    }
-  }, 500);
-}
-
-onMounted(() => {
-  console.log("animate")
-  useRouter().beforeEach((to, from, next) => {
-    loading.value!.create(next, check_loading);
-  });
-})
-
+import { VueLenis, useLenis } from 'lenis/vue' // Also available as global imports, no need to import them manually
 
 
 const lenisOptions = {
@@ -54,6 +35,34 @@ watch(
   },
   { immediate: true }
 )
+
+// ---------------------- //
+
+let animate: gsap.core.Timeline | null = null
+const loading = ref<InstanceType<typeof Loading> | null>(null);
+const check_loading = () => {
+  let timer = setInterval(() => {
+    // console.log("checking")
+    if (document.readyState === "complete") {
+      // console.log("complete")
+      clearInterval(timer);
+      loading.value!.hide();
+    }
+  }, 500);
+}
+
+onMounted(() => {
+  // console.log("animate")
+  useRouter().beforeEach((to, from, next) => {
+    loading.value!.create(next, check_loading);
+  });
+
+})
+
+onBeforeUnmount(() => {
+})
+
+
 
 const switchClass = (id: string, className: string) => {
   const el = document.getElementById(id)

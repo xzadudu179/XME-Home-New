@@ -38,12 +38,13 @@ import Tilted from './Tilted.vue';
                         </IconNav>
                     </div>
                 </InfoItem>
-                <a class="hovertrans bloglink cursor-target cursor-none text-primary-200" target="_blank"
-                    href="https://blog.xzadudu179.top">
+                <a class="hovertrans bloglink cursor-target cursor-none cursor-change-color text-primary-200"
+                    target="_blank" href="https://blog.xzadudu179.top">
                     <IconNav name="个人博客" icon-class="fa-regular fa-planet-ringed"></IconNav>
                 </a>
             </div>
-            <a class="blogbtn cursor-target cursor-none" target="_blank" href="https://blog.xzadudu179.top">
+            <a class="blogbtn cursor-target cursor-none cursor-change-color" target="_blank"
+                href="https://blog.xzadudu179.top">
                 <IconNav name="个人博客" icon-class="fa-regular fa-planet-ringed"></IconNav>
             </a>
         </div>

@@ -9,6 +9,8 @@ interface TargetCursorProps {
     hideDefaultCursor?: boolean;
 }
 
+const cursorColor = ref('white')
+
 const props = withDefaults(defineProps<TargetCursorProps>(), {
     targetSelector: '.cursor-target',
     resetSelector: '.reset-cursor-target',
@@ -26,6 +28,21 @@ const constants = {
     parallaxStrength: 0.00005
 };
 
+// // personal code
+// const setupColorChange = () => {
+//     // console.log("asdhakdhasjkdjkas")
+//     const elements = document.querySelectorAll<HTMLElement>('.cursor-change-color');
+
+//     elements.forEach(el => {
+//         el.addEventListener('mouseenter', () => {
+//             cursorColor.value = '#97DAFF';
+//             console.log("changecolor")
+//         });
+//         el.addEventListener('mouseleave', () => {
+//             cursorColor.value = 'white';
+//         });
+//     });
+// };
 
 const route = useRoute(); // 新增
 
@@ -397,19 +414,21 @@ watch(
 );
 </script>
 
+<style></style>
+
 <template>
     <div ref="cursorRef"
         class="top-0 left-0 z-[9999] fixed w-0 h-0 -translate-x-1/2 -translate-y-1/2 pointer-events-none mix-blend-difference transform opacity-0"
         :style="{ willChange: 'transform' }">
-        <div class="top-1/2 left-1/2 absolute bg-white rounded-full w-1 h-1 -translate-x-1/2 -translate-y-1/2 transform"
-            :style="{ willChange: 'transform' }" />
-        <div class="top-1/2 left-1/2 absolute border-[3px] border-white border-r-0 border-b-0 w-3 h-3 -translate-x-[150%] -translate-y-[150%] target-cursor-corner transform"
-            :style="{ willChange: 'transform' }" />
-        <div class="top-1/2 left-1/2 absolute border-[3px] border-white border-b-0 border-l-0 w-3 h-3 -translate-y-[150%] translate-x-1/2 target-cursor-corner transform"
-            :style="{ willChange: 'transform' }" />
-        <div class="top-1/2 left-1/2 absolute border-[3px] border-white border-t-0 border-l-0 w-3 h-3 translate-x-1/2 translate-y-1/2 target-cursor-corner transform"
-            :style="{ willChange: 'transform' }" />
-        <div class="top-1/2 left-1/2 absolute border-[3px] border-white border-t-0 border-r-0 w-3 h-3 -translate-x-[150%] translate-y-1/2 target-cursor-corner transform"
-            :style="{ willChange: 'transform' }" />
+        <div class="top-1/2 left-1/2 absolute rounded-full w-1 h-1 -translate-x-1/2 -translate-y-1/2 transform"
+            :style="{ willChange: 'transform', backgroundColor: cursorColor, transition: 'background 0.5s ease' }" />
+        <div class="top-1/2 left-1/2 absolute border-[3px] border-r-0 border-b-0 w-3 h-3 -translate-x-[150%] -translate-y-[150%] target-cursor-corner transform"
+            :style="{ willChange: 'transform', borderColor: cursorColor, transition: 'border 0.5s ease' }" />
+        <div class="top-1/2 left-1/2 absolute border-[3px] border-b-0 border-l-0 w-3 h-3 -translate-y-[150%] translate-x-1/2 target-cursor-corner transform"
+            :style="{ willChange: 'transform', borderColor: cursorColor, transition: 'border 0.5s ease' }" />
+        <div class="top-1/2 left-1/2 absolute border-[3px] border-t-0 border-l-0 w-3 h-3 translate-x-1/2 translate-y-1/2 target-cursor-corner transform"
+            :style="{ willChange: 'transform', borderColor: cursorColor, transition: 'border 0.5s ease' }" />
+        <div class="top-1/2 left-1/2 absolute border-[3px] border-t-0 border-r-0 w-3 h-3 -translate-x-[150%] translate-y-1/2 target-cursor-corner transform"
+            :style="{ willChange: 'transform', borderColor: cursorColor, transition: 'border 0.5s ease' }" />
     </div>
 </template>
