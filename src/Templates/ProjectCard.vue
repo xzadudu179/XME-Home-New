@@ -157,7 +157,7 @@ const props = withDefaults(defineProps<Props>(), {
 }
 
 .cardimg {
-    border-radius: calc(1.5rem - max(0.2vw, 2px) * 2);
+    /* border-radius: calc(1.5rem - max(0.2vw, 2px) * 2); */
     transition: transform 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
     z-index: -1;
 }
