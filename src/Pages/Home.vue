@@ -157,7 +157,7 @@ const curYear = ref(new Date().getFullYear());
             <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="https://image.179.life/images/home-cover.webp"
                 title="XME-Home" href="https://www.xzadudu179.top"
                 :descs="['Homepage for showcasing my uniqueness and introducing myself, filled with everything about me.', 'YOU\'RE AT HERE.']"
-                date="2025.07.24"></ProjectCard>
+                date="2025.08.11"></ProjectCard>
         </div>
 
         <footer class="font-orbitron font-light mt-[500px] flex justify-center">
