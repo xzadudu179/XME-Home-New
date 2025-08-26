@@ -154,8 +154,8 @@ const curYear = ref(new Date().getFullYear());
                 title="Aerno Theme" href="https://github.com/xzadudu179/Aerno-Theme"
                 :descs="['A clean blue-purple Visual Studio Code theme designed for dark mode.']" date="2024.03.07">
             </ProjectCard>
-            <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="src/assets/img/home.png" title="XME-Home"
-                href="https://www.xzadudu179.top"
+            <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="https://image.179.life/images/home-cover.webp"
+                title="XME-Home" href="https://www.xzadudu179.top"
                 :descs="['Homepage for showcasing my uniqueness and introducing myself, filled with everything about me.', 'YOU\'RE AT HERE.']"
                 date="2025.07.24"></ProjectCard>
         </div>
