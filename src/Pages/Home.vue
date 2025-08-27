@@ -5,17 +5,18 @@ import { ref } from "vue";
 import PersonalCard from "@/Templates/PersonalCard.vue";
 import ScrollVelocity from "@/Templates/Bit/ScrollVelocity.vue";
 // import Tilted from "@/Templates/Tilted.vue";
+import Lenis from "lenis";
+import type { ComputedRef } from "vue";
+import { inject } from 'vue'
 import ProjectCard from "@/Templates/ProjectCard.vue"
 import Particles from "@/Templates/Bit/Particles.vue";
 import FallingText from "@/Templates/Bit/FallingText.vue";
+import { easeInOut } from "motion-v";
+
+const lenis: ComputedRef<Lenis | undefined> | undefined = inject('lenis')
 const scrollDown = () => {
-    const scrollY = window.scrollY || window.pageYOffset;
-    console.log(scrollY)
-    window.scrollBy({
-        top: window.innerHeight - scrollY,
-        left: 0,
-        behavior: "smooth",
-    });
+    const nextY = window.innerHeight;
+    lenis!.value?.scrollTo(nextY, { offset: 0, easing: easeInOut });
 };
 
 const curYear = ref(new Date().getFullYear());
@@ -144,7 +145,7 @@ const curYear = ref(new Date().getFullYear());
             <ProjectCard class="mr-0 hg:mr-[13vw]"
                 imageSrc="https://image.179.life/images/background-dark-with-header.webp" title="XME Notes Library"
                 href="https://blog.xzadudu179.top/"
-                :descs="['Personal blog for sharing my life, introducing myself, and showcasing my personality.']"
+                :descs="['Personal blog for sharing my life, introducing myself, and showcasing my personality.', 'Powered by Hexo.']"
                 date="2024.09.03"></ProjectCard>
             <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="https://image.179.life/images/destar-cover.webp"
                 title="XDS-Bot (WIP)" href="https://github.com/xzadudu179/XDS-bot-qq"
@@ -156,15 +157,70 @@ const curYear = ref(new Date().getFullYear());
             </ProjectCard>
             <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="https://image.179.life/images/home-cover.webp"
                 title="XME-Home" href="https://www.xzadudu179.top"
-                :descs="['Homepage for showcasing my uniqueness and introducing myself, filled with everything about me.', 'YOU\'RE AT HERE.']"
+                :descs="['Homepage for showcasing my uniqueness and introducing myself, filled with everything about me.', '*You\'re at here.']"
                 date="2025.08.11"></ProjectCard>
         </div>
+        <div class="mt-[10rem]">
+            <ScrollVelocity :texts="[' CONNECTION //', '\\\\ CONNECTION ']" :velocity="100" :damping="50"
+                :stiffness="400" :velocity-mapping="{ input: [0, 1000], output: [0, 5] }"
+                class-name="font-electrolize font-light text-[4rem] lg:text-[8rem]/40 select-none text-darkblue-200"
+                parallax-class-name="custom-parallax" scroller-class-name="custom-scroller" />
+        </div>
 
-        <footer class="font-orbitron font-light mt-[500px] flex justify-center">
-            <p class="p-10 pb-5 pt-0 text-darkblue-300 w-[33em] copyright text-center">© 2025 - {{ curYear }}
+        <div class="max-w-[1500px] w-full m-auto mt-60 font-orbitron select-none">
+            <h1 class="subtitle font-electrolize hovertrans">- CONT<i
+                    class="fa-light fa-paper-plane text-[0.85em] relative bottom-[0.05em] pr-[0.03em]"></i>CT -
+            </h1>
+            <!-- <p class="text-[2em] text-center">Feel free to reach me out for collaborations or commissions!</p> -->
+            <div class="flex flex-col md:w-full contact-container m-auto justify-center lg:flex-row lg:justify-evenly">
+                <div class="flex justify-around lg:justify-between self-center">
+                    <div class="flex flex-col items-center">
+                        <div class="qr overlay">
+                            <img src="https://image.179.life/QRcode/QR_WX.webp" class="" alt=""></img>
+                        </div>
+                        <p class="qr-text">WeChat</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="qr overlay">
+                            <img src="https://image.179.life/QRcode/QR_QQ.webp" class="" alt=""></img>
+                        </div>
+                        <p class="qr-text">QQ</p>
+                    </div>
+
+                </div>
+                <div
+                    class="w-0 h-[15em] border-r-2 border-darkblue-200 hidden lg:flex place-self-center relative mb-4 right-[4px]">
+                </div>
+                <div
+                    class="other-contact justify-around self-center pl-5 pr-5 lg:justify-center flex-row-reverse lg:flex-row text-[2.5rem] font-light flex text-center md:text-left mb-5 p-5 lg:pr-0 lg:pl-0">
+                    <div class="text-contact-container flex flex-col justify-center text-left">
+                        <p><a href="mailto:terra179@163.com" class="hovertrans cursor-target"><i
+                                    class="fa-light fa-envelope pr-[0.3em]"></i>Email
+                            </a></p>
+                        <p><a target="_blank" href="https://github.com/xzadudu179"
+                                class=" inline-hovertrans cursor-target"><i
+                                    class="fa-brands fa-github pr-[0.3em]"></i>Github</a></p>
+                        <p><a target="_blank" href="https://x.com/xzadudu179" class="inline-hovertrans cursor-target"><i
+                                    class="fa-brands fa-x-twitter pr-[0.2em]"></i>Twitter</a>
+                        </p>
+                        <p><a target="_blank" href="https://space.bilibili.com/70738350"
+                                class="inline-hovertrans cursor-target"><i
+                                    class="fa-brands fa-bilibili pr-[0.3em]"></i>Bilibili</a>
+                        </p>
+                    </div>
+                    <div class="overlay icon lg:ml-5 lg:mr-5 flex place-self-center">
+                        <img src="https://image.179.life/images/xzadudu179-line.webp" class="max-w-[200px]" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer
+            class="font-orbitron font-light mt-[20vh] flex text-center flex-col items-center border-t-2 pt-5 pb-5 justify-between border-darkblue-600">
+            <p class="w-full copyright">© 2025 - {{ curYear }}
                 <i class="fa-regular fa-star fa-spin"></i>
                 xzadudu179 All rights reserved
             </p>
+            <p>Powered by Vue 3</p>
         </footer>
     </div>
 </template>
@@ -184,6 +240,96 @@ const curYear = ref(new Date().getFullYear());
     @media (max-height: 64rem) {
         padding: 3rem;
     }
+}
+
+footer p {
+    padding: 0.3rem 0;
+    color: var(--color-darkblue-300);
+}
+
+.contact-container {
+    width: full;
+    min-width: 350px;
+}
+
+.text-contact-container {
+    @media (width <=64rem) {
+        padding-left: max(1em, 6vw);
+    }
+
+}
+
+.other-contact a:hover {
+    color: var(--color-primary-200);
+}
+
+.icon img {
+    width: 15vw;
+    min-width: 100px;
+
+    @media (width <=64rem) {
+        margin-left: max(0.9em, 4vw);
+    }
+}
+
+
+.other-contact a {
+    display: inline-block;
+    padding: 0 1rem;
+}
+
+.other-contact {
+    letter-spacing: 0.08em;
+}
+
+.other-contact p:first-child {
+    margin-top: 0;
+}
+
+.other-contact p {
+    margin-top: 0.2em;
+    font-size: max(1.2rem, min(2.5rem, 2.5vw));
+}
+
+.qr {
+    max-width: 280px;
+    width: 80%;
+    min-width: 150px;
+    padding: 13px 0;
+    padding-right: 0;
+
+    @media (width <=64rem) {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    padding-top: 44px;
+    transition: all 0.5s ease;
+}
+
+.qr-text {
+    /* writing-mode: vertical-lr; */
+    font-size: min(2rem, 4vw);
+}
+
+.qr img {
+    display: block;
+    width: 20vw;
+    min-width: 120px;
+    margin: auto;
+}
+
+.overlay {
+    position: relative;
+}
+
+.overlay::after {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    inset: 0;
+    background: var(--color-darkblue-100);
+    mix-blend-mode: multiply;
 }
 
 .copyright {

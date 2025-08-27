@@ -5,7 +5,7 @@ import Tilted from './Tilted.vue';
 </script>
 
 <template>
-    <Tilted width="800px" height="452.38px" :rotateAmplitude="5" card-class="card_tilt" :scale="true">
+    <Tilted width="800px" height="452.38px" :rotateAmplitude="3" card-class="card_tilt" :scale="true">
         <div class="card">
             <div class="avatar"></div>
             <div class="infos">

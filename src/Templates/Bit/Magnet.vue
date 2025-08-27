@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, watch, useTemplateRef } from 'vue';
+import { throttle } from 'lodash';
 
 interface Props {
     padding?: number;
@@ -65,12 +66,14 @@ const handleMouseMove = (e: MouseEvent) => {
     }
 };
 
+const throttledHandleMouse = throttle(handleMouseMove, 16);
 onMounted(() => {
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', throttledHandleMouse);
 });
 
 onUnmounted(() => {
-    window.removeEventListener('mousemove', handleMouseMove);
+    throttledHandleMouse.cancel()
+    window.removeEventListener('mousemove', throttledHandleMouse);
 });
 
 watch(

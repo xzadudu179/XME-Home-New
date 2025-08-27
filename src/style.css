@@ -125,17 +125,15 @@
   @media (pointer: fine) {
     background: var(--color-darkblue-100);
     /* backdrop-filter: ; */
-    backdrop-filter: grayscale(60%);
+    backdrop-filter: grayscale(50%);
     transition: all .8s cubic-bezier(0.215, 0.610, 0.355, 1);
     /* 正片叠底 */
     mix-blend-mode: multiply;
   }
   content: "";
   position: absolute;
-
   inset: 0;
   z-index: 20;
-
   pointer-events: none;
 }
 

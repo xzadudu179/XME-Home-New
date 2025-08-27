@@ -14,9 +14,8 @@ console.log(`
     \\____________________________________________________________________________________________________/
 `);
 
-import { watch, ref, onMounted, onBeforeUnmount } from 'vue'
+import { provide, watch, ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
-
 import { VueLenis, useLenis } from 'lenis/vue' // Also available as global imports, no need to import them manually
 
 
@@ -28,6 +27,7 @@ const lenis = useLenis((lenis) => {
   // called every scroll
 })
 
+provide('lenis', lenis)
 watch(
   lenis,
   (lenis) => {
@@ -48,7 +48,7 @@ const check_loading = () => {
       clearInterval(timer);
       loading.value!.hide();
     }
-  }, 500);
+  }, 800);
 }
 
 onMounted(() => {

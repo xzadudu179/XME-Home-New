@@ -5,15 +5,16 @@
             active-transition="transform 0.6s ease-out" inactive-transition="transform 0.6s ease-in-out"
             wrapper-class-name="custom-wrapper" inner-class-name="custom-inner">
             <SpotlightCard
-                class-name="custom-spotlight-card h-auto md:h-[33vw] lg:h-[25vw] hg:h-[20vw] w-[90vw] lg:w-[80vw] hg:w-[70vw] flex-col md:flex-row p-0 color-on-hover bg-darkblue-800 max-w-[2000px] md:max-h-[600px]"
+                class-name="custom-spotlight-card h-auto min-h-[8.5em] md:h-[33vw] hg:h-[20vw] w-[90vw] lg:w-[80vw] hg:w-[70vw] flex-col md:flex-row p-0 color-on-hover bg-darkblue-800 max-w-[2500px] md:max-h-[630px] text-[70%]"
                 spotlight-color="#3D78F232">
                 <div class="imgcard">
                     <img :src="props.imageSrc" alt=""
                         class="w-full md:w-auto md:h-full overflow-hidden max-w-max cardimg">
                 </div>
-                <div class="w-full p-5 border-t-8 md:border-t-0 md:border-l-8 border-darkblue-700 z-5">
+                <div
+                    class="w-full p-3 pt-8 border-t-8 md:border-t-0 md:border-l-8 border-darkblue-700 z-5 md:flex flex-col">
                     <div>
-                        <p class="hovertrans text-[1.8rem] md:text-[2.5vw] pb-5 md:font-light">
+                        <p class="hovertrans text-[1.8rem] card-title pb-8 md:font-light">
                             {{ props.title }}
                         </p>
 
@@ -22,13 +23,15 @@
                                 {{ item }}
                             </p>
                         </div>
+                        <p class="md:hidden text-[0.7rem] pt-3 text-right"> Started in {{ props.date }} </p>
                     </div>
-                    <div class="hidden md:flex">
-                        <p class="arrow hovertrans font-light text-darkblue-500 ml-[1vw] lg:ml-[2vw] absolute"><a
-                                :href="props.href" class="cursor-none cursor-target inline-block h-[1em]"
+                    <div class="hidden md:flex justify-between mt-auto items-end w-full pr-8 self-center">
+                        <p class="arrow hovertrans font-light text-darkblue-500 pt-4 pb-[0.2em]">
+                            <a :href="props.href" class="cursor-none cursor-target inline-block h-[1em]"
                                 target="_blank"><i class="fa-light fa-angle-left"></i><i
-                                    class="fa-light fa-angle-left"></i><i class="fa-light fa-angle-left"></i></a></p>
-                        <p class="date absolute bottom-5 right-5 "> Started in {{ props.date }} </p>
+                                    class="fa-light fa-angle-left"></i><i class="fa-light fa-angle-left"></i></a>
+                        </p>
+                        <p class="date pb-3"> Started in {{ props.date }} </p>
                     </div>
                 </div>
                 <div>
@@ -71,19 +74,27 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <style scoped>
+@media (width >=48rem) {
+    .card-title {
+        font-size: min(2.5vw, 2.5em);
+    }
+}
+
+
 .date {
-    font-size: max(0.8rem, 1vw);
+    font-size: max(0.8rem, min(1em, 1vw));
 }
 
 .arrow {
-    font-size: max(1.5rem, 3vw);
-    bottom: 1.25rem;
+    font-size: max(3rem, min(3em, 3vw));
+    /* bottom: 1.25rem; */
     transition: all 0.5s ease;
+    padding-left: min(1em, 1.5vw);
     /* padding-top: -15px; */
 }
 
 .imgcard {
-    z-index: -2;
+    z-index: 2;
 }
 
 @media (min-width: 48rem) {
@@ -110,6 +121,13 @@ const props = withDefaults(defineProps<Props>(), {
     max-width: 360px;
     margin-bottom: 1rem;
     border-radius: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.btn:active {
+    background-color: var(--color-darkblue-750);
+    border-color: var(--color-primary-300);
+    color: var(--color-primary-200);
 }
 
 .left-arrow {
@@ -123,14 +141,15 @@ const props = withDefaults(defineProps<Props>(), {
 
 .desc {
     line-height: 1.5em;
-    font-size: max(1.3rem, 2vw);
-
+    font-size: max(1.3rem, min(1.5em, 2vw));
+    /*
     @media (min-width: 2580px) {
         font-size: max(1.3rem, 1.6vw);
-    }
+    } */
 
-    padding-left: 1.5vw;
-    text-align: center;
+    padding-left: min(1em, 1.5vw);
+    text-align: left;
+    /* text-indent: 1em; */
 
     @media (min-width: 48rem) {
         text-align: left;
@@ -147,8 +166,12 @@ const props = withDefaults(defineProps<Props>(), {
         justify-content: space-between;
     }
 
+    @media (width >=64rem) {
+        height: auto;
+    }
+
     display: flex;
-    z-index: 10;
+    z-index: 5;
     transition: all 0.5s;
 }
 
@@ -159,7 +182,7 @@ const props = withDefaults(defineProps<Props>(), {
 .cardimg {
     /* border-radius: calc(1.5rem - max(0.2vw, 2px) * 2); */
     transition: transform 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
-    z-index: -1;
+    /* z-index: 1; */
 }
 
 .cardimg:hover {
