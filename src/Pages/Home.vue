@@ -254,7 +254,7 @@ footer p {
 
 .text-contact-container {
     @media (width <=64rem) {
-        padding-left: max(1em, 6vw);
+        padding-left: max(0.5em, 6vw);
     }
 
 }
@@ -268,7 +268,7 @@ footer p {
     min-width: 100px;
 
     @media (width <=64rem) {
-        margin-left: max(0.9em, 4vw);
+        margin-left: 4vw;
     }
 }
 
@@ -288,7 +288,7 @@ footer p {
 
 .other-contact p {
     margin-top: 0.2em;
-    font-size: max(1.2rem, min(2.5rem, 2.5vw));
+    font-size: max(1rem, min(2.5rem, 2.8vw));
 }
 
 .qr {

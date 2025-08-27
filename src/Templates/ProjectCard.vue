@@ -141,7 +141,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 .desc {
     line-height: 1.5em;
-    font-size: max(1.3rem, min(1.5em, 2vw));
+    font-size: max(1rem, min(1.5em, 2vw));
     /*
     @media (min-width: 2580px) {
         font-size: max(1.3rem, 1.6vw);
