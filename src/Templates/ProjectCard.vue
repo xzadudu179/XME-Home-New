@@ -27,9 +27,9 @@
                     </div>
                     <div class="hidden md:flex justify-between mt-auto items-end w-full pr-8 self-center">
                         <p class="arrow hovertrans font-light text-darkblue-500 pt-4 pb-[0.2em]">
-                            <a :href="props.href" class="cursor-none cursor-target inline-block h-[1em]"
-                                target="_blank"><i class="fa-light fa-angle-left"></i><i
-                                    class="fa-light fa-angle-left"></i><i class="fa-light fa-angle-left"></i></a>
+                            <a :href="props.href" class="cursor-none cursor-target inline-block h-[1em]"><i
+                                    class="fa-light fa-angle-left"></i><i class="fa-light fa-angle-left"></i><i
+                                    class="fa-light fa-angle-left"></i></a>
                         </p>
                         <p class="date pb-3"> Started in {{ props.date }} </p>
                     </div>
@@ -95,6 +95,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 .imgcard {
     z-index: 2;
+    overflow: hidden;
 }
 
 @media (min-width: 48rem) {
@@ -182,7 +183,6 @@ const props = withDefaults(defineProps<Props>(), {
 .cardimg {
     /* border-radius: calc(1.5rem - max(0.2vw, 2px) * 2); */
     transition: transform 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
-    /* z-index: 1; */
 }
 
 .cardimg:hover {

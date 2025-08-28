@@ -48,7 +48,7 @@ const check_loading = () => {
       clearInterval(timer);
       loading.value!.hide();
     }
-  }, 800);
+  }, 600);
 }
 
 onMounted(() => {

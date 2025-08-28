@@ -167,13 +167,13 @@ const curYear = ref(new Date().getFullYear());
                 parallax-class-name="custom-parallax" scroller-class-name="custom-scroller" />
         </div>
 
-        <div class="max-w-[1500px] w-full m-auto mt-60 font-orbitron select-none">
+        <div class="max-w-[1280px] w-full m-auto mt-60 font-orbitron select-none">
             <h1 class="subtitle font-electrolize hovertrans">- CONT<i
                     class="fa-light fa-paper-plane text-[0.85em] relative bottom-[0.05em] pr-[0.03em]"></i>CT -
             </h1>
             <!-- <p class="text-[2em] text-center">Feel free to reach me out for collaborations or commissions!</p> -->
             <div class="flex flex-col md:w-full contact-container m-auto justify-center lg:flex-row lg:justify-evenly">
-                <div class="flex justify-around lg:justify-between self-center">
+                <div class="flex justify-around lg:justify-between self-center mb-8">
                     <div class="flex flex-col items-center">
                         <div class="qr overlay">
                             <img src="https://image.179.life/QRcode/QR_WX.webp" class="" alt=""></img>
@@ -189,7 +189,7 @@ const curYear = ref(new Date().getFullYear());
 
                 </div>
                 <div
-                    class="w-0 h-[15em] border-r-2 border-darkblue-200 hidden lg:flex place-self-center relative mb-4 right-[4px]">
+                    class="w-0 h-[18em] border-r-2 border-darkblue-200 hidden lg:flex place-self-center mb-4 relative right-[4px]">
                 </div>
                 <div
                     class="other-contact justify-around self-center pl-5 pr-5 lg:justify-center flex-row-reverse lg:flex-row text-[2.5rem] font-light flex text-center md:text-left mb-5 p-5 lg:pr-0 lg:pl-0">
@@ -276,6 +276,7 @@ footer p {
 .other-contact a {
     display: inline-block;
     padding: 0 1rem;
+    cursor: none;
 }
 
 .other-contact {
@@ -292,7 +293,7 @@ footer p {
 }
 
 .qr {
-    max-width: 280px;
+    max-width: 240px;
     width: 80%;
     min-width: 150px;
     padding: 13px 0;
