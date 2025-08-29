@@ -31,7 +31,7 @@ const throttledHandleMouse = throttle(handleMouse, 16);
 
 const cardStyle = computed(() => ({
     transform: `perspective(800px) rotateX(${state.rotateX}deg) rotateY(${state.rotateY}deg) scale(${state.scale})`,
-    transition: state.scale === 1 ? 'transform 0.5s ease' : 'transform 0.1s ease',
+    transition: state.scale === 1 ? 'transform 0.5s ease' : 'transform 0.2s ease',
     height: props.height,
     width: props.width
 }));

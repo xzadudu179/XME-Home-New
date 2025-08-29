@@ -11,6 +11,7 @@ import { inject } from 'vue'
 import ProjectCard from "@/Templates/ProjectCard.vue"
 import Particles from "@/Templates/Bit/Particles.vue";
 import FallingText from "@/Templates/Bit/FallingText.vue";
+import Footer from "@/Templates/Footer.vue";
 import { easeInOut } from "motion-v";
 
 const lenis: ComputedRef<Lenis | undefined> | undefined = inject('lenis')
@@ -18,9 +19,6 @@ const scrollDown = () => {
     const nextY = window.innerHeight;
     lenis!.value?.scrollTo(nextY, { offset: 0, easing: easeInOut });
 };
-
-const curYear = ref(new Date().getFullYear());
-
 </script>
 
 <template>
@@ -140,7 +138,7 @@ const curYear = ref(new Date().getFullYear());
             <h2 class="pt-5">...页面制作中...</h2> -->
             <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="https://image.179.life/images/deon_avatar.jpg"
                 title="XME-Deon-Bot" href="https://docs.xme.179.life/#/"
-                :descs="['One of my QQ bot services. Mainly provide some entertainment functions.', 'Built with Python & FastAPI.']"
+                :descs="['One of my QQ bot services, mainly offering entertainment features.', 'Built with Python and FastAPI.']"
                 date="2024.10.11"></ProjectCard>
             <ProjectCard class="mr-0 hg:mr-[13vw]"
                 imageSrc="https://image.179.life/images/background-dark-with-header.webp" title="XME Notes Library"
@@ -157,7 +155,7 @@ const curYear = ref(new Date().getFullYear());
             </ProjectCard>
             <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="https://image.179.life/images/home-cover.webp"
                 title="XME-Home" href="https://www.xzadudu179.top"
-                :descs="['Homepage for showcasing my uniqueness and introducing myself, filled with everything about me.', '*You\'re at here.']"
+                :descs="['Homepage for showcasing my uniqueness and introducing myself, filled with everything about me.', '*You are here.']"
                 date="2025.08.11"></ProjectCard>
         </div>
         <div class="mt-[10rem]">
@@ -171,6 +169,7 @@ const curYear = ref(new Date().getFullYear());
             <h1 class="subtitle font-electrolize hovertrans">- CONT<i
                     class="fa-light fa-paper-plane text-[0.85em] relative bottom-[0.05em] pr-[0.03em]"></i>CT -
             </h1>
+            <p></p>
             <!-- <p class="text-[2em] text-center">Feel free to reach me out for collaborations or commissions!</p> -->
             <div class="flex flex-col md:w-full contact-container m-auto justify-center lg:flex-row lg:justify-evenly">
                 <div class="flex justify-around lg:justify-between self-center mb-8">
@@ -194,8 +193,8 @@ const curYear = ref(new Date().getFullYear());
                 <div
                     class="other-contact justify-around self-center pl-5 pr-5 lg:justify-center flex-row-reverse lg:flex-row text-[2.5rem] font-light flex text-center md:text-left mb-5 p-5 lg:pr-0 lg:pl-0">
                     <div class="text-contact-container flex flex-col justify-center text-left">
-                        <p><a href="mailto:terra179@163.com" class="hovertrans cursor-target"><i
-                                    class="fa-light fa-envelope pr-[0.3em]"></i>Email
+                        <p><a href="mailto:terra179@163.com" class="hovertrans cursor-target email"><i
+                                    class="fa-light fa-envelope pr-[0.3em] email-icon"></i>Email
                             </a></p>
                         <p><a target="_blank" href="https://github.com/xzadudu179"
                                 class=" inline-hovertrans cursor-target"><i
@@ -214,14 +213,7 @@ const curYear = ref(new Date().getFullYear());
                 </div>
             </div>
         </div>
-        <footer
-            class="font-orbitron font-light mt-[20vh] flex text-center flex-col items-center border-t-2 pt-5 pb-5 justify-between border-darkblue-600">
-            <p class="w-full copyright">© 2025 - {{ curYear }}
-                <i class="fa-regular fa-star fa-spin"></i>
-                xzadudu179 All rights reserved
-            </p>
-            <p>Powered by Vue 3</p>
-        </footer>
+        <Footer></Footer>
     </div>
 </template>
 
@@ -232,6 +224,7 @@ const curYear = ref(new Date().getFullYear());
     font-size: min(3em, max(5.7vh, 5.7vw));
     text-align: center;
 
+
     @media (width >=64rem) {
         font-size: min(8rem, 5.5vw);
         margin: auto;
@@ -240,12 +233,9 @@ const curYear = ref(new Date().getFullYear());
     @media (max-height: 64rem) {
         padding: 3rem;
     }
+
 }
 
-footer p {
-    padding: 0.3rem 0;
-    color: var(--color-darkblue-300);
-}
 
 .contact-container {
     width: full;
@@ -263,6 +253,10 @@ footer p {
     color: var(--color-primary-200);
 }
 
+.other-contact a:active {
+    color: var(--color-primary-200);
+}
+
 .icon img {
     width: 15vw;
     min-width: 100px;
@@ -270,6 +264,14 @@ footer p {
     @media (width <=64rem) {
         margin-left: 4vw;
     }
+}
+
+.icon {
+    pointer-events: none;
+}
+
+.icon img:hover {
+    filter: drop-shadow(0 0 5px);
 }
 
 

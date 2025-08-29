@@ -11,36 +11,62 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router'
 
-const screenWidth = window.innerWidth;
-const screenHeight = window.innerHeight;
-const aspectRatio = screenWidth / screenHeight;
 
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-const getHexagonPoints = (ratio: number) => {
+const getHexagonPoints = () => {
+    const ratio = getHexratio()
     return `
     0,${-50 * ratio} ${43.3 * ratio},${-25 * ratio} ${43.3 * ratio},${25 * ratio} 0,${50 * ratio} ${-43.3 * ratio}, ${25 * ratio} ${-43.3 * ratio},${-25 * ratio}`;
 }
 
-let hexratio = 1.5
-const wideRatio = 2
+const getRowLine = () => {
+    const ratio = getHexratio()
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
 
-if (aspectRatio > wideRatio) {
-    hexratio = 1.1
+    const scale = Math.max(screenWidth, screenHeight) / 1000;
+    const hexWidth = 86.6 * ratio * scale;
+    const hexHeight = 100 * ratio * scale;
+    // console.log(hexHeight, hexWidth);
+
+    const row = Math.ceil(screenWidth / hexWidth) + 1;
+    const line = Math.ceil(screenHeight / (hexHeight * 0.75)) + 1;
+    // console.log("heightRatio", heightRatio)
+    // console.log("row, line", row, line)
+    return {
+        "row": row,
+        "line": line
+    }
 }
+
+let lastScreenWidth = window.innerWidth
+let lastScreenHeight = window.innerHeight
+
+const getHexratio = () => {
+    let hexratio = 1.5;
+    const wideRatio = 2;
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const widthRatio = screenWidth / screenHeight;
+    if (widthRatio > wideRatio) {
+        hexratio = 1.1;
+    }
+    return hexratio
+}
+
 
 let isAnimatingIn = false
 let isInner = false
 let isAnimatingOut = false
 
+let currentNext: CallableFunction | null = null
+
 const create = (next: CallableFunction, check: CallableFunction) => {
-    loading.show()
-    setTimeout(() => {
-        next();
-        // this.$parent.check_loading();
-        check();
-    }, 550);
+    // console.log("开始切换页面")
+    loading.show(next, check)
 }
 const hide = () => {
     // console.log("hiding")
@@ -50,18 +76,17 @@ const hide = () => {
 interface loading {
     row: number;
     line: number;
+    isBlockCreated: boolean;
     container: Element | null;
     blocks: Array<SVGUseElement>;
     loop_color: GSAPTimeline;
+    hexratio: number;
     init: CallableFunction;
     create_blocks: CallableFunction;
     show: CallableFunction;
     hidden: CallableFunction;
 }
-
 onMounted(() => {
-    const polygon = document.getElementById('loading_hexagon');
-    polygon!.setAttribute('points', getHexagonPoints(hexratio));
     loading.init()
 })
 
@@ -70,20 +95,11 @@ const loading: loading = {
     line: 10,
     container: null,
     blocks: [],
+    isBlockCreated: false,
     loop_color: gsap.timeline({ yoyo: true, repeat: -1 }),
+    hexratio: 1,
     init() {
         this.container = document.querySelector('.loading');
-        // this.container!.innerHTML = "";
-        if (aspectRatio > wideRatio) {
-            console.log("宽屏")
-            // 宽屏，显示更多列
-            this.row = 18;
-            this.line = 8;
-        } else if (aspectRatio > 2.3) {
-            console.log("很宽")
-            this.row = 20;
-            this.line = 6
-        }
         this.blocks = [];
         // this.create_blocks();
         this.create_blocks();
@@ -92,6 +108,27 @@ const loading: loading = {
         // }, 1000)
     },
     create_blocks() {
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight
+        if (lastScreenWidth === screenWidth && lastScreenHeight === screenHeight && this.isBlockCreated) {
+            // console.log("不创建")
+            return
+        }
+        // console.log("创建")
+        lastScreenWidth = screenWidth
+        lastScreenHeight = screenHeight
+        while (this.container!.lastChild && this.container!.lastChild.nodeName !== "defs") {
+            this.container!.removeChild(this.container!.lastChild);
+        }
+        this.blocks = [];
+        const polygon = document.getElementById('loading_hexagon');
+
+        polygon!.setAttribute('points', getHexagonPoints());
+        const rl = getRowLine();
+        this.hexratio = getHexratio()
+        const hexratio = this.hexratio
+        this.row = rl["row"];
+        this.line = rl["line"]
         for (let l = 0; l < this.line; l++) {
             let g = document.createElementNS("http://www.w3.org/2000/svg", "g");
             for (let r = 0; r < this.row; r++) {
@@ -107,11 +144,21 @@ const loading: loading = {
             }
             this.container!.appendChild(g);
         }
+        this.isBlockCreated = true
     },
-    show() {
+    show(next: CallableFunction, check: CallableFunction) {
         // loop_color.restart()
+        this.create_blocks()
+        currentNext = next
+        let starting = false
         if (isInner) {
+            starting = true
+            // console.log("isinner")
             // console.log("因为状态不符，不播放 in 动画")
+            currentNext!();
+            // console.log("INNER切换页面...")
+            // this.$parent.check_loading();
+            check();
             return
         }
         if (isAnimatingIn) {
@@ -119,8 +166,9 @@ const loading: loading = {
             return
         }
         this.loop_color.clear();
+        const hexratio = this.hexratio
         const animate = gsap.timeline()
-        console.log("inner in out", isAnimatingIn, isAnimatingOut)
+        // console.log("inner in out", isAnimatingIn, isAnimatingOut)
         if (!isAnimatingIn && !isAnimatingOut) {
             if (isSafari) {
                 animate.set(this.blocks, {
@@ -139,26 +187,46 @@ const loading: loading = {
                 })
             }
         }
-        console.log("播放 in 动画")
+        // console.log("播放 in 动画")
         isAnimatingIn = true
-        animate
+        const tween = animate
             .to(this.blocks, {
                 "stroke-dashoffset": 0,
                 "stroke-opacity": 1,
                 scale: 1,
-                duration: 0.5,
+                duration: 0.4,
                 autoAlpha: 1,
                 ease: "power2.out",
                 stagger: {
                     from: "start",
-                    each: 0.004
+                    each: 0.003
                 },
                 onComplete: () => {
                     isAnimatingIn = false;
+                    // console.log("IN 播放完成")
+                    currentNext!();
+                    isInner = true
+                    // console.log("切换页面...")
+                    // this.$parent.check_loading();
+                    check();
                 }, onStart: () => {
-                    isInner = true;
+                    this.container?.classList.remove("hidden")
+                    starting = false;
+                }, onUpdate: () => {
+                    if (starting) {
+                        // console.log("kill in")
+                        tween.kill();
+                    }
                 }
             })
+        this.blocks.forEach((block: Element) => {
+            const currentStroke = gsap.getProperty(block, "stroke") as string;
+
+            // 如果 currentStroke 为空或 transparent 才设置
+            if (!currentStroke || currentStroke === "none" || currentStroke === "transparent") {
+                gsap.set(block, { stroke: "#3D78F2" });
+            }
+        });
         this.loop_color.to(
             this.blocks, {
             "stroke": "#78B9FF",
@@ -173,8 +241,9 @@ const loading: loading = {
 
     },
     hidden() {
+        const hexratio = this.hexratio
         const animate = gsap.timeline()
-        console.log("outer in out", isAnimatingIn, isAnimatingOut)
+        // console.log("outer in out", isAnimatingIn, isAnimatingOut)
         if (!isInner) {
             // console.log("因为状态不符，不播放 out 动画")
             return
@@ -195,7 +264,7 @@ const loading: loading = {
         // console.log("播放 out 动画")
         isAnimatingOut = true
         if (isSafari) {
-            animate.to(this.blocks, {
+            const tween = animate.to(this.blocks, {
                 duration: 0.6,
                 // scale: 0,
                 autoAlpha: 0,
@@ -205,12 +274,20 @@ const loading: loading = {
                     each: 0.004
                 }, onComplete: () => {
                     isAnimatingOut = false;
+                    // console.log("OUT 播放完成")
+                    this.container?.classList.add("hidden")
                 }, onStart: () => {
                     isInner = false;
+                }, onUpdate: () => {
+                    if (isAnimatingIn) {
+                        // console.log("out kill")
+                        isAnimatingOut = false;
+                        tween.kill();
+                    }
                 }
             });
         } else {
-            animate.to(this.blocks, {
+            const tween = animate.to(this.blocks, {
                 duration: 0.6,
                 scale: 0,
                 ease: "power2.in",
@@ -219,19 +296,42 @@ const loading: loading = {
                     each: 0.004
                 }, onComplete: () => {
                     isAnimatingOut = false;
+                    // console.log("OUT 播放完成")
+                    this.container?.classList.add("hidden")
                 }, onStart: () => {
                     isInner = false;
+                }, onUpdate: () => {
+                    if (isAnimatingIn) {
+                        // console.log("kill out")
+                        isAnimatingOut = false;
+                        tween.kill();
+                    }
                 }
             });
         }
-
-
-        // setTimeout(() => {
-        //     this.container?.classList.add("hidden")
-        // }, 1200)
         this.loop_color.clear();
     }
 }
+
+// const loading = ref<InstanceType<typeof Loading> | null>(null);
+const check_loading = () => {
+    let timer = setInterval(() => {
+        // console.log("checking")
+        if (document.readyState === "complete") {
+            // console.log("complete")
+            clearInterval(timer);
+            hide();
+        }
+    }, 600);
+}
+
+onMounted(() => {
+    // console.log("animate")
+    useRouter().beforeEach((to, from, next) => {
+        create(next, check_loading);
+    });
+})
+
 
 defineExpose({
     create: create,

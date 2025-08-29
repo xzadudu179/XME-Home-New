@@ -5,7 +5,7 @@ import Tilted from './Tilted.vue';
 </script>
 
 <template>
-    <Tilted width="800px" height="452.38px" :rotateAmplitude="3" card-class="card_tilt" :scale="true">
+    <Tilted width="800px" height="452.38px" :rotateAmplitude="4" card-class="card_tilt" :scale="true">
         <div class="card">
             <div class="avatar"></div>
             <div class="infos">
@@ -22,7 +22,7 @@ import Tilted from './Tilted.vue';
                     <p class="hovertrans">正在四处游荡中...</p>
                     <p class="hovertrans">想被别人发现，喜欢尝试新的事物</p>
                     <p class="hovertrans">喜欢太空、科幻、像素风格一类的东西~</p>
-                    <p class="hovertrans">想做全栈，想展示自己的世界观（？</p>
+                    <p class="hovertrans">想做全栈，想展示自己的世界观</p>
                 </InfoItem>
                 <InfoItem>
                     <template #title>
@@ -39,12 +39,11 @@ import Tilted from './Tilted.vue';
                     </div>
                 </InfoItem>
                 <a class="hovertrans bloglink cursor-target cursor-none cursor-change-color text-primary-200"
-                    target="_blank" href="https://blog.xzadudu179.top">
+                    href="https://blog.xzadudu179.top">
                     <IconNav name="个人博客" icon-class="fa-regular fa-planet-ringed"></IconNav>
                 </a>
             </div>
-            <a class="blogbtn cursor-target cursor-none cursor-change-color" target="_blank"
-                href="https://blog.xzadudu179.top">
+            <a class="blogbtn cursor-target cursor-none cursor-change-color" href="https://blog.xzadudu179.top">
                 <IconNav name="个人博客" icon-class="fa-regular fa-planet-ringed"></IconNav>
             </a>
         </div>

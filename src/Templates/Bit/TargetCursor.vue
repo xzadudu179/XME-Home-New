@@ -251,7 +251,6 @@ const setupAnimation = () => {
             gsap.killTweensOf(cursorRef.value, 'rotation');
             gsap.set(cursorRef.value, { rotation: 0 });
             corners.forEach((corner, index) => {
-
                 tl.to(
                     corner as HTMLElement,
                     {

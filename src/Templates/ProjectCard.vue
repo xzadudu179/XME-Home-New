@@ -9,7 +9,7 @@
                 spotlight-color="#3D78F232">
                 <div class="imgcard">
                     <img :src="props.imageSrc" alt=""
-                        class="w-full md:w-auto md:h-full overflow-hidden max-w-max cardimg">
+                        class="w-full md:w-auto md:h-full overflow-hidden max-w-max cardimg select-none">
                 </div>
                 <div
                     class="w-full p-3 pt-8 border-t-8 md:border-t-0 md:border-l-8 border-darkblue-700 z-5 md:flex flex-col">
@@ -31,7 +31,7 @@
                                     class="fa-light fa-angle-left"></i><i class="fa-light fa-angle-left"></i><i
                                     class="fa-light fa-angle-left"></i></a>
                         </p>
-                        <p class="date pb-3"> Started in {{ props.date }} </p>
+                        <p class="date pb-3"> Started on {{ props.date }} </p>
                     </div>
                 </div>
                 <div>
@@ -50,7 +50,7 @@ import AnimatedContent from "./Bit/AnimatedContent.vue";
 import { ref } from 'vue';
 
 const card = ref<HTMLElement | null>();
-console.log("card", card)
+// console.log("card", card)
 
 const clickhref = () => {
     window.open(props.href, '_blank');
@@ -76,7 +76,7 @@ const props = withDefaults(defineProps<Props>(), {
 <style scoped>
 @media (width >=48rem) {
     .card-title {
-        font-size: min(2.5vw, 2.5em);
+        font-size: min(4.3vw, 2.5em);
     }
 }
 
@@ -122,10 +122,12 @@ const props = withDefaults(defineProps<Props>(), {
     max-width: 360px;
     margin-bottom: 1rem;
     border-radius: 0.5rem;
+    cursor: none;
     transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
-.btn:active {
+.btn:active,
+.btn:hover {
     background-color: var(--color-darkblue-750);
     border-color: var(--color-primary-300);
     color: var(--color-primary-200);

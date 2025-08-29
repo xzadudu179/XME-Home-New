@@ -4,6 +4,7 @@ import NavBlock from "./Templates/NavBlock.vue";
 import TargetCursor from "./Templates/Bit/TargetCursor.vue";
 import Loading from "./Templates/Loading.vue";
 import MobileNavBlock from "./Templates/MobileNavBlock.vue";
+import Footer from "@/Templates/Footer.vue";
 console.log(`
    ____________________________________________________________________________________________________
   /   ______     ______     ______   ______     ______     __            ______     ______     ______  \\
@@ -15,10 +16,7 @@ console.log(`
 `);
 
 import { provide, watch, ref, onMounted, onBeforeUnmount } from 'vue'
-import { useRouter } from 'vue-router'
 import { VueLenis, useLenis } from 'lenis/vue' // Also available as global imports, no need to import them manually
-
-
 const lenisOptions = {
   // lenis options (optional)
 }
@@ -38,26 +36,7 @@ watch(
 
 // ---------------------- //
 
-let animate: gsap.core.Timeline | null = null
-const loading = ref<InstanceType<typeof Loading> | null>(null);
-const check_loading = () => {
-  let timer = setInterval(() => {
-    // console.log("checking")
-    if (document.readyState === "complete") {
-      // console.log("complete")
-      clearInterval(timer);
-      loading.value!.hide();
-    }
-  }, 600);
-}
 
-onMounted(() => {
-  // console.log("animate")
-  useRouter().beforeEach((to, from, next) => {
-    loading.value!.create(next, check_loading);
-  });
-
-})
 
 onBeforeUnmount(() => {
 })
@@ -114,12 +93,14 @@ const beleft = () => {
     class="fixed w-[100vw] h-[100vh] overflow-hidden bg-darkblue-900 z-100 left-[100vw] mobile-nav-item md:hidden">
     <MobileNavBlock
       :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Contact', href: '/contact' }, { text: 'Links', href: '/links' }]" />
-    <p class="text-darkblue-200 font-orbitron absolute bottom-0 w-full p-5 pb-3 text-center">CREATING, DESIGNING
+    <p class="text-darkblue-200 font-orbitron absolute bottom-0 w-full p-5 pb-3 text-center pointer-events-none">
+      CREATING,
+      DESIGNING
     </p>
   </div>
   <!-- Main -->
   <div class="overflow-hidden hide-scrollbar">
-    <router-view></router-view>
+    <router-view class=""></router-view>
   </div>
 
 </template>
@@ -128,6 +109,7 @@ const beleft = () => {
 .mobile-nav-item {
   transition: all 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
+
 
 .xmark {
   transition: all 0.5s;
