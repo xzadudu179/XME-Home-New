@@ -66,7 +66,7 @@ const handleMouseMove = (e: MouseEvent) => {
     }
 };
 
-const throttledHandleMouse = throttle(handleMouseMove, 16);
+const throttledHandleMouse = throttle(handleMouseMove, 32);
 onMounted(() => {
     window.addEventListener('mousemove', throttledHandleMouse);
 });

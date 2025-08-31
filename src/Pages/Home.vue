@@ -17,7 +17,7 @@ import { easeInOut } from "motion-v";
 const lenis: ComputedRef<Lenis | undefined> | undefined = inject('lenis')
 const scrollDown = () => {
     const nextY = window.innerHeight;
-    lenis!.value?.scrollTo(nextY, { offset: 0, easing: easeInOut });
+    lenis!.value?.scrollTo(nextY, { offset: 0, easing: easeInOut, duration: 0.8 });
 };
 </script>
 
@@ -32,7 +32,7 @@ const scrollDown = () => {
         <div class="w-full h-[100vh] font-electrolize pb-[100px] md:text-2xl" id="first-header">
             <div class="flex-col flex justify-center content-center items-center h-full select-none">
                 <AnimatedContent :distance="100" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
-                    :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="1.2">
+                    :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.7">
                     <p><span class="inline-hovertrans">CREATING</span> <i
                             class="fa-light fa-sparkles inline-hovertrans"></i> <span
                             class="text-primary-200 inline-hovertrans">DREAMS</span><span
@@ -40,7 +40,7 @@ const scrollDown = () => {
                     </p>
                 </AnimatedContent>
                 <AnimatedContent :distance="100" direction="vertical" :reverse="false" :duration="1.5" ease="power3.out"
-                    :initial-opacity="0" :animate-opacity="true" :scale="1.2" :threshold="0.1" :delay="1.5">
+                    :initial-opacity="0" :animate-opacity="true" :scale="1.2" :threshold="0.1" :delay="1.1">
                     <p><span class="inline-hovertrans">ACROSS</span> <span class="inline-hovertrans">THE</span> <span
                             class="text-primary-200 inline-hovertrans">W<i
                                 class="fa-light fa-earth-asia text-[0.8em] relative bottom-[0.05em]"></i>RLD</span>
@@ -172,7 +172,7 @@ const scrollDown = () => {
             <p></p>
             <!-- <p class="text-[2em] text-center">Feel free to reach me out for collaborations or commissions!</p> -->
             <div class="flex flex-col md:w-full contact-container m-auto justify-center lg:flex-row lg:justify-evenly">
-                <div class="flex justify-around lg:justify-between self-center mb-8">
+                <div class="flex justify-around lg:justify-between self-center mb-8 ">
                     <div class="flex flex-col items-center">
                         <div class="qr overlay">
                             <img src="https://image.179.life/QRcode/QR_WX.webp" class="" alt=""></img>
@@ -239,7 +239,7 @@ const scrollDown = () => {
 
 .contact-container {
     width: full;
-    min-width: 350px;
+    min-width: 300px;
 }
 
 .text-contact-container {
@@ -297,7 +297,7 @@ const scrollDown = () => {
 .qr {
     max-width: 240px;
     width: 80%;
-    min-width: 150px;
+    min-width: 140px;
     padding: 13px 0;
     padding-right: 0;
 

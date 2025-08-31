@@ -71,7 +71,7 @@ vec3 hsv2rgb(vec3 c) {
 
 float Star(vec2 uv, float flare) {
   float d = length(uv);
-  float m = (0.05 * uGlowIntensity * smoothstep(1.0, 0.0, d)) / d;
+  float m = (0.05 * uGlowIntensity) / d;
   float rays = smoothstep(0.0, 1.0, 1.0 - abs(uv.x * uv.y * 1000.0));
   m += rays * flare * uGlowIntensity;
   uv *= MAT45;
@@ -169,6 +169,7 @@ void main() {
   }
 }
 `;
+
 
 interface GalaxyProps {
   focal?: [number, number];
@@ -299,6 +300,7 @@ const setup = () => {
     program.uniforms.uMouse.value[1] = smoothMousePos.value.y;
     program.uniforms.uMouseActiveFactor.value = smoothMouseActive.value;
 
+
     renderer.render({ scene: mesh });
   }
   animateId = requestAnimationFrame(update);
@@ -332,6 +334,8 @@ const setup = () => {
     gl.getExtension('WEBGL_lose_context')?.loseContext();
   };
 };
+
+
 
 onMounted(() => {
   cleanup?.();

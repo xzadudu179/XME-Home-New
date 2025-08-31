@@ -189,13 +189,16 @@ a:hover,
         18px 14px 80px -9px rgba(0, 0, 0, 0.09);
 }
 
+
+
 .card::after {
-    transition: background 0.5s;
+    transition: all 0.5s;
     content: "";
     position: absolute;
     left: 0;
     top: 0;
     /* z-index: -10; */
+    inset: 0;
     pointer-events: none;
     width: 100%;
     height: 100%;
@@ -216,6 +219,7 @@ a:hover,
     -webkit-mask-clip: var(--mask-clip);
     mask-composite: exclude;
     -webkit-mask-composite: destination-out;
+    animation: back 1s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 

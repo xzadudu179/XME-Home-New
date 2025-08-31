@@ -19,6 +19,7 @@
 import { ref, computed, onMounted, onUnmounted, nextTick, type ComponentPublicInstance } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { throttle } from 'lodash';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,7 +79,7 @@ const setCopyRef = (el: Element | ComponentPublicInstance | null, index: number)
     }
 };
 
-const updateWidths = () => {
+const updateWidths = throttle(() => {
     props.texts.forEach((_, index) => {
         if (copyRefs.value[index] && containerRef.value[index]) {
             const singleCopyWidth = copyRefs.value[index].offsetWidth;
@@ -93,7 +94,7 @@ const updateWidths = () => {
             calculatedCopies.value[index] = optimalCopies;
         }
     });
-};
+}, 16);
 
 const debouncedUpdateWidths = () => {
     if (resizeTimeout) {
@@ -120,16 +121,16 @@ const scrollTransforms = computed(() => {
     });
 });
 
-const updateSmoothVelocity = () => {
+const updateSmoothVelocity = throttle(() => {
     const dampingFactor = props.damping / 1000;
     const stiffnessFactor = props.stiffness / 1000;
 
     const velocityDiff = scrollVelocity.value - smoothVelocity.value;
     smoothVelocity.value += velocityDiff * stiffnessFactor;
     smoothVelocity.value *= 1 - dampingFactor;
-};
+}, 16);
 
-const updateVelocityFactor = () => {
+const updateVelocityFactor = throttle(() => {
     const { input, output } = props.velocityMapping;
     const inputRange = input[1] - input[0];
     const outputRange = output[1] - output[0];
@@ -139,7 +140,7 @@ const updateVelocityFactor = () => {
 
     velocityFactor.value = output[0] + normalizedVelocity * outputRange;
     if (smoothVelocity.value < 0) velocityFactor.value *= -1;
-};
+}, 16);
 
 const animate = (currentTime: number) => {
     if (lastTime === 0) lastTime = currentTime;
@@ -167,7 +168,7 @@ const animate = (currentTime: number) => {
     rafId = requestAnimationFrame(animate);
 };
 
-const updateScrollVelocity = () => {
+const updateScrollVelocity = throttle(() => {
     const container = props.scrollContainerRef || window;
     const currentScrollY = container === window ? window.scrollY : (container as HTMLElement).scrollTop;
 
@@ -180,7 +181,7 @@ const updateScrollVelocity = () => {
     }
 
     lastScrollY = currentScrollY;
-};
+}, 5);
 
 onMounted(async () => {
     await nextTick();
@@ -221,6 +222,10 @@ onUnmounted(() => {
     if (resizeTimeout) {
         clearTimeout(resizeTimeout);
     }
+    updateScrollVelocity.cancel();
+    updateSmoothVelocity.cancel();
+    updateVelocityFactor.cancel();
+    updateWidths.cancel();
     window.removeEventListener('resize', debouncedUpdateWidths);
 });
 </script>

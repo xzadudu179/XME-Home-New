@@ -315,19 +315,17 @@ const loading: loading = {
 
 // const loading = ref<InstanceType<typeof Loading> | null>(null);
 const check_loading = () => {
-    let timer = setInterval(() => {
-        // console.log("checking")
-        if (document.readyState === "complete") {
-            // console.log("complete")
-            clearInterval(timer);
-            hide();
-        }
-    }, 600);
+    if (document.readyState === "complete") {
+        hide();
+    } else {
+        window.addEventListener("load", hide, { once: true });
+    }
 }
 
 onMounted(() => {
     // console.log("animate")
     useRouter().beforeEach((to, from, next) => {
+        console.log(to, from)
         create(next, check_loading);
     });
 })

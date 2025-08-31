@@ -27,7 +27,7 @@ const state = reactive({
 });
 
 const rotateAmplitude = props.rotateAmplitude; // 倾斜最大角度
-const throttledHandleMouse = throttle(handleMouse, 16);
+const throttledHandleMouse = throttle(handleMouse, 32);
 
 const cardStyle = computed(() => ({
     transform: `perspective(800px) rotateX(${state.rotateX}deg) rotateY(${state.rotateY}deg) scale(${state.scale})`,

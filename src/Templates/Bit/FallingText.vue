@@ -43,14 +43,25 @@ const createTextHTML = () => {
     if (!textRef.value) return;
 
     const words = props.text.split(' ');
-    const newHTML = words
-        .map(word => {
-            const isHighlighted = props.highlightWords.some(hw => word.startsWith(hw));
-            return `<span class="inline-block mx-[2px] select-none ${isHighlighted ? 'text-primary-200 font-bold' : ''}">${word}</span>`;
-        })
-        .join(' ');
-
-    textRef.value.innerHTML = newHTML;
+    const frag = document.createDocumentFragment();
+    // const newHTML = words
+    //     .map(word => {
+    //         const isHighlighted = props.highlightWords.some(hw => word.startsWith(hw));
+    //         return `<span class="inline-block mx-[2px] select-none ${isHighlighted ? 'text-primary-200 font-bold' : ''}">${word}</span>`;
+    //     })
+    //     .join(' ');
+    for (const word of words) {
+        const span = document.createElement("span");
+        span.className = "inline-block mx-[2px] select-none";
+        if (props.highlightWords.some(hw => word.startsWith(hw))) {
+            span.classList.add("text-primary-200", "font-bold");
+        }
+        span.textContent = word;
+        frag.appendChild(span);
+        frag.append(" ");
+    }
+    textRef.value.innerHTML = "";
+    textRef.value.appendChild(frag);
 };
 
 const setupTrigger = () => {
@@ -276,8 +287,10 @@ watch(
 );
 
 onMounted(() => {
-    createTextHTML();
-    setupTrigger();
+    requestAnimationFrame(() => {
+        createTextHTML();
+        setupTrigger();
+    });
 });
 
 onUnmounted(() => {
