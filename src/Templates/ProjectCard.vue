@@ -8,8 +8,12 @@
                 class-name="custom-spotlight-card h-auto min-h-[8.5em] md:h-[33vw] hg:h-[20vw] w-[90vw] lg:w-[80vw] hg:w-[70vw] flex-col md:flex-row p-0 color-on-hover bg-darkblue-800 max-w-[2500px] md:max-h-[630px] text-[70%]"
                 spotlight-color="#3D78F232">
                 <div class="imgcard">
-                    <img :src="props.imageSrc" alt=""
-                        class="w-full md:w-auto md:h-full overflow-hidden max-w-max cardimg select-none">
+                    <LoadingImg :src="props.imageSrc"
+                        img-class="w-full md:w-auto md:h-full overflow-hidden max-w-max cardimg select-none flex-none"
+                        class="w-full h-full overflow-hidden max-w-max flex items-center justify-center">
+                    </LoadingImg>
+                    <!-- <img :src="props.imageSrc" alt=""
+                        class="w-full md:w-auto md:h-full overflow-hidden max-w-max cardimg select-none"> -->
                 </div>
                 <div
                     class="w-full p-3 pt-8 border-t-8 md:border-t-0 md:border-l-8 border-darkblue-700 z-5 md:flex flex-col">
@@ -47,6 +51,7 @@
 import SpotlightCard from "@/Templates/Bit/SpotlightCard.vue";
 import Magnet from "@/Templates/Bit/Magnet.vue";
 import AnimatedContent from "./Bit/AnimatedContent.vue";
+import LoadingImg from "./LoadingImg.vue";
 import { ref } from 'vue';
 
 const card = ref<HTMLElement | null>();
@@ -102,7 +107,7 @@ const props = withDefaults(defineProps<Props>(), {
     .imgcard {
         aspect-ratio: 1 / 1;
         overflow: hidden;
-        width: min(28vw, 800px);
+        width: min(32vw, 800px);
         min-width: 250px;
         display: flex;
 

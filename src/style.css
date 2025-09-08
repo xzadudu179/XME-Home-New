@@ -150,9 +150,9 @@
 
 
 @theme {
-    --font-electrolize: 'Electrolize', sans-serif;
-    --font-firacode: 'Fira Code', normal;
-    --font-orbitron: 'Orbitron', normal;
+    --font-electrolize: 'Electrolize', Geist Variable, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+    --font-firacode: 'Fira Code', Geist Variable, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, Heiti SC, WenQuanYi Micro Hei, normal;
+    --font-orbitron: 'Orbitron', Geist Variable, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, Heiti SC, WenQuanYi Micro Hei, normal;
 
     --breakpoint-hg: 1680px;
 
@@ -195,6 +195,7 @@
 body {
     font-family: Geist Variable, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, Heiti SC, WenQuanYi Micro Hei, sans-serif;
     overflow-x: hidden;
+    letter-spacing: 0.05em;
 }
 
 html {

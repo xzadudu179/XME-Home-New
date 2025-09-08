@@ -26,4 +26,8 @@ const props = defineProps<{
 .litem:hover {
     text-shadow: 0 0 8px;
 }
+
+.litem {
+    letter-spacing: 0.05em;
+}
 </style>
