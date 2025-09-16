@@ -82,12 +82,12 @@
 }
 
 *::selection {
-  background-color: var(--color-darkblue-700);
+  background-color: var(--color-dark-700);
   /* color: var(--color-primary-100); */
 }
 .hoverlight:hover {
-    text-shadow: 0 0 10px;
-    font-size: 1.02em;
+    text-shadow: 0 0 15px;
+    /* font-size: 1.02em; */
     /* transform: scale(1.1); */
 }
 
@@ -111,7 +111,9 @@
   display: inline-block;
 }
 
-.hoverlight,
+.hoverlight {
+  transition: text-shadow 0.3s;
+}
 .hovertrans, .inline-hovertrans {
     transition: all 0.3s;
     user-select: none;
@@ -121,15 +123,19 @@
   /* filter: grayscale(100%); */
   /* transition: filter .8s cubic-bezier(0.215, 0.610, 0.355, 1); */
 }
+
+
 .color-on-hover::after {
   @media (pointer: fine) {
-    background: var(--color-darkblue-100);
+    background: var(--color-dark-100);
     /* backdrop-filter: ; */
     backdrop-filter: grayscale(50%);
     transition: all .8s cubic-bezier(0.215, 0.610, 0.355, 1);
     /* 正片叠底 */
     mix-blend-mode: multiply;
   }
+  border-radius: inherit;
+  overflow: hidden;
   content: "";
   position: absolute;
   inset: 0;
@@ -156,18 +162,18 @@
 
     --breakpoint-hg: 1680px;
 
-    --color-darkblue-900: oklch(0.1 0.0444 277.41);
-    --color-darkblue-850: oklch(0.15 0.0258 276.15);
-    --color-darkblue-800: oklch(0.2 0.0258 276.15);
-    --color-darkblue-750: oklch(0.25 0.0444 277.41);
-    --color-darkblue-700: oklch(0.3 0.0444 277.41);
-    --color-darkblue-600: oklch(0.4 0.0444 277.41);
-    --color-darkblue-500: oklch(0.5 0.0444 277.41);
-    --color-darkblue-400: oklch(0.6 0.0444 277.41);
-    --color-darkblue-300: oklch(0.7 0.0444 277.41);
-    --color-darkblue-200: oklch(0.8 0.0444 277.41);
-    --color-darkblue-100: oklch(0.9 0.0444 277.41);
-    --color-darkblue-50: oklch(0.95 0.0444 277.41);
+    --color-dark-900: oklch(0.1 0.0444 277.41);
+    --color-dark-850: oklch(0.15 0.0258 276.15);
+    --color-dark-800: oklch(0.2 0.0258 276.15);
+    --color-dark-750: oklch(0.25 0.0444 277.41);
+    --color-dark-700: oklch(0.3 0.0444 277.41);
+    --color-dark-600: oklch(0.4 0.0444 277.41);
+    --color-dark-500: oklch(0.5 0.0444 277.41);
+    --color-dark-400: oklch(0.6 0.0444 277.41);
+    --color-dark-300: oklch(0.7 0.0444 277.41);
+    --color-dark-200: oklch(0.8 0.0444 277.41);
+    --color-dark-100: oklch(0.9 0.0444 277.41);
+    --color-dark-50: oklch(0.95 0.0444 277.41);
 
     --color-primary-50: oklch(0.95 0.1938 262.59);
     --color-primary-100: oklch(0.9 0.1938 262.59);
@@ -180,22 +186,52 @@
     --color-primary-800: oklch(0.2 0.1938 262.59);
     --color-primary-900: oklch(0.1 0.1938 262.59);
 
-    --color-primary2-50: oklch(0.95 0.2368 286.94);
-    --color-primary2-100: oklch(0.9 0.2368 286.94);
-    --color-primary2-200: oklch(0.8 0.2368 286.94);
-    --color-primary2-300: oklch(0.7 0.2368 286.94);
-    --color-primary2-400: oklch(0.6 0.2368 286.94);
-    --color-primary2-500: oklch(0.5 0.2368 286.94);
-    --color-primary2-600: oklch(0.4 0.2368 286.94);
-    --color-primary2-700: oklch(0.3 0.2368 286.94);
-    --color-primary2-800: oklch(0.2 0.2368 286.94);
-    --color-primary2-900: oklch(0.1 0.2368 286.94);
+    --color-primary3-50: oklch(1 0.1938 300.94);
+    --color-primary3-100: oklch(0.9 0.1938 300.94);
+    --color-primary3-200: oklch(0.8 0.1938 300.94);
+    --color-primary3-300: oklch(0.7 0.1938 300.94);
+    --color-primary3-400: oklch(0.6 0.1938 300.94);
+    --color-primary3-500: oklch(0.5 0.1938 300.94);
+    --color-primary3-600: oklch(0.4 0.1938 300.94);
+    --color-primary3-700: oklch(0.3 0.1938 300.94);
+    --color-primary3-800: oklch(0.2 0.1938 300.94);
+    --color-primary3-900: oklch(0.1 0.1938 300.94);
 }
 
 body {
     font-family: Geist Variable, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, Heiti SC, WenQuanYi Micro Hei, sans-serif;
     overflow-x: hidden;
     letter-spacing: 0.05em;
+}
+
+.afdian-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  mask: url('./assets/svgs/afdian.svg') no-repeat center / contain;
+  -webkit-mask: url('./assets/svgs/afdian.svg') no-repeat center / contain;
+  vertical-align: middle;
+}
+
+.cloudmusic-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  mask: url('./assets/svgs/neteasecloudmusic.svg') no-repeat center / contain;
+  -webkit-mask: url('./assets/svgs/neteasecloudmusic.svg') no-repeat center / contain;
+  vertical-align: middle;
+}
+
+.wakatime-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  mask: url('./assets/svgs/wakatime.svg') no-repeat center / contain;
+  -webkit-mask: url('./assets/svgs/wakatime.svg') no-repeat center / contain;
+  vertical-align: middle;
 }
 
 html {
@@ -210,13 +246,13 @@ html {
 
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-darkblue-700);
+  background-color: var(--color-dark-700);
   transition: all 0.2s;
   border-radius: 0;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-darkblue-700) #00000000;
+  scrollbar-color: var(--color-dark-700) #00000000;
 }
 

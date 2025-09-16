@@ -42,6 +42,14 @@
     </figure>
 </template>
 
+<style scoped>
+.color-on-hover {
+    position: relative;
+    border-radius: 15px;
+    /* overflow: hidden; */
+}
+</style>
+
 <script setup lang="ts">
 import { ref, computed, useTemplateRef } from 'vue';
 import { Motion } from 'motion-v';

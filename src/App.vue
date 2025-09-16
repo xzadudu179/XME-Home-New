@@ -4,6 +4,7 @@ import NavBlock from "./Templates/NavBlock.vue";
 import TargetCursor from "./Templates/Bit/TargetCursor.vue";
 import Loading from "./Templates/Loading.vue";
 import MobileNavBlock from "./Templates/MobileNavBlock.vue";
+import FadeContent from "./Templates/Bit/FadeContent.vue";
 import Footer from "@/Templates/Footer.vue";
 console.log(`
    ____________________________________________________________________________________________________
@@ -73,13 +74,13 @@ const beleft = () => {
   </div>
   <!-- Nav -->
   <div
-    class="nav-container w-[100vw] lg:w-[100vw] top-0 text-darkblue-100 hidden md:block fixed z-[1000] border-darkblue-500 pointer-events-none">
+    class="nav-container w-[100vw] lg:w-[100vw] top-0 text-dark-100 hidden md:block fixed z-[1000] border-dark-500 pointer-events-none">
     <NavBlock
-      :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Contact', href: '/contact' }, { text: 'Links', href: '/links' }]" />
+      :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Message', href: '/message' }, { text: 'Links', href: '/links' }]" />
   </div>
   <!-- Mobile Nav -->
   <div
-    class="overflow-hidden md:hidden text-darkblue-100 font-orbitron items-center text-2xl pl-4 pr-5 p-3 fixed bg-darkblue-900 border-b-2 w-full z-101 flex flex-row  justify-between">
+    class="overflow-hidden md:hidden text-dark-100 font-orbitron items-center text-2xl pl-4 pr-5 p-3 fixed bg-dark-900 border-b-2 w-full z-101 flex flex-row  justify-between">
     <p><i class="fa-regular fa-planet-ringed"></i> XME-HOME</p>
     <p><i class="fa-light fa-bars pr-3 transition-all relative top-[0.1em] active:text-primary-300" @click="beleft"></i>
     </p>
@@ -90,13 +91,17 @@ const beleft = () => {
     </div> -->
   </div>
   <div id="mobile-nav"
-    class="fixed w-[100vw] h-[100vh] overflow-hidden bg-darkblue-900 z-100 left-[100vw] mobile-nav-item md:hidden">
+    class="fixed w-[100vw] h-[100vh] overflow-hidden bg-dark-900 z-100 left-[100vw] mobile-nav-item md:hidden">
     <MobileNavBlock
-      :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Contact', href: '/contact' }, { text: 'Links', href: '/links' }]" />
-    <p class="text-darkblue-200 font-orbitron absolute bottom-0 w-full p-5 pb-3 text-center pointer-events-none">
+      :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Message', href: '/message' }, { text: 'Links', href: '/links' }]" />
+    <p class="text-dark-200 font-orbitron absolute bottom-0 w-full p-5 pb-3 text-center pointer-events-none">
       CREATING,
       DESIGNING
     </p>
+  </div>
+  <!-- 关于一个黑乎乎的效果 -->
+  <div class="pointer-events-none black-gradient">
+
   </div>
   <!-- Main -->
   <div class="overflow-hidden hide-scrollbar">
@@ -125,7 +130,18 @@ const beleft = () => {
 }
 
 .nav-container {
-  background: linear-gradient(to top, #0000, #080A16bb);
+  background: linear-gradient(to top, #0000, #080a16cc);
+}
+
+.black-gradient {
+
+  height: 80px;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  z-index: 100;
+  background: linear-gradient(to bottom, #0000, #080a16dd);
+  /* background: red; */
 }
 
 .rl {

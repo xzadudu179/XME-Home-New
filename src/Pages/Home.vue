@@ -23,16 +23,16 @@ const scrollDown = () => {
 
 <template>
     <div class="particles-container">
-        <Particles :particle-count="200" :particle-spread="13" :speed="0.2" :particle-colors="['#97DAFF', '#FFFFFF']"
+        <Particles :particle-count="200" :particle-spread="13" :speed="0.2" :particle-colors="['#97DAFF', '#E7ECFF']"
             :move-particles-on-hover="false" :particle-hover-factor="0.5" :alpha-particles="true"
             :particle-base-size="100" :size-randomness="1" :camera-distance="20" :disable-rotation="true"
             class="w-full h-full" />
     </div>
-    <div class="text-darkblue-50 hide-scrollbar">
+    <div class="text-dark-50 hide-scrollbar main">
         <div class="w-full h-[100vh] font-electrolize pb-[100px] md:text-2xl" id="first-header">
             <div class="flex-col flex justify-center content-center items-center h-full select-none">
                 <AnimatedContent :distance="100" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
-                    :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.7">
+                    :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.5">
                     <p><span class="inline-hovertrans">CREATING</span> <i
                             class="fa-light fa-sparkles inline-hovertrans"></i> <span
                             class="text-primary-200 inline-hovertrans">DREAMS</span><span
@@ -40,7 +40,7 @@ const scrollDown = () => {
                     </p>
                 </AnimatedContent>
                 <AnimatedContent :distance="100" direction="vertical" :reverse="false" :duration="1.5" ease="power3.out"
-                    :initial-opacity="0" :animate-opacity="true" :scale="1.2" :threshold="0.1" :delay="1.1">
+                    :initial-opacity="0" :animate-opacity="true" :scale="1.2" :threshold="0.1" :delay="0.9">
                     <p><span class="inline-hovertrans">ACROSS</span> <span class="inline-hovertrans">THE</span> <span
                             class="text-primary-200 inline-hovertrans">W<i
                                 class="fa-light fa-earth-asia text-[0.8em] relative bottom-[0.05em]"></i>RLD</span>
@@ -50,7 +50,7 @@ const scrollDown = () => {
             <FadeContent :blur="true" :duration="1000" :delay="200" :threshold="0.1" :initial-opacity="0"
                 easing="ease-out">
                 <div class="w-full text-center h-0">
-                    <i class="fa-fade fa-regular fa-chevron-down active:text-darkblue-300 hover:text-darkblue-50 transition-all text-[50px] relative bottom-[5vh] cursor-target text-darkblue-400"
+                    <i class="fa-fade fa-regular fa-chevron-down active:text-dark-300 hover:text-dark-50 transition-all text-[50px] relative bottom-[5vh] cursor-target text-dark-400"
                         style="--fa-animation-duration: 1.5s; --fa-fade-opacity: 0.2;" @click="scrollDown"></i>
                 </div>
             </FadeContent>
@@ -58,7 +58,7 @@ const scrollDown = () => {
         <div class="mt-40">
             <ScrollVelocity :texts="['CREATING // DESIGNING', 'EXPLORING \\\\ DISCOVERING']" :velocity="100"
                 :damping="50" :stiffness="400" :velocity-mapping="{ input: [0, 1000], output: [0, 5] }"
-                class-name="font-electrolize text-[4rem] font-light lg:text-[8rem]/40 select-none text-darkblue-200"
+                class-name="font-electrolize text-[4rem] font-light lg:text-[8rem]/40 select-none text-dark-200"
                 parallax-class-name="custom-parallax" scroller-class-name="custom-scroller" />
         </div>
         <div class="font-electrolize">
@@ -129,11 +129,11 @@ const scrollDown = () => {
         <div class="mt-60">
             <ScrollVelocity :texts="['PROJECTS //', '\\\\ PROJECTS']" :velocity="100" :damping="50" :stiffness="400"
                 :velocity-mapping="{ input: [0, 1000], output: [0, 5] }"
-                class-name="font-electrolize font-light text-[4rem] lg:text-[8rem]/40 select-none text-darkblue-200"
+                class-name="font-electrolize font-light text-[4rem] lg:text-[8rem]/40 select-none text-dark-200"
                 parallax-class-name="custom-parallax" scroller-class-name="custom-scroller" />
         </div>
-        <!-- <hr class="border-b-2 border-darkblue-300"> -->
-        <div class="text-5xl projects font-orbitron text-darkblue-200 text-center pt-[10rem]">
+        <!-- <hr class="border-b-2 border-dark-300"> -->
+        <div class="text-5xl projects font-orbitron text-dark-200 text-center pt-[10rem]">
             <!-- <h2 class="mt-50 text-4xl md:text-8xl">/ WORK IN PROCESS /</h2>
             <h2 class="pt-5">...页面制作中...</h2> -->
             <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="https://image.179.life/images/deon_avatar.jpg"
@@ -161,16 +161,20 @@ const scrollDown = () => {
         <div class="mt-[10rem]">
             <ScrollVelocity :texts="[' CONNECTION //', '\\\\ CONNECTION ']" :velocity="100" :damping="50"
                 :stiffness="400" :velocity-mapping="{ input: [0, 1000], output: [0, 5] }"
-                class-name="font-electrolize font-light text-[4rem] lg:text-[8rem]/40 select-none text-darkblue-200"
+                class-name="font-electrolize font-light text-[4rem] lg:text-[8rem]/40 select-none text-dark-200"
                 parallax-class-name="custom-parallax" scroller-class-name="custom-scroller" />
         </div>
 
         <div class="max-w-[1280px] w-full m-auto mt-60 font-orbitron select-none">
-            <h1 class="subtitle font-electrolize hovertrans">- CONT<i
-                    class="fa-light fa-paper-plane text-[0.85em] relative bottom-[0.05em] pr-[0.03em]"></i>CT -
-            </h1>
-            <p></p>
+            <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
+                :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.1">
+                <h1 class="subtitle font-electrolize hovertrans">- CONT<i
+                        class="fa-light fa-paper-plane text-[0.85em] relative bottom-[0.05em] pr-[0.03em]"></i>CT -
+                </h1>
+            </AnimatedContent>
+            <!-- <p></p> -->
             <!-- <p class="text-[2em] text-center">Feel free to reach me out for collaborations or commissions!</p> -->
+
             <div class="flex flex-col md:w-full contact-container m-auto justify-center lg:flex-row lg:justify-evenly">
                 <div class="flex justify-around lg:justify-between self-center mb-8 ">
                     <div class="flex flex-col items-center">
@@ -188,24 +192,42 @@ const scrollDown = () => {
 
                 </div>
                 <div
-                    class="w-0 h-[18em] border-r-2 border-darkblue-200 hidden lg:flex place-self-center mb-4 relative right-[4px]">
+                    class="w-0 h-[18em] border-r-2 border-dark-200 hidden lg:flex place-self-center mb-4 relative right-[4px]">
                 </div>
+
                 <div
                     class="other-contact justify-around self-center pl-5 pr-5 lg:justify-center flex-row-reverse lg:flex-row text-[2.5rem] font-light flex text-center md:text-left mb-5 p-5 lg:pr-0 lg:pl-0">
                     <div class="text-contact-container flex flex-col justify-center text-left">
-                        <p><a href="mailto:terra179@163.com" class="hovertrans cursor-target email"><i
-                                    class="fa-light fa-envelope pr-[0.3em] email-icon"></i>Email
-                            </a></p>
-                        <p><a target="_blank" href="https://github.com/xzadudu179"
-                                class=" inline-hovertrans cursor-target"><i
-                                    class="fa-brands fa-github pr-[0.3em]"></i>Github</a></p>
-                        <p><a target="_blank" href="https://x.com/xzadudu179" class="inline-hovertrans cursor-target"><i
-                                    class="fa-brands fa-x-twitter pr-[0.2em]"></i>Twitter</a>
-                        </p>
-                        <p><a target="_blank" href="https://space.bilibili.com/70738350"
-                                class="inline-hovertrans cursor-target"><i
-                                    class="fa-brands fa-bilibili pr-[0.3em]"></i>Bilibili</a>
-                        </p>
+                        <AnimatedContent :distance="30" direction="vertical" :reverse="false" :duration="1.1"
+                            ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1"
+                            :delay="0.1">
+                            <p><a href="mailto:terra179@163.com" class="hovertrans cursor-target email"><i
+                                        class="fa-light fa-envelope pr-[0.3em] email-icon"></i>Email
+                                </a></p>
+                        </AnimatedContent>
+                        <AnimatedContent :distance="30" direction="vertical" :reverse="false" :duration="1.1"
+                            ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1"
+                            :delay="0.2">
+                            <p><a target="_blank" href="https://github.com/xzadudu179"
+                                    class=" inline-hovertrans cursor-target"><i
+                                        class="fa-brands fa-github pr-[0.3em]"></i>Github</a></p>
+                        </AnimatedContent>
+                        <AnimatedContent :distance="30" direction="vertical" :reverse="false" :duration="1.1"
+                            ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1"
+                            :delay="0.3">
+                            <p><a target="_blank" href="https://x.com/xzadudu179"
+                                    class="inline-hovertrans cursor-target"><i
+                                        class="fa-brands fa-x-twitter pr-[0.2em]"></i>Twitter</a>
+                            </p>
+                        </AnimatedContent>
+                        <AnimatedContent :distance="30" direction="vertical" :reverse="false" :duration="1.1"
+                            ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1"
+                            :delay="0.4">
+                            <p><a target="_blank" href="https://space.bilibili.com/70738350"
+                                    class="inline-hovertrans cursor-target"><i
+                                        class="fa-brands fa-bilibili pr-[0.3em]"></i>Bilibili</a>
+                            </p>
+                        </AnimatedContent>
                     </div>
                     <div class="overlay icon lg:ml-5 lg:mr-5 flex place-self-center">
                         <img src="https://image.179.life/images/xzadudu179-line.webp" class="max-w-[200px]" alt="">
@@ -218,6 +240,10 @@ const scrollDown = () => {
 </template>
 
 <style scoped>
+.main {
+    overflow-x: hidden;
+}
+
 #first-header {
     /* padding: 0 10px; */
     /* font-size: 5.5vh; */
@@ -331,7 +357,7 @@ const scrollDown = () => {
     z-index: 1;
     position: absolute;
     inset: 0;
-    background: var(--color-darkblue-100);
+    background: var(--color-dark-100);
     mix-blend-mode: multiply;
 }
 

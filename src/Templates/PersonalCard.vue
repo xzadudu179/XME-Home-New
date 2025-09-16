@@ -5,7 +5,7 @@ import Tilted from './Tilted.vue';
 </script>
 
 <template>
-    <Tilted width="800px" height="452.38px" :rotateAmplitude="4" card-class="card_tilt" :scale="true">
+    <Tilted width="800px" height="452.38px" :rotateAmplitude="2" card-class="card_tilt" :scale="true">
         <div class="card">
             <div class="avatar"></div>
             <div class="infos">
@@ -39,12 +39,12 @@ import Tilted from './Tilted.vue';
                     </div>
                 </InfoItem>
                 <a class="hovertrans bloglink cursor-target cursor-none cursor-change-color text-primary-200"
-                    href="https://blog.xzadudu179.top">
-                    <IconNav name="个人博客" icon-class="fa-regular fa-planet-ringed"></IconNav>
+                    @click="$router.push('about')">
+                    <IconNav name="Learn more" icon-class="fa-regular fa-star"></IconNav>
                 </a>
             </div>
-            <a class="blogbtn cursor-target cursor-none cursor-change-color" href="https://blog.xzadudu179.top">
-                <IconNav name="个人博客" icon-class="fa-regular fa-planet-ringed"></IconNav>
+            <a class="blogbtn cursor-target cursor-none cursor-change-color" @click="$router.push('about')">
+                <IconNav name="Learn more" icon-class="fa-regular fa-star"></IconNav>
             </a>
         </div>
     </Tilted>

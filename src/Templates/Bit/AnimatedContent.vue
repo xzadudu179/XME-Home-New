@@ -17,6 +17,7 @@ interface AnimatedContentProps {
     threshold?: number;
     delay?: number;
     className?: string;
+    alwaysPlay?: boolean;
 }
 
 const props = withDefaults(defineProps<AnimatedContentProps>(), {
@@ -30,7 +31,8 @@ const props = withDefaults(defineProps<AnimatedContentProps>(), {
     scale: 1,
     threshold: 0.1,
     delay: 0,
-    className: ''
+    className: '',
+    alwaysPlay: false
 });
 
 const emit = defineEmits<{
@@ -61,12 +63,16 @@ onMounted(() => {
         ease: props.ease,
         delay: props.delay,
         onComplete: () => emit('complete'),
-        scrollTrigger: {
-            trigger: el,
-            start: `top ${startPct}%`,
-            toggleActions: 'play none none none',
-            once: true
-        }
+        ...(props.alwaysPlay
+            ? {} // 不使用 ScrollTrigger，直接播放
+            : {
+                scrollTrigger: {
+                    trigger: el,
+                    start: `top ${startPct}%`,
+                    toggleActions: 'play none none none',
+                    once: true
+                }
+            })
     });
 });
 

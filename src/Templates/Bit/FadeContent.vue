@@ -19,6 +19,7 @@ interface Props {
     threshold?: number;
     initialOpacity?: number;
     className?: string;
+    alwaysPlay?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -28,7 +29,8 @@ const props = withDefaults(defineProps<Props>(), {
     delay: 0,
     threshold: 0.1,
     initialOpacity: 0,
-    className: ''
+    className: '',
+    alwaysPlay: false
 });
 
 const inView = ref(false);
@@ -38,20 +40,24 @@ let observer: IntersectionObserver | null = null;
 onMounted(() => {
     const element = elementRef.value;
     if (!element) return;
-
-    observer = new IntersectionObserver(
-        ([entry]) => {
-            if (entry.isIntersecting) {
-                observer?.unobserve(element);
-                setTimeout(() => {
-                    inView.value = true;
-                }, props.delay);
-            }
-        },
-        { threshold: props.threshold }
-    );
-
-    observer.observe(element);
+    if (props.alwaysPlay) {
+        setTimeout(() => {
+            inView.value = true;
+        }, props.delay);
+    } else {
+        observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    observer?.unobserve(element);
+                    setTimeout(() => {
+                        inView.value = true;
+                    }, props.delay);
+                }
+            },
+            { threshold: props.threshold }
+        );
+        observer.observe(element);
+    }
 });
 
 onUnmounted(() => {
