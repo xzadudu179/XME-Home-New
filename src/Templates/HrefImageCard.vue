@@ -13,7 +13,7 @@
                     </p>
                 </div>
                 <div
-                    class="overlay-content hoverlight hover:text-primary-200 shadow-2xs rounded-xl text-[0.9rem] p-2 absolute top-56 left-45 cursor-target cursor-none">
+                    class="overlay-content hoverlight hover:text-primary-200 active:text-primary-200 shadow-2xs rounded-xl text-[0.9rem] p-2 absolute top-56 left-45 cursor-target cursor-none">
                     <a :href="props.href" class="cursor-none">visit &gt;&gt;</a>
                 </div>
             </template>
