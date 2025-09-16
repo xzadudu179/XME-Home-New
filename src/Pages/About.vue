@@ -237,7 +237,8 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                     <p class="indent-[1em]"><span class="hoverlight">平时忽然有灵感的话，或许会写一首曲子玩玩。</span>
                     </p>
                 </AnimatedContent>
-                <div class="flex flex-row hg:justify-around justify-start m-auto flex-wrap mb-8">
+                <div
+                    class="flex flex-col md:flex-row hg:justify-around justify-center md:justify-start m-auto flex-wrap mb-8">
                     <HrefImageCard name="Fly To Meteor"
                         image="http://p1.music.126.net/LeRG99_-Zrsn-upcejLfQQ==/109951169357449275.jpg?param=350y350"
                         href="https://music.163.com/#/song?id=2128847493&uct2=U2FsdGVkX19wV9mfkm5EIPy9qgdf2bfS6fOeQrLyDMw="
