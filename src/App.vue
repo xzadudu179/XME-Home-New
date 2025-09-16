@@ -98,9 +98,11 @@ const beleft = () => {
     </p>
   </div>
   <!-- 关于一个黑乎乎的效果 -->
-  <div class="pointer-events-none black-gradient">
+  <!-- <div class="pointer-events-none h-[100vh] w-[100vw] overflow-y-auto fixed">
+    <div class="pointer-events-none black-gradient">
 
-  </div>
+    </div>
+  </div> -->
   <!-- Main -->
   <div class="overflow-hidden hide-scrollbar">
     <router-view class=""></router-view>
@@ -153,14 +155,13 @@ const beleft = () => {
   left: 0 !important
 }
 
-.cursor,
-{
-@media (pointer: coarse) {
-  display: none;
-}
+.cursor {
+  @media (pointer: coarse) {
+    display: none;
+  }
 
-@media (pointer: fine) {
-  display: block;
-}
+  @media (pointer: fine) {
+    display: block;
+  }
 }
 </style>
