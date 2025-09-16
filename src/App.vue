@@ -135,7 +135,7 @@ const beleft = () => {
 
   height: 80px;
   width: 100%;
-  bottom: env(safe-area-inset-bottom);
+  bottom: 0;
   position: sticky;
   z-index: 100;
   background: linear-gradient(to bottom, #0000, #080a16dd);
