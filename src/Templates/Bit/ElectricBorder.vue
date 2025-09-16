@@ -167,25 +167,25 @@ const bgGlowStyle = computed<CSSProperties>(() => ({
             <defs>
                 <filter :id="filterId" color-interpolation-filters="sRGB" x="-200%" y="-200%" width="500%"
                     height="500%">
-                    <feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="8" result="noise1" seed="1" />
+                    <feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="4" result="noise1" seed="1" />
                     <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
                         <animate attributeName="dy" values="500; 0" dur="6s" repeatCount="indefinite"
                             calcMode="linear" />
                     </feOffset>
 
-                    <feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="8" result="noise2" seed="3" />
+                    <feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="4" result="noise2" seed="3" />
                     <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
                         <animate attributeName="dy" values="0; -500" dur="6s" repeatCount="indefinite"
                             calcMode="linear" />
                     </feOffset>
 
-                    <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="6" result="noise3" seed="5" />
+                    <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="2" result="noise3" seed="5" />
                     <feOffset in="noise3" dx="0" dy="0" result="offsetNoise3">
                         <animate attributeName="dx" values="500; 0" dur="6s" repeatCount="indefinite"
                             calcMode="linear" />
                     </feOffset>
 
-                    <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="6" result="noise4" seed="7" />
+                    <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="2" result="noise4" seed="7" />
                     <feOffset in="noise4" dx="0" dy="0" result="offsetNoise4">
                         <animate attributeName="dx" values="0; -500" dur="6s" repeatCount="indefinite"
                             calcMode="linear" />

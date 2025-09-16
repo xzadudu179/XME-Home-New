@@ -42,8 +42,6 @@ watch(
 onBeforeUnmount(() => {
 })
 
-
-
 const switchClass = (id: string, className: string) => {
   const el = document.getElementById(id)
   if (el?.classList.contains(className)) {

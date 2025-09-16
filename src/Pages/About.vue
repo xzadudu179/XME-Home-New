@@ -69,6 +69,8 @@ const techLogos = [
     },
 ];
 
+
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 console.log("Hello, World.")
 console.log("Welcome :)")
 const type_texts = ['Console.WriteLine("Hello, World.");', 'printf("Hello, World.");', 'print("Hello, World.")', 'console.log("Hello, World.");']
@@ -82,10 +84,13 @@ const type_texts = ['Console.WriteLine("Hello, World.");', 'printf("Hello, World
                     <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1"
                         ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.05" :threshold="0"
                         :always-play="true" :delay="0.4">
-                        <ElectricBorder :color="'#4CD0F1'" :speed="1" :chaos="0.3" :thickness="3"
+                        <ElectricBorder v-if="!isSafari" :color="'#4CD0F1'" :speed="1" :chaos="0.3" :thickness="3"
                             :style="{ borderRadius: '25px' }"
                             class="m-auto md:m-0 max-h-[250px] max-w-[250px] md:max-h-[300px] md:max-w-[300px] h-[90vw] w-[90vw] avatar hovertrans">
                         </ElectricBorder>
+                        <div v-else
+                            class="m-auto md:m-0 max-h-[250px] max-w-[250px] md:max-h-[300px] md:max-w-[300px] h-[90vw] w-[90vw] avatar hovertrans rounded-[25px] border-avatar">
+                        </div>
                     </AnimatedContent>
                     <div class="text-2xl md:ml-10 flex flex-col self-center mt-5 md:mt-0">
                         <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1"
@@ -232,7 +237,7 @@ const type_texts = ['Console.WriteLine("Hello, World.");', 'printf("Hello, World
                     <p class="indent-[1em]"><span class="hoverlight">平时忽然有灵感的话，或许会写一首曲子玩玩。</span>
                     </p>
                 </AnimatedContent>
-                <div class="flex flex-row hg:justify-around justify-evenly flex-wrap mb-8">
+                <div class="flex flex-row hg:justify-around justify-start m-auto flex-wrap mb-8">
                     <HrefImageCard name="Fly To Meteor"
                         image="http://p1.music.126.net/LeRG99_-Zrsn-upcejLfQQ==/109951169357449275.jpg?param=350y350"
                         href="https://music.163.com/#/song?id=2128847493&uct2=U2FsdGVkX19wV9mfkm5EIPy9qgdf2bfS6fOeQrLyDMw="
@@ -312,6 +317,11 @@ const type_texts = ['Console.WriteLine("Hello, World.");', 'printf("Hello, World
 </template>
 
 <style scoped>
+.border-avatar {
+    border: 0.2rem solid #4CD0F1;
+    box-shadow: 0 0 10px #4CD0F1;
+}
+
 .avatar {
     background-image: url(https://image.179.life/images/avatar-big.webp);
     background-size: contain;
