@@ -73,7 +73,7 @@ const techLogos = [
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 console.log("Hello, World.")
 console.log("Welcome :)")
-const type_texts = ['Console.WriteLine("Hello, World.");', 'printf("Hello, World.");', 'print("Hello, World.")', 'console.log("Hello, World.");']
+const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'console.log("Hello, World.");']
 </script>
 
 <template>
@@ -162,7 +162,7 @@ const type_texts = ['Console.WriteLine("Hello, World.");', 'printf("Hello, World
                 :initial-opacity="0" :animate-opacity="true" :scale="1.05" :threshold="0" :always-play="true"
                 :delay="0.6">
                 <p
-                    class="font-normal font-firacode text-xl md:text-2xl mb-5 select-none text-primary-200 text-center md:text-left">
+                    class="font-normal font-firacode text-lg md:text-2xl mb-5 select-none text-primary-200 text-center md:text-left">
                     <span class="inline-block mr-1">&gt;</span>
                     <TextType :text="type_texts" :typingSpeed="100" :pauseDuration="2000" :showCursor="true"
                         cursorCharacter="_" :textColors="['#78B9FF']" class="" />
