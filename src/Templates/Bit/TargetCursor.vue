@@ -12,7 +12,7 @@ interface TargetCursorProps {
 const cursorColor = ref('white')
 
 const props = withDefaults(defineProps<TargetCursorProps>(), {
-    targetSelector: '.cursor-target',
+    targetSelector: '.cursor-target, a, button',
     resetSelector: '.reset-cursor-target',
     spinDuration: 2,
     hideDefaultCursor: true

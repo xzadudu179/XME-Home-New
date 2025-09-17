@@ -2,22 +2,22 @@
     <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
         :initial-opacity="0" :animate-opacity="true" :scale="1.05" :threshold="0.1" :always-play="false" :delay="0.2">
         <form @submit.prevent="sendEmail"
-            class="p-5 border-4 rounded-3xl border-dark-400 md:text-xl text-[0.8rem] form">
+            class="translucent p-5 md:pl-10 md:pr-10 border-t-4 border-b-4 md:border-t-0 md:border-b-0 md:border-l-4 md:border-r-4 rounded-3xl border-dark-400 md:text-xl text-[0.8rem] form">
             <p class="text-xl md:text-5xl m-2 md:m-5 mt-0 ml-2 text-dark-200"><span class="inline-hovertrans">Get in
                     Touch <i class="fa-light fa-message-dots"></i></span></p>
             <p class="ml-3 mb-5 text-dark-400 font-normal">Say hello, ask questions, collaborations, or share your
                 thoughts!</p>
             <div class="content">
                 <input v-model="form.name" name="user_name" placeholder="你的称呼 | Name*" required
-                    class="block border-2 p-2 pl-5 rounded-2xl border-dark-700 mb-5 w-full" />
+                    class="block border-l-2 border-r-2 p-2 pl-5 rounded-xl rounded-b-none border-dark-700 mb-5 w-full" />
                 <input v-model="form.email" name="user_email" type="email" placeholder="你的邮箱 | Email*" required
-                    class="block border-2 p-2 pl-5 rounded-2xl border-dark-700 mb-5 w-full" />
+                    class="block border-l-2 border-r-2 p-2 pl-5 border-dark-700 mb-5 w-full" />
                 <input v-model="form.subject" name="subject" type="text" placeholder="邮件主题 | Subject"
                     autocomplete="new-subject" required="false"
-                    class="block border-2 p-2 pl-5 rounded-2xl border-dark-700 mb-5 w-full" />
+                    class="block border-l-2 border-r-2 p-2 pl-5 border-dark-700 mb-5 w-full" />
                 <div class="textarea-wrap w-full">
                     <textarea v-model="form.message" name="message" placeholder="邮件内容 - Content*" required
-                        class="block border-2 p-2 pl-5 rounded-2xl border-dark-700 mb-5 w-full h-[300px]"></textarea>
+                        class="block border-l-2 border-r-2 p-2 pl-5 rounded-xl rounded-t-none border-dark-700 mb-5 w-full h-[300px]"></textarea>
                     <!-- <span class="resizer"><i class="fa-regular fa-arrow-down-right"></i></span> -->
                 </div>
                 <div class="flex flex-col-reverse md:flex-row-reverse items-center">
@@ -75,6 +75,7 @@ function sendEmail() {
     const service_id = import.meta.env.VITE_EMAILJS_SERVICE_ID
     const template_id = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
     const public_key = import.meta.env.VITE_EMAILJS_USER_ID
+    console.log(service_id, template_id, public_key)
     submitIcon!.className = "fa-light fa-loader fa-spin"
     emailjs.send(
         service_id,
@@ -125,12 +126,27 @@ textarea {
     cursor: none;
 }
 
+.form:has(input:not(:placeholder-shown)) {
+    border-color: var(--color-dark-200);
+}
+
+input:not(:placeholder-shown),
+textarea:not(:placeholder-shown) {
+    border-color: var(--color-primary-200);
+}
+
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
     box-shadow: 0 0 0px 1000px transparent inset;
     -webkit-text-fill-color: var(--color-dark-50);
     transition: background-color 5000s ease-in-out 0s;
+}
+
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+    color: var(--color-dark-500);
 }
 
 .textarea-wrap {

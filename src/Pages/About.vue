@@ -12,6 +12,7 @@ import { onMounted } from 'vue';
 import type { ComputedRef } from "vue";
 import { inject } from 'vue'
 import { easeOut } from "motion-v";
+import Comment from '@/Templates/Comment.vue';
 import { useRoute } from 'vue-router';
 import HrefImageCard from '@/Templates/HrefImageCard.vue';
 // import LoadingImg from '@/Templates/LoadingImg.vue';
@@ -247,7 +248,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                     </p>
                 </AnimatedContent>
                 <div
-                    class="flex flex-col md:flex-row hg:justify-around justify-center md:justify-start m-auto flex-wrap mb-8">
+                    class="flex flex-col md:flex-row hg:justify-around justify-center md:justify-start m-auto flex-wrap mb-10">
                     <HrefImageCard name="Fly To Meteor"
                         image="http://p1.music.126.net/LeRG99_-Zrsn-upcejLfQQ==/109951169357449275.jpg?param=350y350"
                         href="https://music.163.com/#/song?id=2128847493&uct2=U2FsdGVkX19wV9mfkm5EIPy9qgdf2bfS6fOeQrLyDMw="
@@ -321,6 +322,44 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                     </div>
                 </a>
             </AnimatedContent> -->
+            <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
+                :initial-opacity="0" :animate-opacity="true" :scale="1" :threshold="0" :always-play="false"
+                :delay="0.2">
+                <p class="mb-10 mt-20 font-light"><span class="inline-hovertrans"># LEAVE A MESSAGE <i
+                            class="fa-regular fa-message-lines text-[0.9em] relative"></i></span></p>
+            </AnimatedContent>
+            <div
+                class="text-left text-lg md:text-xl translucent text-dark-100 main-content font-normal mb-20 tracking-[0.09em]pt-[0.12em] pb-4 pl-[1em]">
+                <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
+                    :initial-opacity="0" :animate-opacity="true" :scale="1" :threshold="0" :always-play="false"
+                    :delay="0.2">
+                    <p><span class="hoverlight text-primary-200 text-sm md:text-lg">// 欢迎来到我的留言板！</span></p>
+                </AnimatedContent>
+                <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
+                    :initial-opacity="0" :animate-opacity="true" :scale="1" :threshold="0" :always-play="false"
+                    :delay="0.3">
+                    <p class="font-normal"><span class="hoverlight">Welcome To My Message Board</span>
+                    </p>
+                </AnimatedContent>
+                <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
+                    :initial-opacity="0" :animate-opacity="true" :scale="1" :threshold="0" :always-play="false"
+                    :delay="0.4">
+                    <p><span class="hoverlight text-primary-200 text-sm md:text-lg">// 有什么想说的，或是留言、问候，都可以在这里说说哦！</span>
+                    </p>
+                </AnimatedContent>
+                <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
+                    :initial-opacity="0" :animate-opacity="true" :scale="1" :threshold="0" :always-play="false"
+                    :delay="0.5">
+                    <p class="font-normal"><span class="hoverlight">Feel free to share anything you’d like to say,
+                            whether
+                            it’s a message, a
+                            greeting, or just some thoughts!</span></p>
+                </AnimatedContent>
+            </div>
+            <FadeContent :blur="true" :duration="1000" :delay="100" :threshold="0" :always-play="false"
+                :initial-opacity="0" easing="ease-out">
+                <Comment></Comment>
+            </FadeContent>
         </div>
     </div>
     <Footer margin-top="5vh"></Footer>

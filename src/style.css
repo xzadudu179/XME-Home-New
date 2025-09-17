@@ -112,6 +112,10 @@
   display: inline-block;
 }
 
+* {
+    cursor: none !important;
+}
+
 .hoverlight {
   transition: text-shadow 0.3s;
 }
@@ -144,11 +148,16 @@
   pointer-events: none;
 }
 
+
 .color-on-hover:hover::after {
   background: none;
   backdrop-filter: none;
 }
 
+.translucent {
+  background: #080A1655;
+  backdrop-filter: blur(5px);
+}
 
 .color-on-hover:hover {
   /* filter: grayscale(0); */
@@ -233,6 +242,10 @@ body {
   mask: url('./assets/svgs/wakatime.svg') no-repeat center / contain;
   -webkit-mask: url('./assets/svgs/wakatime.svg') no-repeat center / contain;
   vertical-align: middle;
+}
+
+input, textarea {
+  caret-color: var(--color-primary-200);
 }
 
 html {

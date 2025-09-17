@@ -1,15 +1,304 @@
 <template>
-    <Waline :serverURL="serverURL" :path="path" />
+    <Waline :serverURL="serverURL" :path="path" lang="en" :emoji="['https://image.179.life/deon-emoji']"
+        :wordLimit="500" class="waline font-normal" :locale="{
+            placeholder: 'Message here...'
+        }" />
 </template>
-<script setup>
+<script setup lang="ts">
 import { Waline } from '@waline/client/component';
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 import '@waline/client/style';
 
-const serverURL = 'https://waline.vercel.app';
+const serverURL = 'https://comment.xzadudu179.top/';
 const path = computed(() => useRoute().path);
+
+function addCursorClass(els: NodeListOf<Element>) {
+    for (let index = 0; index < els.length; index++) {
+        const element = els[index];
+        element.classList.add("cursor-target")
+    }
+}
+onMounted(() => {
+    const classNames = ['wl-action', 'wl-btn', 'wl-login-nick', 'wl-logout-btn', 'wl-nick'];
+    const selector = classNames.map(name => `.${name}`).join(', ');
+    const actions = document.querySelectorAll(selector + ", .wl-sort li")
+    addCursorClass(actions)
+    const gif = document.querySelector('[title="GIF"]');
+    if (gif) gif.remove();
+    const gifPopup = document.querySelector('.wl-gif-popup');
+    if (gifPopup) gifPopup.remove();
+    // const wrappers = document.querySelectorAll('.wl-tab-wrapper, .wl-gallery')
+})
+
+
+
 </script>
 
-<style></style>
+<style>
+.waline {
+    transition: all 0.3s;
+}
+
+.wl-emoji-popup button {
+    max-width: 3.5em !important;
+    width: 5em !important;
+    max-height: 3.5em !important;
+}
+
+.wl-emoji {
+    max-width: 3em !important;
+    width: 6em !important;
+    height: inherit !important;
+    max-height: 3em !important;
+}
+
+.wl-badge {
+    display: none !important;
+}
+
+.wl-editor {
+    resize: none;
+}
+
+
+.wl-panel:has(textarea:focus) {
+    border-color: var(--color-primary-200);
+}
+
+.wl-panel {
+    padding-left: 20px;
+    padding-right: 15px;
+    border: 2px solid var(--color-dark-500);
+    background: #080A1655;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s;
+    border-top: none;
+    border-bottom: none;
+}
+
+.wl-quote {
+    border-left: 2px dashed !important;
+    border-color: var(--color-dark-600) !important;
+}
+
+.wl-avatar {
+    margin-right: 14px;
+}
+
+.wl-panel * {
+    background: transparent !important;
+}
+
+.wl-preview * {
+    font-weight: normal !important;
+}
+
+button.primary {
+    background-color: transparent !important;
+    border: 2px solid;
+    color: var(--waline-theme-color) !important;
+}
+
+button.primary:hover,
+button.primary:active {
+    color: var(--waline-active-color) !important;
+}
+
+.wl-delete svg path {
+    fill: rgb(255, 99, 125) !important;
+}
+
+.wl-card {
+    border: none;
+}
+
+.wl-user-avatar,
+.wl-login-nick img {
+    user-select: none;
+    border-radius: 15px !important;
+    border: 2px solid var(--color-primary-100) !important;
+}
+
+.wl-emoji-popup {
+    border: 2px solid var(--color-dark-500);
+    background: #080A1655 !important;
+    backdrop-filter: blur(5px) !important;
+    z-index: 10;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.wl-meta-head {
+    margin-bottom: 1em;
+    margin-top: 1.5em;
+}
+
+.wl-gif-popup {
+    background: #080A1655;
+    backdrop-filter: blur(5px);
+}
+
+.wl-card-item {
+    /* z-index: 5; */
+    /* background: #080A1655; */
+    /* backdrop-filter: blur(5px); */
+    /* border: 2px solid var(--color-dark-500); */
+    /* padding-top: 20px; */
+    /* padding-bottom: 20px; */
+    /* margin-bottom: 1.4em; */
+    border-top: 0;
+    border-bottom: 0;
+    border-radius: 20px;
+}
+
+@media (width <=48rem) {
+    .wl-comment {
+        flex-direction: column;
+    }
+
+    .wl-panel {
+        margin: auto;
+    }
+
+    .wl-login-info {
+        display: flex;
+        /* width: 100%; */
+        margin: auto;
+        /* justify-items: center; */
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: larger;
+        max-width: 100%;
+    }
+
+    button.primary {
+        padding: 5px;
+        width: min(7em, 100px) !important;
+        width: auto;
+        font-size: min(5vw, 1em);
+    }
+
+    .wl-count {
+        font-size: min(5vw, 1em);
+    }
+
+    .wl-time {
+        font-size: 0.7rem !important;
+    }
+
+    .wl-power {
+        font-size: 0.7rem;
+    }
+
+    .wl-sort {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        font-size: 1.2rem;
+    }
+
+    .wl-avatar {
+        margin: 0;
+        margin-right: 10px;
+    }
+}
+
+@media (width < 580px) {
+    .wl-footer {
+        flex-direction: column;
+    }
+
+    .wl-panel {
+        width: 90%;
+    }
+
+    .wl-text-number {
+        font-size: 0.7em !important;
+    }
+}
+
+
+:root {
+    /* 字体大小 */
+    --waline-font-size: 1.2rem;
+
+    /* 常规颜色 */
+    --waline-white: var(--color-dark-50);
+    --waline-light-grey: var(--color-dark-400);
+    --waline-dark-grey: var(--color-dark-600);
+
+    /* 主题色 */
+    --waline-theme-color: var(--color-primary-200);
+    --waline-active-color: var(--color-primary-100);
+
+    /* 布局颜色 */
+    --waline-color: var(--color-dark-50);
+    --waline-bg-color: var(--color-dark-850);
+    --waline-bg-color-light: var(--color-dark-850);
+    --waline-bg-color-hover: var(--color-dark-700);
+    --waline-border-color: var(--color-dark-600);
+    --waline-disable-bg-color: transparent;
+    --waline-disable-color: var(--color-dark-400);
+    --waline-code-bg-color: var(--color-dark-800);
+
+    /* 特殊颜色 */
+    --waline-bq-color: var(--color-dark-200);
+
+    /* 头像 */
+    --waline-avatar-size: 3.45rem;
+    --waline-m-avatar-size: calc(var(--waline-avatar-size) * 9 / 13);
+
+    /* 徽章 */
+    --waline-badge-color: var(--color-primary-300);
+    --waline-badge-font-size: 0.775em;
+
+    /* 信息 */
+    --waline-info-bg-color: var(--color-dark-850);
+    --waline-info-color: var(--color-dark-200);
+    --waline-info-font-size: 0.625em;
+
+    /* 渲染选择 */
+    --waline-border: 1px solid var(--waline-border-color);
+    --waline-avatar-radius: 50%;
+    --waline-box-shadow: none;
+}
+
+.wl-badge {
+    margin-bottom: 0.7rem;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px transparent inset;
+    -webkit-text-fill-color: var(--color-dark-50);
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* 根据用户设置 ↓ */
+darkmode-selector {
+    /* 常规颜色 */
+    --waline-white: var(--color-dark-850);
+    --waline-light-grey: var(--color-dark-400);
+    --waline-dark-grey: var(--color-dark-600);
+
+    /* 布局颜色 */
+    --waline-color: var(--color-dark-300);
+    --waline-bg-color: var(--color-dark-850);
+    --waline-bg-color-light: var(--color-dark-850);
+    --waline-bg-color-hover: var(--color-dark-700);
+    --waline-border-color: var(--color-dark-600);
+    --waline-disable-bg-color: transparent;
+    --waline-disable-color: var(--color-dark-400);
+    --waline-code-bg-color: var(--color-dark-800);
+
+    /* 特殊颜色 */
+    --waline-bq-color: var(--color-dark-200);
+
+    /* 其他颜色 */
+    --waline-info-bg-color: var(--color-dark-850);
+    --waline-info-color: var(--color-dark-200);
+}
+</style>

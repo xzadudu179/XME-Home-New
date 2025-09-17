@@ -74,7 +74,7 @@ const beleft = () => {
   <div
     class="nav-container w-[100vw] lg:w-[100vw] top-0 text-dark-100 hidden md:block fixed z-[1000] border-dark-500 pointer-events-none">
     <NavBlock
-      :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Message', href: '/message' }, { text: 'Blogs', href: 'https://blog.xzadudu179.top' }]" />
+      :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Links', href: '/links' }, { text: 'Blogs', href: 'https://blog.xzadudu179.top' }]" />
   </div>
   <!-- Mobile Nav -->
   <div
@@ -91,7 +91,7 @@ const beleft = () => {
   <div id="mobile-nav"
     class="fixed w-[100vw] h-[100vh] overflow-hidden bg-dark-900 z-100 left-[100vw] mobile-nav-item md:hidden">
     <MobileNavBlock
-      :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Message', href: '/message' }, { text: 'Blogs', href: 'https://blog.xzadudu179.top' }]" />
+      :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Links', href: '/links' }, { text: 'Blogs', href: 'https://blog.xzadudu179.top' }]" />
     <p class="text-dark-200 font-orbitron absolute bottom-0 w-full p-5 pb-3 text-center pointer-events-none">
       CREATING,
       DESIGNING
