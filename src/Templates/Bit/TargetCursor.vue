@@ -142,6 +142,23 @@ const setupAnimation = () => {
         currentLeaveHandler = null;
     };
 
+    let observer: MutationObserver | null = null;
+
+    const startTargetObserver = (target: Element) => {
+        // 先清理旧 observer
+        if (observer) observer.disconnect();
+
+        observer = new MutationObserver(() => {
+            // 如果 target 不在 DOM 中，或 display:none，则 reset
+            if (!document.body.contains(target) || getComputedStyle(target).display === 'none') {
+                activeTarget = null;
+                if (currentLeaveHandler) currentLeaveHandler();
+            }
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
+    };
+
     gsap.set(cursor, {
         xPercent: -50,
         yPercent: -50,
@@ -192,6 +209,8 @@ const setupAnimation = () => {
         }
 
         activeTarget = target;
+        startTargetObserver(target);
+
         const corners = Array.from(cornersRef.value);
         corners.forEach(corner => {
             gsap.killTweensOf(corner);
@@ -357,6 +376,11 @@ const setupAnimation = () => {
         if (resumeTimeout) {
             clearTimeout(resumeTimeout);
             resumeTimeout = null;
+        }
+
+        if (observer) {
+            observer.disconnect();
+            observer = null;
         }
 
         spinTl.value?.kill();

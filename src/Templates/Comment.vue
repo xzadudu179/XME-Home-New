@@ -12,7 +12,8 @@ import { useRoute } from 'vue-router';
 import '@waline/client/style';
 
 const serverURL = 'https://comment.xzadudu179.top/';
-const path = computed(() => useRoute().path);
+const path = computed(() => window.location.hostname + useRoute().path);
+console.log(path)
 
 function addCursorClass(els: NodeListOf<Element>) {
     for (let index = 0; index < els.length; index++) {
@@ -21,7 +22,7 @@ function addCursorClass(els: NodeListOf<Element>) {
     }
 }
 onMounted(() => {
-    const classNames = ['wl-action', 'wl-btn', 'wl-login-nick', 'wl-logout-btn', 'wl-nick'];
+    const classNames = ['wl-action', 'wl-btn', 'wl-login-nick', 'wl-logout-btn'];
     const selector = classNames.map(name => `.${name}`).join(', ');
     const actions = document.querySelectorAll(selector + ", .wl-sort li")
     addCursorClass(actions)
