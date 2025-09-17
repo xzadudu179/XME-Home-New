@@ -11,8 +11,9 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 import { onMounted, ref } from 'vue';
-import { useRouter } from 'vue-router'
-
+import { useRouter, type RouteLocationNormalizedGeneric } from 'vue-router'
+import { useRoute } from 'vue-router';
+import { eventBus } from '@/router/eventbus';
 
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
@@ -64,9 +65,9 @@ let isAnimatingOut = false
 
 let currentNext: CallableFunction | null = null
 
-const create = (next: CallableFunction, check: CallableFunction) => {
+const create = (to: RouteLocationNormalizedGeneric, next: CallableFunction, check: CallableFunction) => {
     // console.log("开始切换页面")
-    loading.show(next, check)
+    loading.show(to, next, check)
 }
 const hide = () => {
     // console.log("hiding")
@@ -146,7 +147,7 @@ const loading: loading = {
         }
         this.isBlockCreated = true
     },
-    show(next: CallableFunction, check: CallableFunction) {
+    show(to: RouteLocationNormalizedGeneric, next: CallableFunction, check: CallableFunction) {
         // loop_color.restart()
         this.create_blocks()
         currentNext = next
@@ -158,7 +159,7 @@ const loading: loading = {
             currentNext!();
             // console.log("INNER切换页面...")
             // this.$parent.check_loading();
-            check();
+            check(to.fullPath);
             return
         }
         if (isAnimatingIn) {
@@ -208,7 +209,7 @@ const loading: loading = {
                     isInner = true
                     // console.log("切换页面...")
                     // this.$parent.check_loading();
-                    check();
+                    check(to.fullPath);
                 }, onStart: () => {
                     this.container?.classList.remove("hidden")
                     starting = false;
@@ -314,19 +315,22 @@ const loading: loading = {
 }
 
 // const loading = ref<InstanceType<typeof Loading> | null>(null);
-const check_loading = () => {
-    if (document.readyState === "complete") {
-        hide();
-    } else {
-        window.addEventListener("load", hide, { once: true });
-    }
+const check_loading = (targetPath: string) => {
+    eventBus.on("page-ready", (path) => {
+        if (path === targetPath) {
+            console.log("ready")
+            hide();
+        }
+    });
 }
+
+
 
 onMounted(() => {
     // console.log("animate")
     useRouter().beforeEach((to, from, next) => {
-        console.log(to, from)
-        create(next, check_loading);
+        // console.log(to, from)
+        create(to, next, check_loading);
     });
 })
 

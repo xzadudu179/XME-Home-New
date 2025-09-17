@@ -121,16 +121,16 @@ const scrollTransforms = computed(() => {
     });
 });
 
-const updateSmoothVelocity = throttle(() => {
+const updateSmoothVelocity = () => {
     const dampingFactor = props.damping / 1000;
     const stiffnessFactor = props.stiffness / 1000;
 
     const velocityDiff = scrollVelocity.value - smoothVelocity.value;
     smoothVelocity.value += velocityDiff * stiffnessFactor;
     smoothVelocity.value *= 1 - dampingFactor;
-}, 16);
+};
 
-const updateVelocityFactor = throttle(() => {
+const updateVelocityFactor = () => {
     const { input, output } = props.velocityMapping;
     const inputRange = input[1] - input[0];
     const outputRange = output[1] - output[0];
@@ -140,7 +140,7 @@ const updateVelocityFactor = throttle(() => {
 
     velocityFactor.value = output[0] + normalizedVelocity * outputRange;
     if (smoothVelocity.value < 0) velocityFactor.value *= -1;
-}, 16);
+};
 
 const animate = (currentTime: number) => {
     if (lastTime === 0) lastTime = currentTime;
@@ -223,8 +223,8 @@ onUnmounted(() => {
         clearTimeout(resizeTimeout);
     }
     updateScrollVelocity.cancel();
-    updateSmoothVelocity.cancel();
-    updateVelocityFactor.cancel();
+    // updateSmoothVelocity.cancel();
+    // updateVelocityFactor.cancel();
     updateWidths.cancel();
     window.removeEventListener('resize', debouncedUpdateWidths);
 });

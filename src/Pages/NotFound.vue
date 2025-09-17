@@ -3,11 +3,22 @@ import Galaxy from '@/Templates/Bit/Galaxy.vue';
 import FadeContent from '@/Templates/Bit/FadeContent.vue';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue'
+import { eventBus } from "@/router/eventbus";
+import { onMounted } from "vue";
+import { useRoute } from "vue-router";
+
 const router = useRouter();
 const btnref = ref<HTMLElement | null>(null);
 const backhome = () => {
     router.push('/')
 }
+
+onMounted(() => {
+    const route = useRoute()
+    eventBus.emit("page-ready", route.fullPath);
+});
+
+
 </script>
 
 <template>

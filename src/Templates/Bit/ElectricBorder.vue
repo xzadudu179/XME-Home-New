@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, useTemplateRef, watch, type CSSProperties } from 'vue';
+import { throttle } from 'lodash';
 
 type ElectricBorderProps = {
     color?: string;
@@ -40,7 +41,7 @@ const svgRef = useTemplateRef('svgRef');
 const rootRef = useTemplateRef('rootRef');
 const strokeRef = useTemplateRef('strokeRef');
 
-const updateAnim = () => {
+const updateAnim = throttle(() => {
     const svg = svgRef.value;
     const host = rootRef.value;
     if (!svg || !host) return;
@@ -88,7 +89,7 @@ const updateAnim = () => {
             }
         });
     });
-};
+}, 200);
 
 watch(
     () => [props.speed, props.chaos],
@@ -172,19 +173,6 @@ const bgGlowStyle = computed<CSSProperties>(() => ({
                         <animate attributeName="dy" values="500; 0" dur="6s" repeatCount="indefinite"
                             calcMode="linear" />
                     </feOffset>
-
-                    <feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="4" result="noise2" seed="3" />
-                    <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
-                        <animate attributeName="dy" values="0; -500" dur="6s" repeatCount="indefinite"
-                            calcMode="linear" />
-                    </feOffset>
-
-                    <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="2" result="noise3" seed="5" />
-                    <feOffset in="noise3" dx="0" dy="0" result="offsetNoise3">
-                        <animate attributeName="dx" values="500; 0" dur="6s" repeatCount="indefinite"
-                            calcMode="linear" />
-                    </feOffset>
-
                     <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="2" result="noise4" seed="7" />
                     <feOffset in="noise4" dx="0" dy="0" result="offsetNoise4">
                         <animate attributeName="dx" values="0; -500" dur="6s" repeatCount="indefinite"

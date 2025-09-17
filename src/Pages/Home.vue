@@ -13,12 +13,22 @@ import Particles from "@/Templates/Bit/Particles.vue";
 import FallingText from "@/Templates/Bit/FallingText.vue";
 import Footer from "@/Templates/Footer.vue";
 import { easeInOut } from "motion-v";
+import { eventBus } from "@/router/eventbus";
+import { onMounted } from "vue";
+import { useRoute } from "vue-router";
 
 const lenis: ComputedRef<Lenis | undefined> | undefined = inject('lenis')
 const scrollDown = () => {
     const nextY = window.innerHeight;
     lenis!.value?.scrollTo(nextY, { offset: 0, easing: easeInOut, duration: 0.8 });
 };
+
+onMounted(() => {
+    const route = useRoute();
+    eventBus.emit("page-ready", route.fullPath);
+});
+
+
 </script>
 
 <template>
@@ -229,7 +239,7 @@ const scrollDown = () => {
                             </p>
                         </AnimatedContent>
                     </div>
-                    <div class="overlay icon lg:ml-5 lg:mr-5 flex place-self-center">
+                    <div class="overlay icon lg:ml-5 lg:mr-5 hidden md:flex place-self-center">
                         <img src="https://image.179.life/images/xzadudu179-line.webp" class="max-w-[200px]" alt="">
                     </div>
                 </div>
@@ -273,6 +283,12 @@ const scrollDown = () => {
         padding-left: max(0.5em, 6vw);
     }
 
+}
+
+.text-contact-container p {
+    @media (width <=48rem) {
+        font-size: 2rem !important;
+    }
 }
 
 .other-contact a:hover {
@@ -378,22 +394,22 @@ const scrollDown = () => {
 }
 
 .subtitle {
-    font-size: max(10vw, 3rem);
+    font-size: max(6vh, 3rem);
 
     text-align: center;
 
     @media (width >=64rem) {
         margin-bottom: 100px;
-        font-size: 7em;
+        font-size: min(7em, 10vh);
         line-height: 1;
     }
 }
 
 #subtitle2 {
-    font-size: 10vw;
+    font-size: min(10vw, 10vh);
 
     @media (width >=64rem) {
-        font-size: 7em;
+        font-size: min(7em, 10vh);
     }
 }
 

@@ -42,6 +42,7 @@
 
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue';
+import { throttle } from 'lodash'
 
 export type LogoItemNode = {
     node: string;
@@ -170,7 +171,7 @@ const handleMouseLeave = () => {
     }
 };
 
-const updateDimensions = async () => {
+const updateDimensions = throttle(async () => {
     await nextTick();
     const containerWidth = containerRef.value?.clientWidth ?? 0;
     const sequenceWidth = seqRef.value?.getBoundingClientRect?.()?.width ?? 0;
@@ -183,7 +184,7 @@ const updateDimensions = async () => {
         cleanupAnimation?.();
         cleanupAnimation = startAnimationLoop();
     }
-};
+}, 32);
 
 let resizeObserver: ResizeObserver | null = null;
 const setupResizeObserver = () => {

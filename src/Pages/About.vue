@@ -7,15 +7,24 @@ import AnimatedContent from '@/Templates/Bit/AnimatedContent.vue';
 // import TiltedCard from '@/Templates/Bit/TiltedCard.vue';
 import FadeContent from '@/Templates/Bit/FadeContent.vue';
 import Lenis from "lenis";
+import { eventBus } from '@/router/eventbus';
+import { onMounted } from 'vue';
 import type { ComputedRef } from "vue";
 import { inject } from 'vue'
 import { easeOut } from "motion-v";
+import { useRoute } from 'vue-router';
 import HrefImageCard from '@/Templates/HrefImageCard.vue';
 // import LoadingImg from '@/Templates/LoadingImg.vue';
 import EmailMessage from '@/Templates/EmailMessage.vue';
 
 const lenis: ComputedRef<Lenis | undefined> | undefined = inject('lenis')
 lenis!.value?.scrollTo(0, { offset: 0, easing: easeOut, duration: 0.3 });
+
+onMounted(() => {
+    const route = useRoute()
+    eventBus.emit("page-ready", route.fullPath);
+});
+
 const techLogos = [
     {
         node: '<i class="fa-brands fa-github"></i>',

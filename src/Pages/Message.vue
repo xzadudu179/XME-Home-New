@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { eventBus } from "@/router/eventbus";
+import { onMounted } from "vue";
+import { useRoute } from "vue-router";
 import Comment from '@/Templates/Comment.vue';
 // import { Waline } from '@waline/client'
 
@@ -16,6 +18,12 @@ onMounted(() => {
     //     // login: 'enable'
     // })
 })
+
+onMounted(() => {
+    eventBus.emit("page-ready", "message");
+});
+
+
 </script>
 
 <template>

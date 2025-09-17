@@ -84,6 +84,7 @@
 *::selection {
   background-color: var(--color-dark-700);
   /* color: var(--color-primary-100); */
+  will-change: transform, color, text-shadow, filter, opacity;
 }
 .hoverlight:hover {
     text-shadow: 0 0 15px;
