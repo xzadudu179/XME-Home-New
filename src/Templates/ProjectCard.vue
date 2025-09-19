@@ -35,7 +35,7 @@
                                     class="fa-light fa-angle-left"></i><i class="fa-light fa-angle-left"></i><i
                                     class="fa-light fa-angle-left"></i></a>
                         </p>
-                        <p class="date pb-3"> Started on {{ props.date }} </p>
+                        <p class="date pb-3 text-dark-500"> Started on {{ props.date }} </p>
                     </div>
                 </div>
                 <div>

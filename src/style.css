@@ -293,6 +293,10 @@
     --color-primary3-900: oklch(0.1 0.1938 300.94);
 }
 
+img, a {
+  -webkit-user-drag: none;
+}
+
 body {
     font-family: Geist Variable, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, Heiti SC, WenQuanYi Micro Hei, sans-serif;
     overflow-x: hidden;

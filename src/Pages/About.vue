@@ -337,7 +337,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
             <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                 :initial-opacity="0" :animate-opacity="true" :scale="1" :threshold="0" :always-play="false"
                 :delay="0.2">
-                <p class="text-[10vw] md:text-5xl select-none mb-7 mt-20 font-light "><span
+                <p class="text-[10vw] md:text-5xl select-none mb-7 mt-20 font-light "># <span
                         class="inline-hovertrans">LEAVE A
                         MESSAGE <i class="fa-light fa-message-lines text-[0.9em] relative"></i></span></p>
             </AnimatedContent>

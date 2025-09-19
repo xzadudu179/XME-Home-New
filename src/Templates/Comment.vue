@@ -6,7 +6,9 @@
             class="waline font-normal" :locale="{
                 placeholder: 'Message here...',
                 admin: 'ADMIN',
-                sticky: 'STICKY',
+                sticky: 'PINNED',
+                hottest: 'Popular',
+                latest: 'Newest'
             }" />
     </FadeContent>
 </template>

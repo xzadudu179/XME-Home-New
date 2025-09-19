@@ -16,8 +16,8 @@
             rotateY: rotateYValue,
             scale: scaleValue
         }" :transition="springTransition">
-            <img :src="imageSrc" :alt="altText"
-                class="absolute top-0 left-0 object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
+            <LoadingImg :src="imageSrc" :alt="altText"
+                class="absolute top-0 left-0 object-cover rounded-[15px] will-change-transform [transform:translateZ(0)] overflow-hidden"
                 :style="{
                     width: imageWidth,
                     height: imageHeight
@@ -51,6 +51,7 @@
 </style>
 
 <script setup lang="ts">
+import LoadingImg from '../LoadingImg.vue';
 import { ref, computed, useTemplateRef } from 'vue';
 import { Motion } from 'motion-v';
 

@@ -19,8 +19,9 @@ function handleLoad() {
 
 <template>
     <div class="image-container">
-        <img src="../assets/img/img-loading.webp" :class="props.imgClass" v-if="!isLoaded" />
-        <img v-show="isLoaded" :src="props.src" :alt="props.alt" :class="props.imgClass" @load="handleLoad" />
+        <img src="../assets/img/img-loading.webp" :class="props.imgClass" v-if="!isLoaded" draggable="false" />
+        <img v-show="isLoaded" :src="props.src" :alt="props.alt" :class="props.imgClass" @load="handleLoad"
+            draggable="false" />
     </div>
 </template>
 
