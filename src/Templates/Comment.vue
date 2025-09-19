@@ -1,14 +1,17 @@
 <template>
-    <Waline :serverURL="serverURL" :path="path" lang="en" :emoji="['https://image.179.life/deon-emoji']"
-        :wordLimit="500" class="waline font-normal" :locale="{
-            placeholder: 'Message here...'
-        }" />
+    <FadeContent :blur="true" :duration="1000" :delay="100" :threshold="0" :always-play="false" :initial-opacity="0"
+        easing="ease-out">
+        <Waline :serverURL="serverURL" :path="path" lang="en" :emoji="['https://image.179.life/deon-emoji']"
+            :wordLimit="500" class="waline font-normal" :locale="{
+                placeholder: 'Message here...',
+            }" />
+    </FadeContent>
 </template>
 <script setup lang="ts">
 import { Waline } from '@waline/client/component';
 import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-
+import FadeContent from './Bit/FadeContent.vue';
 import '@waline/client/style';
 
 const serverURL = 'https://comment.xzadudu179.top/';
@@ -39,7 +42,19 @@ onMounted(() => {
 
 <style>
 .waline {
+    letter-spacing: 0.12em;
     transition: all 0.3s;
+}
+
+.wl-empty {
+    font-weight: normal;
+    color: var(--color-dark-200);
+}
+
+.wl-count {
+    font-weight: normal;
+    /* font-family: var(--font-melete);
+    letter-spacing: -0.2em; */
 }
 
 .wl-emoji-popup button {
@@ -55,25 +70,33 @@ onMounted(() => {
     max-height: 3em !important;
 }
 
-.wl-badge {
+/* .wl-badge {
     display: none !important;
-}
+} */
 
 .wl-editor {
     resize: none;
 }
 
+.wl-nick {
+    font-weight: normal !important;
+}
 
 .wl-panel:has(textarea:focus) {
     border-color: var(--color-primary-200);
 }
 
+.wl-comment {
+    background-color: #080A16B2 !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px);
+}
+
 .wl-panel {
     padding-left: 20px;
+    background-color: #00000000;
     padding-right: 15px;
     border: 2px solid var(--color-dark-500);
-    background: #080A1655;
-    backdrop-filter: blur(5px);
     transition: all 0.3s;
     border-top: none;
     border-bottom: none;
@@ -98,8 +121,9 @@ onMounted(() => {
 
 button.primary {
     background-color: transparent !important;
-    border: 2px solid;
+    border: 1px solid;
     color: var(--waline-theme-color) !important;
+    border-color: var(--waline-theme-color) !important;
 }
 
 button.primary:hover,
@@ -131,6 +155,14 @@ button.primary:active {
     border-bottom: 0;
 }
 
+.wl-info .wl-btn {
+    border-color: var(--color-dark-300);
+}
+
+.wl-info .wl-btn:hover {
+    border-color: var(--color-primary-100);
+}
+
 .wl-meta-head {
     margin-bottom: 1em;
     margin-top: 1.5em;
@@ -154,6 +186,43 @@ button.primary:active {
     border-radius: 20px;
 }
 
+.wl-action,
+.wl-nick {
+    transition: all 0.2s;
+}
+
+.wl-header-item input {
+    border: 2px solid var(--color-dark-600);
+    height: 20px;
+    display: flex;
+    align-self: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top: 0;
+    border-bottom: 0;
+    border-radius: 10px;
+}
+
+.wl-header {
+    /* border-bottom: none; */
+    padding-bottom: 5px;
+    border-bottom: 2px dashed var(--color-dark-700);
+}
+
+.wl-header-item input:focus {
+    border-color: var(--color-dark-400);
+}
+
+.wl-header-item label {
+    color: var(--color-primary-200);
+    transition: color 0.3s;
+    /* font-weight: normal; */
+}
+
+.wl-header-item:has(input:focus) label {
+    color: var(--color-primary-100);
+}
+
 @media (width <=48rem) {
     .wl-comment {
         flex-direction: column;
@@ -174,11 +243,19 @@ button.primary:active {
         max-width: 100%;
     }
 
-    button.primary {
+    .wl-info .wl-btn {
         padding: 5px;
         width: min(7em, 100px) !important;
         width: auto;
-        font-size: min(5vw, 1em);
+        font-size: min(3.3vw, 1em);
+    }
+
+    .wl-text-number {
+        text-align: left;
+    }
+
+    .wl-info {
+        margin-top: 8px;
     }
 
     .wl-count {
@@ -191,6 +268,14 @@ button.primary:active {
 
     .wl-power {
         font-size: 0.7rem;
+    }
+
+    .wl-like {
+        font-size: 1rem;
+    }
+
+    .wl-comment-actions {
+        float: left !important;
     }
 
     .wl-sort {

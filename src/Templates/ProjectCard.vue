@@ -110,7 +110,6 @@ const props = withDefaults(defineProps<Props>(), {
         width: min(32vw, 800px);
         min-width: 250px;
         display: flex;
-
     }
 
     .imgcard img {

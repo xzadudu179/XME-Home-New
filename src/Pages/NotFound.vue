@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import Galaxy from '@/Templates/Bit/Galaxy.vue';
 import FadeContent from '@/Templates/Bit/FadeContent.vue';
-import { useRouter } from 'vue-router';
 import { ref } from 'vue'
 import { eventBus } from "@/router/eventbus";
 import { onMounted } from "vue";
-import { useRoute } from "vue-router";
+import { useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
+const router = useRouter()
 
-const router = useRouter();
+router.afterEach((to, from) => {
+    eventBus.emit("page-ready", to.path);
+});
+
 const btnref = ref<HTMLElement | null>(null);
 const backhome = () => {
     router.push('/')
@@ -29,7 +33,8 @@ onMounted(() => {
     </div>
     <div
         class="font-orbitron font-light text-dark-50 w-full lg:w-[1000px] text-[5vw] lg:text-4xl text-center justify-center flex flex-col absolute top-[50%] left-[50%] content-404">
-        <FadeContent :blur="true" :duration="500" :delay="600" :threshold="0.1" :initial-opacity="0" easing="ease-out">
+        <FadeContent :blur="true" :duration="500" :delay="600
+        " :threshold="0.1" :initial-opacity="0" easing="ease-out">
             <p class="lg:text-5xl mb-6"><span class="inline-hovertrans">NOTHING HERE...</span> <span
                     class="inline-hovertrans">ONLY STARS...</span></p>
             <p class="lg:text-3xl text-[3.5vw] border-2 w-[300px] p-5 rounded-2xl text-primary-200 hover:text-primary-100 cursor-target m-auto backhome"

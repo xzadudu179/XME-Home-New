@@ -4,30 +4,94 @@
     font-family: 'Electrolize';
     src: url('./assets/fonts/Electrolize-Regular.ttf') format('truetype');
 }
+/*
 @font-face {
-    font-family: 'Orbitron';
-    src: url('./assets/fonts/Orbitron Medium.ttf') format('truetype');
+    font-family: 'Quantico';
+    src: url('./assets/fonts/Quantico/Quantico-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Orbitron';
-    src: url('./assets/fonts/Orbitron Light.ttf') format('truetype');
+    font-family: 'Quantico';
+    src: url('./assets/fonts/Quantico/Quantico-Bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quantico';
+    src: url('./assets/fonts/Quantico/Quantico-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+} */
+
+@font-face {
+    font-family: 'Quantico';
+    src: url('./assets/fonts/Quantico/Quantico-BoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Melete';
+    src: url('./assets/fonts/Melete/Melete-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Melete';
+    src: url('./assets/fonts/Melete/Melete-Light.otf') format('opentype');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Orbitron';
-    src: url('./assets/fonts/Orbitron Bold.ttf') format('truetype');
+    font-family: 'Melete';
+    src: url('./assets/fonts/Melete/Melete-UltraLight.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Melete';
+    src: url('./assets/fonts/Melete/Melete-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Melete';
+    src: url('./assets/fonts/Melete/Melete-Bold.otf') format('opentype');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Orbitron';
-    src: url('./assets/fonts/Orbitron Black.ttf') format('truetype');
+    src: url('./assets/fonts/Orbitron/Orbitron Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('./assets/fonts/Orbitron/Orbitron Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('./assets/fonts/Orbitron/Orbitron Bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('./assets/fonts/Orbitron/Orbitron Black.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
@@ -165,10 +229,17 @@
 }
 
 
+.melete {
+  font-family: var(--font-melete);
+  letter-spacing: -0.2em;
+}
+
 @theme {
     --font-electrolize: 'Electrolize', Geist Variable, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, Heiti SC, WenQuanYi Micro Hei, sans-serif;
     --font-firacode: 'Fira Code', Geist Variable, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, Heiti SC, WenQuanYi Micro Hei, normal;
     --font-orbitron: 'Orbitron', Geist Variable, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, Heiti SC, WenQuanYi Micro Hei, normal;
+    --font-melete: 'Melete', Geist Variable, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, Heiti SC, WenQuanYi Micro Hei, normal;
+    /* --font-quantico: 'Quantico', Geist Variable, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, Heiti SC, WenQuanYi Micro Hei, normal; */
 
     --breakpoint-hg: 1680px;
 
@@ -185,6 +256,8 @@
     --color-dark-100: oklch(0.9 0.0444 277.41);
     --color-dark-50: oklch(0.95 0.0444 277.41);
 
+
+    --color-primary-0: oklch(1 0.1938 262.59);
     --color-primary-50: oklch(0.95 0.1938 262.59);
     --color-primary-100: oklch(0.9 0.1938 262.59);
     --color-primary-200: oklch(0.8 0.1938 262.59);
@@ -196,7 +269,8 @@
     --color-primary-800: oklch(0.2 0.1938 262.59);
     --color-primary-900: oklch(0.1 0.1938 262.59);
 
-    --color-primary3-50: oklch(1 0.1938 300.94);
+    --color-primary3-0: oklch(1 0.1938 300.94);
+    --color-primary3-50: oklch(0.95 0.1938 300.94);
     --color-primary3-100: oklch(0.9 0.1938 300.94);
     --color-primary3-200: oklch(0.8 0.1938 300.94);
     --color-primary3-300: oklch(0.7 0.1938 300.94);

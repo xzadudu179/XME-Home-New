@@ -97,14 +97,14 @@ const lastY = ref(0);
 
 const springTransition = computed(() => ({
     type: 'spring' as const,
-    damping: 30,
+    damping: 20,
     stiffness: 100,
-    mass: 2
+    mass: 1
 }));
 
 const tooltipTransition = computed(() => ({
     type: 'spring' as const,
-    damping: 30,
+    damping: 20,
     stiffness: 350,
     mass: 1
 }));

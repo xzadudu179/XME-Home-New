@@ -14,6 +14,11 @@ import { inject } from 'vue'
 import { easeOut } from "motion-v";
 import Comment from '@/Templates/Comment.vue';
 import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
+const router = useRouter()
+router.afterEach((to, from) => {
+    eventBus.emit("page-ready", to.path);
+});
 import HrefImageCard from '@/Templates/HrefImageCard.vue';
 // import LoadingImg from '@/Templates/LoadingImg.vue';
 import EmailMessage from '@/Templates/EmailMessage.vue';
@@ -24,6 +29,7 @@ lenis!.value?.scrollTo(0, { offset: 0, easing: easeOut, duration: 0.3 });
 onMounted(() => {
     const route = useRoute()
     eventBus.emit("page-ready", route.fullPath);
+    console.log("emit page-ready", route.fullPath);
 });
 
 const techLogos = [
@@ -87,8 +93,15 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
 </script>
 
 <template>
-    <div class="text-5xl font-orbitron font-light text-dark-50 max-w-[2000px] m-auto mt-[100px] tracking-[0.05em]">
+    <div class="text-5xl font-orbitron font-light text-dark-50 m-auto mt-[100px] tracking-[0.05em]">
         <div class="m-auto w-[90vw]  lg:w-[80vw] max-w-[1500px] min-h-[1000px]">
+            <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
+                :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true"
+                :delay="0.4">
+                <p class="text-3xl md:text-5xl font-light select-none font-melete text-center mb-2"><span
+                        class="inline-hovertrans mb-5">- ABOUT -</span>
+                </p>
+            </AnimatedContent>
             <div class="flex justify-between">
                 <div class="flex w-full flex-col md:flex-row mb-10 select-none">
                     <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1"
@@ -106,7 +119,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                         <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1"
                             ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.05" :threshold="0"
                             :always-play="true" :delay="0.5">
-                            <p class="text-primary-100 font-normal">NAME</p>
+                            <p class="text-primary-100 font-normal ">NAME</p>
                         </AnimatedContent>
                         <AnimatedContent :distance="30" direction="vertical" :reverse="false" :duration="1.1"
                             ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.05" :threshold="0"
@@ -131,7 +144,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                         <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1"
                             ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.05" :threshold="0"
                             :always-play="true" :delay="0.9">
-                            <p class="text-primary-100 font-normal mt-3">BIRTH</p>
+                            <p class="text-primary-100 mt-3 font-normal">BIRTH</p>
                         </AnimatedContent>
                         <AnimatedContent :distance="30" direction="vertical" :reverse="false" :duration="1.1"
                             ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.05" :threshold="0"
@@ -163,9 +176,8 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
             <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                 :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true"
                 :delay="0.5">
-                <p class="text-3xl md:text-5xl font-normal lg:font-light select-none"># <span
-                        class="inline-hovertrans mb-5">ABOUT
-                        ME</span>
+                <p class="text-3xl md:text-5xl font-light select-none "># <span
+                        class="inline-hovertrans mb-5">INTRODUCTION</span>
                 </p>
             </AnimatedContent>
             <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
@@ -229,11 +241,11 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
             <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                 :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true"
                 :delay="0.5">
-                <p class="text-3xl md:text-5xl font-normal lg:font-light mb-7 select-none"># <span
+                <p class="text-3xl md:text-5xl font-light mb-7 select-none "># <span
                         class="inline-hovertrans">INTERESTS</span>
                 </p>
             </AnimatedContent>
-            <div class="text-lg md:text-lg main-content font-normal mb-8 tracking-[0.09em] text-dark-100">
+            <div class="text-lg md:text-lg main-content font-normal mb-15 tracking-[0.09em] text-dark-100">
                 <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                     :initial-opacity="0" :animate-opacity="true" :scale="1.05" :threshold="0" :always-play="true"
                     :delay="0.7">
@@ -280,7 +292,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
             <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                 :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true"
                 :delay="0.2">
-                <p class="text-3xl lg:text-5xl font-normal lg:font-light mb-7 select-none"># <span
+                <p class="text-3xl lg:text-5xl font-light mb-7 select-none"># <span
                         class="inline-hovertrans">CONTACT</span>
                 </p>
             </AnimatedContent>
@@ -325,11 +337,12 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
             <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                 :initial-opacity="0" :animate-opacity="true" :scale="1" :threshold="0" :always-play="false"
                 :delay="0.2">
-                <p class="mb-10 mt-20 font-light"><span class="inline-hovertrans"># LEAVE A MESSAGE <i
-                            class="fa-regular fa-message-lines text-[0.9em] relative"></i></span></p>
+                <p class="text-[10vw] md:text-5xl select-none mb-7 mt-20 font-light "><span
+                        class="inline-hovertrans">LEAVE A
+                        MESSAGE <i class="fa-light fa-message-lines text-[0.9em] relative"></i></span></p>
             </AnimatedContent>
             <div
-                class="text-left text-lg md:text-xl translucent text-dark-100 main-content font-normal mb-20 tracking-[0.09em]pt-[0.12em] pb-4 pl-[1em]">
+                class="text-left text-lg md:text-xl translucent text-dark-100 main-content font-normal mb-13 tracking-[0.09em]pt-[0.12em] pb-4 pl-[1em]">
                 <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                     :initial-opacity="0" :animate-opacity="true" :scale="1" :threshold="0" :always-play="false"
                     :delay="0.2">
@@ -356,10 +369,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                             greeting, or just some thoughts!</span></p>
                 </AnimatedContent>
             </div>
-            <FadeContent :blur="true" :duration="1000" :delay="100" :threshold="0" :always-play="false"
-                :initial-opacity="0" easing="ease-out">
-                <Comment></Comment>
-            </FadeContent>
+            <Comment />
         </div>
     </div>
     <Footer margin-top="5vh"></Footer>
@@ -378,7 +388,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
 }
 
 .main-content p {
-    margin-top: 0.8rem;
+    margin-top: 0.4em;
     /* text-indent: 1em; */
 }
 

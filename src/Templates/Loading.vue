@@ -12,8 +12,19 @@
 import { gsap } from 'gsap';
 import { onMounted, ref } from 'vue';
 import { useRouter, type RouteLocationNormalizedGeneric } from 'vue-router'
-import { useRoute } from 'vue-router';
+// import { useRoute } from 'vue-router';
 import { eventBus } from '@/router/eventbus';
+let targetPath = ""
+
+const check_loading = () => {
+    eventBus.on("page-ready", (path) => {
+        if (path === targetPath && targetPath !== "") {
+            hide();
+        }
+    });
+}
+
+check_loading()
 
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
@@ -59,15 +70,17 @@ const getHexratio = () => {
 }
 
 
+
+
 let isAnimatingIn = false
 let isInner = false
 let isAnimatingOut = false
 
 let currentNext: CallableFunction | null = null
 
-const create = (to: RouteLocationNormalizedGeneric, next: CallableFunction, check: CallableFunction) => {
+const create = (to: RouteLocationNormalizedGeneric, next: CallableFunction) => {
     // console.log("开始切换页面")
-    loading.show(to, next, check)
+    loading.show(to, next)
 }
 const hide = () => {
     // console.log("hiding")
@@ -147,23 +160,26 @@ const loading: loading = {
         }
         this.isBlockCreated = true
     },
-    show(to: RouteLocationNormalizedGeneric, next: CallableFunction, check: CallableFunction) {
+    show(to: RouteLocationNormalizedGeneric, next: CallableFunction) {
         // loop_color.restart()
         this.create_blocks()
         currentNext = next
+        targetPath = to.fullPath
         let starting = false
         if (isInner) {
             starting = true
             // console.log("isinner")
-            // console.log("因为状态不符，不播放 in 动画")
+            console.log("因为状态不符，不播放 in 动画")
             currentNext!();
             // console.log("INNER切换页面...")
             // this.$parent.check_loading();
-            check(to.fullPath);
+            // targetPath = to.fullPath
+            // check();
             return
         }
         if (isAnimatingIn) {
-            // console.log("不播放 in 动画")
+            // targetPath = to.fullPath
+            console.log("不播放 in 动画")
             return
         }
         this.loop_color.clear();
@@ -209,7 +225,8 @@ const loading: loading = {
                     isInner = true
                     // console.log("切换页面...")
                     // this.$parent.check_loading();
-                    check(to.fullPath);
+                    // targetPath = to.fullPath
+                    // check();
                 }, onStart: () => {
                     this.container?.classList.remove("hidden")
                     starting = false;
@@ -315,22 +332,15 @@ const loading: loading = {
 }
 
 // const loading = ref<InstanceType<typeof Loading> | null>(null);
-const check_loading = (targetPath: string) => {
-    eventBus.on("page-ready", (path) => {
-        if (path === targetPath) {
-            console.log("ready")
-            hide();
-        }
-    });
-}
-
 
 
 onMounted(() => {
     // console.log("animate")
+    // check_loading();
     useRouter().beforeEach((to, from, next) => {
         // console.log(to, from)
-        create(to, next, check_loading);
+        create(to, next);
+
     });
 })
 

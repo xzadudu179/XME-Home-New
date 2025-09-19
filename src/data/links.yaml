@@ -1,0 +1,55 @@
+links:
+  - has_thumbnail: true
+    list:
+      - name: a small online lab
+        link: https://invert-viewer.github.io/
+        description: 致敬想象和创造力！
+        avatar: https://image.179.life/link/avatars/invert-viewer.webp
+        thumbnail: https://image.179.life/link/thumbnails/invert-viewer.webp
+        custom_position: "30%"
+  - has_thumbnail: false
+    list:
+      - name: Hello I'm 0o酱
+        link: https://blog.im0o.top/
+        description: 光阴如梦，昨日随风
+        avatar: https://image.179.life/link/avatars/im0o.webp
+      - name: 锐龙的小窝
+        link: https://sharpice.top/
+        description: 锐冰的个人博客
+        avatar: https://image.179.life/link/avatars/sharpice.webp
+      - name: 地球驿站
+        link: https://blog.mugzx.top
+        description: 向上革命，向下实践。
+        avatar: https://image.179.life/link/avatars/mugzx.webp
+        thumbnail: https://www.mugzx.top/icon.png
+      - name: 龙星划空
+        link: https://blog.245179.xyz/
+        description: 人生近看是悲剧，远看是喜剧
+        avatar: https://image.179.life/link/avatars/245179.webp
+        thumbnail: https://blog.245179.xyz/images/web.png
+      - name: Cysime Moflu
+        link: https://blog.cysi.me
+        description: 再不会遇见第二个时光
+        avatar: https://image.179.life/link/avatars/cysi.webp
+        thumbnail: https://image.glaceon.net/2022/06/08/62a05e4097cab.png
+      - name: 大松的个人网站
+        link: http://xuziyao.com
+        description: 大松的小窝
+        avatar: https://image.179.life/link/avatars/xuziyao.webp
+      - name: 无名博客
+        link: https://wuminboke.site
+        description: 一个无聊的人罢了
+        avatar: https://image.179.life/link/avatars/wuminboke.webp
+        thumbnail: https://bu.dusays.com/2024/07/23/669f7b016ad0b.jpg
+      - name: Liáng4793
+        link: https://liang4793.github.io/
+        description: AKA CarrotSoda 胡萝卜苏打🍹
+        avatar: https://image.179.life/link/avatars/liang4793.webp
+      - name: 月空人
+        link: https://www.whbbit.cn
+        description: 偶尔写些博客，发发牢骚
+        avatar: https://image.179.life/link/avatars/whbbit.webp
+      - name: 夏枫的猫窝w
+        link: https://blog.mcxiafeng.top
+        description: 一只会敲代码的笨笨猫咪xmx
+        avatar: https://image.179.life/link/avatars/mcxiafeng.webp

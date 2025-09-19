@@ -15,8 +15,13 @@ import Footer from "@/Templates/Footer.vue";
 import { easeInOut } from "motion-v";
 import { eventBus } from "@/router/eventbus";
 import { onMounted } from "vue";
+import { useRouter } from 'vue-router';
 import { useRoute } from "vue-router";
 
+const router = useRouter()
+router.afterEach((to, from) => {
+    eventBus.emit("page-ready", to.path);
+});
 const lenis: ComputedRef<Lenis | undefined> | undefined = inject('lenis')
 const scrollDown = () => {
     const nextY = window.innerHeight;
@@ -26,6 +31,7 @@ const scrollDown = () => {
 onMounted(() => {
     const route = useRoute();
     eventBus.emit("page-ready", route.fullPath);
+    console.log("emit page-ready", route.fullPath);
 });
 
 
@@ -86,19 +92,36 @@ onMounted(() => {
                         easing="ease-out">
                         <PersonalCard />
                     </FadeContent>
-                    <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
-                        ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1"
-                        :delay="0.1">
-                        <div class="max-w-[800px]">
-                            <div class="text-5xl font-light about">
+
+                    <div class="max-w-[800px]">
+                        <div class="text-5xl font-light about">
+                            <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
+                                ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
+                                :threshold="0" :delay="0.1">
                                 <p class="hovertrans">NAME: <span>XZADUDU179</span></p>
+                            </AnimatedContent>
+                            <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
+                                ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
+                                :threshold="0" :delay="0.2">
                                 <p class="hovertrans">BIRTH: <span>2007-04-04</span></p>
+                            </AnimatedContent>
+                            <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
+                                ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
+                                :threshold="0" :delay="0.3">
                                 <p class="hovertrans">FIELD: <span>PROGRAM</span></p>
+                            </AnimatedContent>
+                            <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
+                                ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
+                                :threshold="0" :delay="0.4">
                                 <p class="hovertrans">INTEREST: <span>CREATION</span></p>
+                            </AnimatedContent>
+                            <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
+                                ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
+                                :threshold="0" :delay="0.5">
                                 <p class="hovertrans">LOCATION: <span>CHINA</span></p>
-                            </div>
+                            </AnimatedContent>
                         </div>
-                    </AnimatedContent>
+                    </div>
                 </div>
                 <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                     :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.1">
@@ -109,19 +132,36 @@ onMounted(() => {
                 </AnimatedContent>
                 <div
                     class="about_content font-orbitron w-[80%] max-w-[1700px] mt-[100px] mb-[300px] p-10 pt-0 pb-0 m-auto flex flex-row justify-between">
-                    <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
-                        ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1"
-                        :delay="0.1">
-                        <div class="max-w-[800px] mb-[50px] md:mb-0">
-                            <div class="text-5xl font-light about" id="about2">
+
+                    <div class="max-w-[800px] mb-[50px] md:mb-0">
+                        <div class="text-5xl font-light about" id="about2">
+                            <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
+                                ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
+                                :threshold="0" :delay="0.1">
                                 <p class="hovertrans"><span>DEVELOPER</span></p>
+                            </AnimatedContent>
+                            <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
+                                ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
+                                :threshold="0" :delay="0.2">
                                 <p class="hovertrans"><span>COMPOSER</span></p>
+                            </AnimatedContent>
+                            <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
+                                ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
+                                :threshold="0" :delay="0.3">
                                 <p class="hovertrans">UX DESIGNER</p>
+                            </AnimatedContent>
+                            <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
+                                ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
+                                :threshold="0" :delay="0.4">
                                 <p class="hovertrans">PHOTOGRAPHER</p>
+                            </AnimatedContent>
+                            <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
+                                ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
+                                :threshold="0" :delay="0.5">
                                 <p class="hovertrans">PRODUCER</p>
-                            </div>
+                            </AnimatedContent>
                         </div>
-                    </AnimatedContent>
+                    </div>
                     <FadeContent :blur="true" :duration="1000" :delay="200" :threshold="0.1" :initial-opacity="0"
                         easing="ease-out">
                         <div
@@ -137,8 +177,8 @@ onMounted(() => {
             </div>
         </div>
         <div class="mt-60">
-            <ScrollVelocity :texts="['PROJECTS //', '\\\\ PROJECTS']" :velocity="100" :damping="50" :stiffness="400"
-                :velocity-mapping="{ input: [0, 1000], output: [0, 5] }"
+            <ScrollVelocity :texts="['PROJEC\u200ATS //', '\\\\ PROJEC\u200ATS']" :velocity="100" :damping="50"
+                :stiffness="400" :velocity-mapping="{ input: [0, 1000], output: [0, 5] }"
                 class-name="font-electrolize font-light text-[4rem] lg:text-[8rem]/40 select-none text-dark-200"
                 parallax-class-name="custom-parallax" scroller-class-name="custom-scroller" />
         </div>
@@ -169,7 +209,7 @@ onMounted(() => {
                 date="2025.08.11"></ProjectCard>
         </div>
         <div class="mt-[10rem]">
-            <ScrollVelocity :texts="[' CONNECTION //', '\\\\ CONNECTION ']" :velocity="100" :damping="50"
+            <ScrollVelocity :texts="[' CONNEC\u200ATION //', '\\\\ CONNEC\u200ATION ']" :velocity="100" :damping="50"
                 :stiffness="400" :velocity-mapping="{ input: [0, 1000], output: [0, 5] }"
                 class-name="font-electrolize font-light text-[4rem] lg:text-[8rem]/40 select-none text-dark-200"
                 parallax-class-name="custom-parallax" scroller-class-name="custom-scroller" />
@@ -179,7 +219,9 @@ onMounted(() => {
             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                 :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.1">
                 <h1 class="subtitle font-electrolize hovertrans">- CONT<i
-                        class="fa-light fa-paper-plane text-[0.85em] relative bottom-[0.05em] pr-[0.03em]"></i>CT -
+                        class="fa-light fa-paper-plane text-[0.85em] relative bottom-[0.05em] pr-[0.03em]"></i><span
+                        class="pr-2">C</span>T
+                    -
                 </h1>
             </AnimatedContent>
             <!-- <p></p> -->
