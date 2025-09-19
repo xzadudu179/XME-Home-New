@@ -7,6 +7,8 @@
             xzadudu179 All rights reserved
         </p>
         <p>Powered by Vue 3</p>
+        <p><a href="https://icp.gov.moe/?keyword=20251790" class="hover:text-primary-200"
+                target="_blank">萌ICP备20251790号</a></p>
     </footer>
 </template>
 
@@ -25,6 +27,11 @@ const props = defineProps({
 <style scoped>
 footer {
     z-index: 150;
+
+}
+
+footer a {
+    transition: all 0.3s;
 }
 
 footer p {
