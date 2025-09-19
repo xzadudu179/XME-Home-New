@@ -191,9 +191,15 @@ button.primary:active {
     transition: all 0.2s;
 }
 
+.wl-header-item {
+    border: none !important;
+}
+
 .wl-header-item input {
     border: 2px solid var(--color-dark-600);
+
     height: 20px;
+    width: 80%;
     display: flex;
     align-self: center;
     padding-left: 10px;
@@ -201,6 +207,14 @@ button.primary:active {
     border-top: 0;
     border-bottom: 0;
     border-radius: 10px;
+
+    @media (width <=48rem) {
+        /* border: none;
+        border-bottom: 2px solid var(--color-dark-600);
+        border-radius: 0; */
+        /* border-bottom: 2px solid var(--color-dark-600); */
+
+    }
 }
 
 .wl-header {
