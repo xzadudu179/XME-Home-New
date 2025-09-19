@@ -2,7 +2,8 @@
     <FadeContent :blur="true" :duration="1000" :delay="100" :threshold="0" :always-play="false" :initial-opacity="0"
         easing="ease-out">
         <Waline :serverURL="serverURL" :path="props.path ?? path" lang="en"
-            :emoji="['https://image.179.life/deon-emoji']" :wordLimit="500" class="waline font-normal" :locale="{
+            :emoji="['https://image.179.life/deon-emoji', 'https://image.179.life/179-emoji']" :wordLimit="500"
+            class="waline font-normal" :locale="{
                 placeholder: 'Message here...',
             }" />
     </FadeContent>
@@ -51,6 +52,27 @@ onMounted(() => {
 .waline {
     letter-spacing: 0.12em;
     transition: all 0.3s;
+}
+
+.wl-tabs {
+    border-top: 2px solid var(--color-dark-600) !important;
+}
+
+.wl-tabs .active {
+    /* border: none !important; */
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 2px solid var(--color-primary-300) !important;
+    /* border-color: var(--color-dark-500) !important; */
+    border-radius: 0 !important;
+    /* background-color: var(--color-dark-750) !important; */
+}
+
+.wl-tab .wl-emoji {
+    max-width: 2em !important;
+    width: 4em !important;
+    height: inherit !important;
+    max-height: 2em !important;
 }
 
 .wl-empty {
