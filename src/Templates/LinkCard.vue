@@ -78,7 +78,7 @@ const props = defineProps({
                             class="max-h-[20vw] h-[20vw] max-w-[20vw] w-[20vw] md:max-h-[180px] cardimg md:h-[180px] md:max-w-[180px] md:w-[180px] select-none overflow-hidden flex items-center justify-center">
                         </LoadingImg>
                     </div>
-                    <div class="ml-[3vw] md:ml-10 flex flex-col justify-evenly w-[9em]">
+                    <div class="ml-[3vw] md:ml-10 flex flex-col justify-evenly w-[9.9em]">
                         <p
                             class="text-[3.5vw] min-h-[10vw] md:min-h-0  md:text-[2.1rem] flex flex-col justify-center font-light ">
                             <span class="hovertrans">{{ props.name }}
