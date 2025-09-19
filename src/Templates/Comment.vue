@@ -1,8 +1,8 @@
 <template>
     <FadeContent :blur="true" :duration="1000" :delay="100" :threshold="0" :always-play="false" :initial-opacity="0"
         easing="ease-out">
-        <Waline :serverURL="serverURL" :path="props.path ?? path" lang="en" :emoji="['https://image.179.life/deon-emoji']"
-            :wordLimit="500" class="waline font-normal" :locale="{
+        <Waline :serverURL="serverURL" :path="props.path ?? path" lang="en"
+            :emoji="['https://image.179.life/deon-emoji']" :wordLimit="500" class="waline font-normal" :locale="{
                 placeholder: 'Message here...',
             }" />
     </FadeContent>
@@ -75,6 +75,25 @@ onMounted(() => {
     width: 6em !important;
     height: inherit !important;
     max-height: 3em !important;
+}
+
+code {
+    font-family: var(--font-firacode) !important;
+    letter-spacing: normal;
+    color: var(--color-dark-100) !important;
+}
+
+.wl-quote .wl-card-item {
+    padding-left: 15px;
+}
+
+.wl-content pre {
+    /* background-color: var(--color-dark-800); */
+    border-radius: 20px;
+}
+
+code .comment {
+    color: var(--color-dark-400) !important;
 }
 
 /* .wl-badge {
@@ -244,9 +263,19 @@ button.primary:active {
     color: var(--color-primary-100);
 }
 
+a {
+    /* word-break: break-all; */
+    overflow-wrap: anywhere !important;
+}
+
 @media (width <=48rem) {
     .wl-comment {
         flex-direction: column;
+
+    }
+
+    .wl-card-item {
+        /* flex-direction: column; */
     }
 
     .wl-panel {
@@ -315,6 +344,33 @@ button.primary:active {
 @media (width < 580px) {
     .wl-footer {
         flex-direction: column;
+    }
+
+    .wl-user {
+        margin-right: 3vw !important;
+    }
+
+    .wl-badge {
+        font-size: min(3vw, 0.9rem) !important;
+    }
+
+    .wl-time {
+        display: block;
+    }
+
+    .wl-user-avatar {
+        width: 9vw !important;
+        height: 9vw !important;
+        border-radius: 3vw !important;
+    }
+
+    .wl-content {
+        font-size: min(3.5vw, 1rem) !important;
+    }
+
+    .wl-content pre {
+        font-size: 1rem !important;
+        letter-spacing: normal;
     }
 
     .wl-panel {

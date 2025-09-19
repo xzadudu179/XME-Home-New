@@ -32,7 +32,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="text-[8vw] lg:text-5xl min-h-[70vh] font-orbitron text-dark-50 m-auto mt-20 max-w-[1800px] w-[80vw]">
+    <div class="text-[8vw] lg:text-5xl min-h-[70vh] font-orbitron text-dark-50 m-auto mt-20 max-w-[1800px] w-[90vw]">
         <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
             :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true" :delay="0.4">
             <p class="text-center font-melete mb-1 md:mb-10 hg:mb-5 font-light"><span class="inline-hovertrans">- LINKS
