@@ -4,6 +4,7 @@ import Magnet from './Bit/Magnet.vue';
 import LoadingImg from './LoadingImg.vue';
 import AnimatedContent from './Bit/AnimatedContent.vue';
 import Comment from './Comment.vue';
+import { number } from 'motion-v';
 const props = defineProps({
     name: {
         type: String,
@@ -65,31 +66,34 @@ const props = defineProps({
             <SpotlightCard
                 class-name="custom-spotlight-card rounded-[2vw] card color-on-hover md:rounded-[15px] overflow-hidden border-2 md:border-4 border-dark-600 hover:border-dark-500 md:m-7 mb-[2vw] mt-[2vw]"
                 spotlight-color="#3D78F232">
-                <div class="h-[20vw] max-h-[200px] border-b-3 border-dark-700 thumbnail"
+                <div class="h-[20vw] max-h-[270px] border-b-3 border-dark-700 thumbnail"
                     v-if="pinned && thumbnail !== ''"
                     :style="{ 'background-image': `url(${props.thumbnail})`, 'backgroundPosition': `center ${props.customPosition}` }">
                 </div>
                 <div
-                    class="max-h-[300px] w-[90vw] lg:w-[80vw] max-w-[740px] justify-between flex text-[5vw] bg-dark-800 md:text-4xl content">
+                    class="max-h-[300px] w-[90vw] lg:w-[80vw] max-w-[800px] justify-between flex text-[5vw] bg-dark-800 md:text-4xl content">
                     <div class="avatar">
                         <LoadingImg :src="props.avatar"
                             img-class="w-full md:w-auto md:h-full overflow-hidden max-w-max select-none flex-none"
-                            class="max-h-[20vw] h-[20vw] max-w-[20vw] w-[20vw] md:max-h-[150px] cardimg md:h-[150px] md:max-w-[150px] md:w-[150px] select-none overflow-hidden flex items-center justify-center">
+                            class="max-h-[20vw] h-[20vw] max-w-[20vw] w-[20vw] md:max-h-[180px] cardimg md:h-[180px] md:max-w-[180px] md:w-[180px] select-none overflow-hidden flex items-center justify-center">
                         </LoadingImg>
                     </div>
-                    <div class="ml-5 md:ml-10 pt-[2vw] md:pt-3 :w-auto w-[9.5em]">
-                        <p class="md:mb-3 md:mt-2 text-[3vw] md:text-3xl font-light "><span class="hovertrans">{{
-                            props.name }} </span></p>
-                        <div class="pt-1 h-[9vw] md:h-auto">
-                            <p
-                                class="text-[3vw] border-t-2 pt-[1vw] md:pt-5 border-dark-600 text-dark-200 md:text-[1.27rem]">
+                    <div class="ml-[3vw] md:ml-10 flex flex-col justify-evenly w-[9em]">
+                        <p
+                            class="text-[3.5vw] min-h-[10vw] md:min-h-0  md:text-[1.9rem] flex flex-col justify-center font-light ">
+                            <span class="hovertrans">{{ props.name }}
+                            </span>
+                        </p>
+                        <hr class="border-dark-600 border-t-1 md:border-t-3">
+                        <div class=" h-[9vw] md:h-auto flex flex-col justify-center">
+                            <p class="text-[3vw] text-dark-200 md:text-[1.27rem]">
                                 {{ props.desc }}
                             </p>
                         </div>
                     </div>
-                    <div class="justify-center items-center text-center m-auto flex">
+                    <div class="justify-center items-center text-center m-auto flex flex-col">
                         <p class="text-dark-400"><a :href="props.href"
-                                class="cursor-none href lg:text-[5rem] text-[9vw] md:text-[8vw] active:text-primary-200 hover:text-primary-200"
+                                class="cursor-none href lg:text-[6rem] text-[9vw] md:text-[8vw] active:text-primary-200 hover:text-primary-200"
                                 target="_blank"><span class="hidden md:inline"><i
                                         class="fa-light fa-angle-right"></i></span><i
                                     class="fa-light fa-angle-right"></i><i class="fa-light fa-angle-right"></i></a>
@@ -105,7 +109,7 @@ const props = defineProps({
 .custom-spotlight-card {
     padding: 0;
     transition: all 0.3s;
-
+    letter-spacing: 0.04em;
     /* border: none; */
 }
 
