@@ -1,7 +1,7 @@
 <template>
     <FadeContent :blur="true" :duration="1000" :delay="100" :threshold="0" :always-play="false" :initial-opacity="0"
         easing="ease-out">
-        <Waline :serverURL="serverURL" :path="path" lang="en" :emoji="['https://image.179.life/deon-emoji']"
+        <Waline :serverURL="serverURL" :path="props.path ?? path" lang="en" :emoji="['https://image.179.life/deon-emoji']"
             :wordLimit="500" class="waline font-normal" :locale="{
                 placeholder: 'Message here...',
             }" />
@@ -17,6 +17,13 @@ import '@waline/client/style';
 const serverURL = 'https://comment.xzadudu179.top/';
 const path = computed(() => window.location.hostname + useRoute().path);
 // console.log(path)
+const props = defineProps({
+    path: {
+        type: String,
+        required: false,
+        default: ""
+    },
+})
 
 function addCursorClass(els: NodeListOf<Element>) {
     for (let index = 0; index < els.length; index++) {

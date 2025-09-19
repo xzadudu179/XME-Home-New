@@ -113,7 +113,7 @@ onMounted(() => {
                     </div>
                 </AnimatedContent>
             </div>
-            <Comment />
+            <Comment :path="useRoute().path" />
         </div>
     </div>
     <Footer margin-top="5vh" />
