@@ -5,6 +5,8 @@
             :emoji="['https://image.179.life/deon-emoji', 'https://image.179.life/179-emoji']" :wordLimit="500"
             class="waline font-normal" :locale="{
                 placeholder: 'Message here...',
+                admin: 'ADMIN',
+                sticky: 'STICKY',
             }" />
     </FadeContent>
 </template>
@@ -52,6 +54,11 @@ onMounted(() => {
 .waline {
     letter-spacing: 0.12em;
     transition: all 0.3s;
+}
+
+.wl-card .wl-badge {
+    padding-left: 0.4em;
+    width: auto;
 }
 
 .wl-like[title="Cancel like"] svg path {
@@ -147,7 +154,7 @@ code .comment {
 }
 
 .wl-nick {
-    font-weight: normal !important;
+    /* font-weight: bold !important; */
 }
 
 .wl-panel:has(textarea:focus) {
@@ -210,7 +217,7 @@ button.primary:active {
 .wl-user-avatar,
 .wl-login-nick img {
     user-select: none;
-    border-radius: 15px !important;
+    border-radius: 25% !important;
     border: 2px solid var(--color-primary-100) !important;
 }
 
@@ -431,8 +438,8 @@ a {
 
     /* 常规颜色 */
     --waline-white: var(--color-dark-50);
-    --waline-light-grey: var(--color-dark-400);
-    --waline-dark-grey: var(--color-dark-600);
+    --waline-light-grey: var(--color-dark-300);
+    --waline-dark-grey: var(--color-dark-300);
 
     /* 主题色 */
     --waline-theme-color: var(--color-primary-200);
@@ -449,7 +456,7 @@ a {
     --waline-code-bg-color: var(--color-dark-800);
 
     /* 特殊颜色 */
-    --waline-bq-color: var(--color-dark-200);
+    --waline-bq-color: var(--color-dark-300);
 
     /* 头像 */
     --waline-avatar-size: 3.45rem;
@@ -461,7 +468,7 @@ a {
 
     /* 信息 */
     --waline-info-bg-color: var(--color-dark-850);
-    --waline-info-color: var(--color-dark-200);
+    --waline-info-color: var(--color-dark-400);
     --waline-info-font-size: 0.625em;
 
     /* 渲染选择 */
