@@ -31,7 +31,7 @@ const scrollDown = () => {
 onMounted(() => {
     const route = useRoute();
     eventBus.emit("page-ready", route.fullPath);
-    console.log("emit page-ready", route.fullPath);
+    // console.log("emit page-ready", route.fullPath);
 });
 
 

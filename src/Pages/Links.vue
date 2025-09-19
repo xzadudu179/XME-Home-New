@@ -6,15 +6,22 @@ import AnimatedContent from "@/Templates/Bit/AnimatedContent.vue";
 import LinkCard from "@/Templates/LinkCard.vue";
 import Footer from "@/Templates/Footer.vue";
 import { useRouter } from 'vue-router';
+import { inject } from 'vue'
 import links from '@/data/links.yaml'
 import Comment from "@/Templates/Comment.vue";
+import Lenis from "lenis";
+import { easeOut } from "motion-v";
+import type { ComputedRef } from "vue";
 
-console.log(links)
+// console.log(links)
+const lenis: ComputedRef<Lenis | undefined> | undefined = inject('lenis')
+lenis!.value?.scrollTo(0, { offset: 0, easing: easeOut, duration: 0.3 });
 
 const router = useRouter()
 router.afterEach((to, from) => {
     eventBus.emit("page-ready", to.path);
 });
+
 
 onMounted(() => {
     const route = useRoute();

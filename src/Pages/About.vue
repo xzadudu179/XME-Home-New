@@ -29,7 +29,7 @@ lenis!.value?.scrollTo(0, { offset: 0, easing: easeOut, duration: 0.3 });
 onMounted(() => {
     const route = useRoute()
     eventBus.emit("page-ready", route.fullPath);
-    console.log("emit page-ready", route.fullPath);
+    // console.log("emit page-ready", route.fullPath);
 });
 
 const techLogos = [

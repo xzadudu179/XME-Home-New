@@ -16,7 +16,7 @@ import '@waline/client/style';
 
 const serverURL = 'https://comment.xzadudu179.top/';
 const path = computed(() => window.location.hostname + useRoute().path);
-console.log(path)
+// console.log(path)
 
 function addCursorClass(els: NodeListOf<Element>) {
     for (let index = 0; index < els.length; index++) {

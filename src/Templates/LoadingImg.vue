@@ -12,7 +12,7 @@ const props = defineProps<Props>();
 const isLoaded = ref(false);
 
 function handleLoad() {
-    console.log("图片已加载成功")
+    // console.log("图片已加载成功")
     isLoaded.value = true;
 }
 </script>
