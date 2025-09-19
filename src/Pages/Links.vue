@@ -25,7 +25,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="text-[8vw] lg:text-5xl min-h-[70vh] font-orbitron text-dark-50 m-auto mt-25 max-w-[1800px] w-[80vw]">
+    <div class="text-[8vw] lg:text-5xl min-h-[70vh] font-orbitron text-dark-50 m-auto mt-20 max-w-[1800px] w-[80vw]">
         <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
             :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true" :delay="0.4">
             <p class="text-center font-melete mb-1 md:mb-10 hg:mb-5 font-light"><span class="inline-hovertrans">- LINKS
@@ -34,7 +34,7 @@ onMounted(() => {
         </AnimatedContent>
         <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
             :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true" :delay="0.5">
-            <p class="title">
+            <p class="title text-[7vw]">
                 #
                 <span class="inline-hovertrans mb-1.5 md:mb-5">PINNED LINKS</span>
             </p>
@@ -48,7 +48,7 @@ onMounted(() => {
         </div>
         <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
             :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true" :delay="0.8">
-            <p class="title md:text-5xl">
+            <p class="title md:text-5xl text-[7vw]">
                 #
                 <span class="inline-hovertrans mb-1.5 md:mb-5">FRIENDLY LINKS</span>
             </p>
@@ -62,7 +62,7 @@ onMounted(() => {
         </div>
         <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
             :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="false" :delay="0.1">
-            <p class="title">
+            <p class="title text-[6.5vw]">
                 #
                 <span class="inline-hovertrans mb-1.5 md:mb-5">APPLY FOR A LINK</span>
             </p>
@@ -130,7 +130,6 @@ onMounted(() => {
     color: var(--color-dark-200);
     text-align: center;
     transition: all 0.3s;
-    font-size: 7vw;
 
     @media (width >=48rem) {
         font-size: var(--text-5xl);
