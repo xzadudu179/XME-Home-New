@@ -369,7 +369,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                             greeting, or just some thoughts!</span></p>
                 </AnimatedContent>
             </div>
-            <Comment />
+            <Comment path="xme-home-about" />
         </div>
     </div>
     <Footer margin-top="5vh"></Footer>
