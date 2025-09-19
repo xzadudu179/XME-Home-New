@@ -112,7 +112,8 @@ textarea:focus {
 
 #error,
 .error {
-    color: rgb(255, 99, 125);
+    /* color: rgb(255, 99, 125); */
+    color: var(--color-xme-red-300);
 }
 
 .form {

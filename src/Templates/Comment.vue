@@ -54,6 +54,14 @@ onMounted(() => {
     transition: all 0.3s;
 }
 
+.wl-like[title="Cancel like"] svg path {
+    fill: var(--color-xme-red-300);
+}
+
+.verified-icon path {
+    fill: var(--color-primary-300);
+}
+
 .wl-tabs {
     border-top: 2px solid var(--color-dark-600) !important;
 }
@@ -101,8 +109,10 @@ onMounted(() => {
 
 code {
     font-family: var(--font-firacode) !important;
+    font-size: 1em !important;
     letter-spacing: normal;
     color: var(--color-dark-100) !important;
+
 }
 
 .wl-quote .wl-card-item {
@@ -111,7 +121,17 @@ code {
 
 .wl-content pre {
     /* background-color: var(--color-dark-800); */
+    background-color: #131522B7;
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--color-dark-500);
+    border-top: 0;
+    border-bottom: 0;
+    transition: all 0.3s;
     border-radius: 20px;
+}
+
+.wl-content pre:hover {
+    border-color: var(--color-dark-200);
 }
 
 code .comment {
@@ -180,7 +200,7 @@ button.primary:active {
 }
 
 .wl-delete svg path {
-    fill: rgb(255, 99, 125) !important;
+    fill: var(--color-xme-red-300) !important;
 }
 
 .wl-card {
