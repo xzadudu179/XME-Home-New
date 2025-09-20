@@ -64,9 +64,9 @@ const props = defineProps({
             active-transition="transform 0.6s ease-out" inactive-transition="transform 0.6s ease-in-out"
             wrapper-class-name="custom-wrapper" inner-class-name="custom-inner">
             <SpotlightCard
-                class-name="custom-spotlight-card rounded-[2vw] card color-on-hover md:rounded-[15px] overflow-hidden border-2 md:border-4 border-dark-600 hover:border-dark-500 mb-[2vw] mt-[2vw]"
+                class-name="custom-spotlight-card rounded-[2vw] card color-on-hover md:rounded-[1vw] lg:rounded-[15px] overflow-hidden border-2 md:border-[0.4vw] lg:border-4 border-dark-600 hover:border-dark-500 mb-[2vw] mt-[2vw]"
                 spotlight-color="#3D78F232">
-                <div class="h-[20vw] max-h-[270px] border-b-3 border-dark-700 thumbnail"
+                <div class="h-[30vw] md:h-[15vw] max-h-[270px] min-h-[100px] border-b-3 border-dark-700 thumbnail"
                     v-if="pinned && thumbnail !== ''"
                     :style="{ 'background-image': `url(${props.thumbnail})`, 'backgroundPosition': `center ${props.customPosition}` }">
                 </div>
@@ -84,7 +84,7 @@ const props = defineProps({
                             <span class="hovertrans">{{ props.name }}
                             </span>
                         </p>
-                        <hr class="border-dark-600 border-t-1 md:border-t-3">
+                        <hr class="border-dark-600 border-t-1 md:border-t-2 lg:border-t-3">
                         <div class=" h-[9vw] md:h-auto flex flex-col justify-center">
                             <p class="text-[3vw] text-dark-200 desc">
                                 {{ props.desc }}
@@ -96,7 +96,7 @@ const props = defineProps({
                             <a :href="props.href"
                                 class="cursor-none href text-[9vw] md:text-[8vw] active:text-primary-200 hover:text-primary-200"
                                 target="_blank">
-                                <span class="hidden lg:inline hg:inline">
+                                <span class="hidden md:inline hg:inline">
                                     <i class="fa-light fa-angle-right"></i>
                                 </span>
                                 <i class="fa-light fa-angle-right"></i>
