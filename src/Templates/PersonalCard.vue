@@ -151,7 +151,8 @@ a:hover,
     /* margin: 0 50px; */
     position: relative;
     top: 10px;
-    right: 50px;
+    /* filter: blur(5px); */
+    right: 35px;
     font-size: 1.1em;
     font-weight: 500;
     text-decoration: none;

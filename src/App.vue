@@ -130,7 +130,7 @@ const beleft = () => {
 }
 
 .nav-container {
-  background: linear-gradient(to top, #0000, #080a16cc);
+  background: linear-gradient(to top, #0000, #030718cb);
 }
 
 .black-gradient {

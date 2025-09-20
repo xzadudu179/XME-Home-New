@@ -12,6 +12,7 @@
 <style scoped>
 .title {
     text-indent: -1.5em;
+    text-align: left;
     font-size: 1.2em;
     font-weight: 600;
 }

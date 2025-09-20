@@ -5,7 +5,7 @@
             active-transition="transform 0.6s ease-out" inactive-transition="transform 0.6s ease-in-out"
             wrapper-class-name="custom-wrapper" inner-class-name="custom-inner">
             <SpotlightCard
-                class-name="custom-spotlight-card h-auto min-h-[8.5em] md:h-[33vw] hg:h-[20vw] w-[90vw] lg:w-[80vw] hg:w-[70vw] flex-col md:flex-row p-0 color-on-hover bg-dark-800 max-w-[2500px] md:max-h-[630px] text-[70%]"
+                class-name="custom-spotlight-card h-auto min-h-[8.5em] md:h-[30vw] hg:h-[20vw] w-[90vw] hg:w-[75vw] flex-col md:flex-row p-0 color-on-hover bg-dark-800 max-w-[2500px] md:max-h-[630px] text-[70%]"
                 spotlight-color="#3D78F232">
                 <div class="imgcard">
                     <LoadingImg :src="props.imageSrc"
@@ -16,9 +16,9 @@
                         class="w-full md:w-auto md:h-full overflow-hidden max-w-max cardimg select-none"> -->
                 </div>
                 <div
-                    class="w-full p-3 pt-8 border-t-8 md:border-t-0 md:border-l-8 border-dark-700 z-5 md:flex flex-col">
+                    class="w-full p-3 pt-5 md:pt-8 border-t-8 md:border-t-0 md:border-l-8 border-dark-700 z-5 md:flex flex-col">
                     <div>
-                        <p class="hovertrans text-[1.8rem] card-title pb-8 md:font-light">
+                        <p class="hovertrans text-[1.8rem] card-title pb-5 md:pb-8 md:font-light">
                             {{ props.title }}
                         </p>
 
@@ -29,8 +29,8 @@
                         </div>
                         <p class="md:hidden text-[0.7rem] pt-3 text-right"> Started in {{ props.date }} </p>
                     </div>
-                    <div class="hidden md:flex justify-between mt-auto items-end w-full pr-8 self-center">
-                        <p class="arrow hovertrans font-light text-dark-500 pt-4 pb-[0.2em]">
+                    <div class="hidden md:flex justify-between mt-auto items-end w-full pr-4 self-center">
+                        <p class="arrow hovertrans font-light text-dark-500 pt-4 pb-[0.3em]">
                             <a :href="props.href" class="cursor-none cursor-target inline-block h-[1em]"><i
                                     class="fa-light fa-angle-left"></i><i class="fa-light fa-angle-left"></i><i
                                     class="fa-light fa-angle-left"></i></a>
@@ -81,7 +81,7 @@ const props = withDefaults(defineProps<Props>(), {
 <style scoped>
 @media (width >=48rem) {
     .card-title {
-        font-size: min(4.3vw, 2.5em);
+        font-size: min(3.8vw, 2.5em);
     }
 }
 
@@ -165,7 +165,14 @@ const props = withDefaults(defineProps<Props>(), {
 
 .custom-spotlight-card {
     padding: 0;
+
     border: max(0.2vw, 2px) solid var(--color-dark-200);
+
+    @media (pointer: fine) {
+        border: max(0.2vw, 2px) solid var(--color-dark-400);
+        color: var(--color-dark-300);
+    }
+
     max-width: 400px;
 
     @media (min-width: 48rem) {
@@ -184,6 +191,8 @@ const props = withDefaults(defineProps<Props>(), {
 
 .custom-spotlight-card:hover {
     box-shadow: 0 0 2vw #D6DCFC33;
+    border-color: var(--color-dark-200);
+    color: var(--color-dark-200);
 }
 
 .cardimg {

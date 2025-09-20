@@ -8,7 +8,9 @@
                 admin: 'ADMIN',
                 sticky: 'PINNED',
                 hottest: 'Popular',
-                latest: 'Newest'
+                latest: 'Newest',
+                unsticky: 'UNPINNED',
+                word: ''
             }" />
     </FadeContent>
 </template>
@@ -314,6 +316,10 @@ button.primary:active {
     color: var(--color-primary-100);
 }
 
+.wl-text-number {
+    font-size: min(0.75em, 2vw) !important;
+}
+
 a {
     /* word-break: break-all; */
     overflow-wrap: anywhere !important;
@@ -331,7 +337,18 @@ a {
 
     .wl-panel {
         margin: auto;
+        padding: 0;
     }
+
+    .item3 {
+        padding: 8px 15px !important;
+    }
+
+    .wl-input,
+    .wl-header-item label {
+        font-size: max(min(1em, 1.2vw), 0.55rem) !important;
+    }
+
 
     .wl-login-info {
         display: flex;
@@ -346,14 +363,11 @@ a {
 
     .wl-info .wl-btn {
         padding: 5px;
-        width: min(7em, 100px) !important;
+        width: min(6em, 100px) !important;
         width: auto;
-        font-size: min(3.3vw, 1em);
+        font-size: min(2.5vw, 1rem);
     }
 
-    .wl-text-number {
-        text-align: left;
-    }
 
     .wl-info {
         margin-top: 8px;
@@ -424,12 +438,18 @@ a {
         letter-spacing: normal;
     }
 
+    .wl-input,
+    .wl-header-item label {
+        font-size: 0.7rem !important;
+    }
+
     .wl-panel {
         width: 90%;
     }
 
     .wl-text-number {
-        font-size: 0.7em !important;
+        font-size: max(min(0.7em, 3vw), 0.4em) !important;
+        letter-spacing: 0.15em;
     }
 }
 

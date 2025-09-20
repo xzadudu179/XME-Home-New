@@ -193,7 +193,7 @@ onMounted(() => {
             <ProjectCard class="mr-0 hg:mr-[13vw]"
                 imageSrc="https://image.179.life/images/background-dark-with-header.webp" title="XME Notes Library"
                 href="https://blog.xzadudu179.top/"
-                :descs="['Personal blog for sharing my life, introducing myself, and showcasing my personality.', 'Powered by Hexo.']"
+                :descs="['Personal blog for sharing my life, introducing myself, and showcasing my personality.']"
                 date="2024.09.03"></ProjectCard>
             <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="https://image.179.life/images/destar-cover.webp"
                 title="XDS-Bot (WIP)" href="https://github.com/xzadudu179/XDS-bot-qq"
@@ -205,7 +205,7 @@ onMounted(() => {
             </ProjectCard>
             <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="https://image.179.life/images/home-cover.webp"
                 title="XME-Home" href="https://www.xzadudu179.top"
-                :descs="['Homepage for showcasing my uniqueness and introducing myself, filled with everything about me.', '*You are here.']"
+                :descs="['Homepage for showcasing my uniqueness and introducing myself, filled with everything about me.']"
                 date="2025.08.11"></ProjectCard>
         </div>
         <div class="mt-[10rem]">
