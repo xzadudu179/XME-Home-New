@@ -1,11 +1,11 @@
 <template>
     <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
         :initial-opacity="0" :animate-opacity="true" :scale="0.94" :threshold="0.1" :delay="0.1">
-        <Magnet class="m-[3vh] md:m-[5vw] ml-0 mr-0" :padding="200" :disabled="false" :magnet-strength="30"
+        <Magnet class="m-[3vh] md:m-[4vw] lg:m-[5vw] ml-0 mr-0" :padding="200" :disabled="false" :magnet-strength="30"
             active-transition="transform 0.6s ease-out" inactive-transition="transform 0.6s ease-in-out"
             wrapper-class-name="custom-wrapper" inner-class-name="custom-inner">
             <SpotlightCard
-                class-name="custom-spotlight-card h-auto min-h-[8.5em] md:h-[30vw] hg:h-[20vw] w-[90vw] hg:w-[75vw] flex-col md:flex-row p-0 color-on-hover bg-dark-800 max-w-[2500px] md:max-h-[630px] text-[70%]"
+                class-name="custom-spotlight-card h-auto min-h-[8.5em] md:h-[30vw] hg:h-[20vw] w-[90vw] md:w-[85vw] hg:w-[75vw] flex-col md:flex-row p-0 color-on-hover bg-dark-800 max-w-[2500px] md:max-h-[630px] text-[70%]"
                 spotlight-color="#3D78F232">
                 <div class="imgcard">
                     <LoadingImg :src="props.imageSrc"
