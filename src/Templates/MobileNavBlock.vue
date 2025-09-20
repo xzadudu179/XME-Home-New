@@ -31,7 +31,7 @@ const leave = (href: string) => {
 
 <template>
     <ul
-        class="text-dark-50 font-orbitron font-light select-none text-[1.4em] flex flex-col justify-center items-center">
+        class="text-dark-50 font-orbitron font-light select-none text-[1.4em] flex flex-col justify-center items-center main-ul">
         <li v-for="item in props.navItems" @click="leave(item.href)" class="w-full h-full">
             <a :href="item.href" v-if="/^https?:\/\//.test(item.href)"
                 class="active:bg-dark-600 flex justify-between items-center relative top-[58px] pr-6 w-full cursor-target border-b-1 border-dark-400 p-4.5 lg:m-3 lg:mt-3 lg:mb-3 mr-[2vw] ml-[2vw] active:text-dark-200 transition-all hover:text-shadow-dark-100 litem">
@@ -49,5 +49,9 @@ const leave = (href: string) => {
 <style scoped>
 .litem:hover {
     text-shadow: 0 0 8px;
+}
+
+.main-ul {
+    letter-spacing: 0.06em;
 }
 </style>

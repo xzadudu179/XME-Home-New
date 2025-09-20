@@ -11,6 +11,7 @@ import { inject } from 'vue'
 import ProjectCard from "@/Templates/ProjectCard.vue"
 import Particles from "@/Templates/Bit/Particles.vue";
 import FallingText from "@/Templates/Bit/FallingText.vue";
+import { easeOut } from "motion-v";
 import Footer from "@/Templates/Footer.vue";
 import { easeInOut } from "motion-v";
 import { eventBus } from "@/router/eventbus";
@@ -27,6 +28,7 @@ const scrollDown = () => {
     const nextY = window.innerHeight;
     lenis!.value?.scrollTo(nextY, { offset: 0, easing: easeInOut, duration: 0.8 });
 };
+lenis!.value?.scrollTo(0, { offset: 0, easing: easeOut, duration: 0.3 });
 
 onMounted(() => {
     const route = useRoute();
@@ -254,7 +256,7 @@ onMounted(() => {
                             ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1"
                             :delay="0.1">
                             <p><a href="mailto:terra179@163.com" class="hovertrans cursor-target email"><i
-                                        class="fa-light fa-envelope pr-[0.3em] email-icon"></i>Email
+                                        class="fa-regular fa-envelope pr-[0.3em] email-icon"></i>Email
                                 </a></p>
                         </AnimatedContent>
                         <AnimatedContent :distance="30" direction="vertical" :reverse="false" :duration="1.1"

@@ -11,7 +11,7 @@
         <p>
             <a class="hover:text-primary-200" target="_blank" href="https://travel.moe/go.html?travel=on">
                 <i class="fa-light fa-meteor"></i>
-                Moe Travel
+                MoeTravel
                 <i class="fa-regular fa-chevron-right"></i>
                 <i class="fa-regular fa-chevron-right"></i>
             </a>

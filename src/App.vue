@@ -92,8 +92,10 @@ const beleft = () => {
     class="fixed w-[100vw] h-[100vh] overflow-hidden bg-dark-900 z-100 left-[100vw] mobile-nav-item md:hidden">
     <MobileNavBlock
       :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Links', href: '/links' }, { text: 'Notes', href: 'https://blog.xzadudu179.top' }]" />
-    <p class="text-dark-200 font-orbitron absolute bottom-0 w-full p-5 pb-3 text-center pointer-events-none">
-      CREATING,
+    <p
+      class="text-dark-300 font-orbitron absolute bottom-0 w-full p-5 pb-3 text-center pointer-events-none tracking-[0.08em]">
+      CREATING
+      <i class="fa-regular fa-star fa-spin"></i>
       DESIGNING
     </p>
   </div>
