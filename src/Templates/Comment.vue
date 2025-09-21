@@ -21,16 +21,23 @@ import { useRoute } from 'vue-router';
 import FadeContent from './Bit/FadeContent.vue';
 import '@waline/client/style';
 
-const serverURL = 'https://comment.xzadudu179.top/';
-const path = computed(() => window.location.hostname + useRoute().path);
-// console.log(path)
 const props = defineProps({
     path: {
         type: String,
         required: false,
         default: ""
     },
+    serverURL: {
+        type: String,
+        required: false,
+        default: "https://xmehome.comment.179.life/"
+    },
 })
+
+const serverURL = props.serverURL;
+const path = computed(() => window.location.hostname + useRoute().path);
+// console.log(path)
+
 
 function addCursorClass(els: NodeListOf<Element>) {
     for (let index = 0; index < els.length; index++) {

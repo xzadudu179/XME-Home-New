@@ -113,7 +113,7 @@ onMounted(() => {
                     </div>
                 </AnimatedContent>
             </div>
-            <Comment path="/links/" />
+            <Comment path="/links/" serverURL="https://comment.xzadudu179.top/" />
         </div>
     </div>
     <Footer margin-top="5vh" />
