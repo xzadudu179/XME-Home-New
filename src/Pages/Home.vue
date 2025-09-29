@@ -169,7 +169,7 @@ onMounted(() => {
                         <div
                             class="max-w-[800px] w-[90vw] lg:w-[50vw] h-[400px] border-2 rounded-3xl hover:scale-[1.01] matter-box">
                             <FallingText
-                                text="Vue.js Javascript Typescript Python HTML CSS C++ C# Java Flutter Photoshop Unity Kotlin Axure Git TailwindCSS Node.js"
+                                text="Vue.js Javascript Typescript Python HTML CSS C++ C# Java Flutter Photoshop Unity Kotlin Axure Git TailwindCSS Node.js React"
                                 :highlight-words="['Python', 'Vue.js', 'C#', 'HTML', 'CSS']" trigger="scroll"
                                 :gravity="0.4" font-size="2rem" :mouse-constraint-stiffness="1" />
                         </div>

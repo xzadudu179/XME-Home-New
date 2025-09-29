@@ -81,7 +81,7 @@ const props = defineProps({
                     <div class="ml-[3vw] flex flex-col justify-evenly  text-content">
                         <p
                             class="text-[3.5vw] min-h-[10vw] md:min-h-0 content-title flex flex-col justify-center font-light ">
-                            <span class="hovertrans">{{ props.name }}
+                            <span class=""><span class="inline-hovertrans">{{ props.name }}</span>
                             </span>
                         </p>
                         <hr class="border-dark-600 border-t-1 md:border-t-2 lg:border-t-3">
