@@ -94,6 +94,11 @@ onMounted(() => {
     /* background-color: var(--color-dark-750) !important; */
 }
 
+
+.wl-tabs {
+    z-index: 100 !important;
+}
+
 .wl-tab .wl-emoji {
     max-width: 2em !important;
     width: 4em !important;
@@ -152,13 +157,15 @@ code {
     border-color: var(--color-dark-200);
 }
 
+.wl-emoji-popup {
+    z-index: 100 !important;
+}
+
+
 code .comment {
     color: var(--color-dark-400) !important;
 }
 
-/* .wl-badge {
-    display: none !important;
-} */
 
 .wl-editor {
     resize: none;
@@ -172,10 +179,9 @@ code .comment {
     border-color: var(--color-primary-200);
 }
 
+
 .wl-comment {
     background-color: #080A16B2 !important;
-    backdrop-filter: blur(5px) !important;
-    -webkit-backdrop-filter: blur(5px);
 }
 
 .wl-panel {
@@ -223,6 +229,11 @@ button.primary:active {
 
 .wl-card {
     border: none;
+}
+
+.wl-close {
+    margin-right: 20px;
+    top: 20px;
 }
 
 .wl-user-avatar,
