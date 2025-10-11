@@ -1,6 +1,6 @@
 <template>
     <footer
-        class="font-orbitron font-light md:text-xl text-[3vw] bg-dark-850 flex text-center flex-col items-center border-t-2 pt-[2vw] pb-[2vw] md:pt-5 md:pb-5 justify-between relative w-full bottom-0 border-dark-600"
+        class="font-orbitron font-light md:text-xl text-[3vw] bg-dark-900 flex text-center flex-col items-center border-t-2 pt-[2vw] pb-[2vw] md:pt-5 md:pb-5 justify-between relative w-full bottom-0 border-dark-600"
         :style="{ marginTop: props.marginTop }">
         <p class="w-full copyright">© 2025 - {{ curYear }}
             <i class="fa-regular fa-star fa-spin"></i>

@@ -181,7 +181,8 @@ code .comment {
 
 
 .wl-comment {
-    background-color: #080A16B2 !important;
+    background-color: #020211B2 !important;
+    border-radius: 30px;
 }
 
 .wl-panel {

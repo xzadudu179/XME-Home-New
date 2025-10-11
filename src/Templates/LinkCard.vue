@@ -71,7 +71,7 @@ const props = defineProps({
                     :style="{ 'background-image': `url(${props.thumbnail})`, 'backgroundPosition': `center ${props.customPosition}` }">
                 </div>
                 <div
-                    class="max-h-[300px] w-[90vw] md:w-[40vw] max-w-[800px] justify-between flex text-[5vw] bg-dark-800 md:text-4xl content">
+                    class="max-h-[300px] w-[90vw] md:w-[40vw] max-w-[800px] justify-between flex text-[5vw] bg-dark-850 md:text-4xl content">
                     <div class="avatar">
                         <LoadingImg :src="props.avatar"
                             img-class="w-full md:w-auto md:h-full overflow-hidden max-w-max select-none flex-none"

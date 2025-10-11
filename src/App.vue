@@ -4,8 +4,6 @@ import NavBlock from "./Templates/NavBlock.vue";
 import TargetCursor from "./Templates/Bit/TargetCursor.vue";
 import Loading from "./Templates/Loading.vue";
 import MobileNavBlock from "./Templates/MobileNavBlock.vue";
-import FadeContent from "./Templates/Bit/FadeContent.vue";
-import Footer from "@/Templates/Footer.vue";
 console.log(`
    ____________________________________________________________________________________________________
   /   ______     ______     ______   ______     ______     __            ______     ______     ______  \\
@@ -66,7 +64,7 @@ const beleft = () => {
     <TargetCursor :spin-duration="2" :hide-default-cursor="true" />
   </div>
   <div class="w-full h-full fixed overflow-hidden z-[-10] bg-dots">
-    <DotGrid :dot-size="10" :gap="64" base-color="#080A16" active-color="#343f66" :proximity="500" :speed-trigger="1000"
+    <DotGrid :dot-size="10" :gap="64" base-color="#020211" active-color="#343f66" :proximity="500" :speed-trigger="1000"
       :shock-radius="150" :shock-strength="-5" :max-speed="5000" :resistance="750" :return-duration="1.3"
       class-name="custom-dot-grid" />
   </div>

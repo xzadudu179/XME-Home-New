@@ -235,7 +235,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                 :initial-opacity="0" easing="ease-out">
                 <div :style="{ height: '100px', position: 'relative', overflow: 'hidden' }">
                     <LogoLoop :logos="techLogos" :speed="80" direction="left" :logoHeight="48" :gap="40"
-                        :pauseOnHover="true" :scaleOnHover="true" :fadeOut="true" fadeOutColor="#080A16" />
+                        :pauseOnHover="true" :scaleOnHover="true" :fadeOut="true" fadeOutColor="#020211" />
                 </div>
             </FadeContent>
             <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
@@ -342,7 +342,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                         MESSAGE <i class="fa-light fa-message-lines text-[0.9em] relative"></i></span></p>
             </AnimatedContent>
             <div
-                class="text-left text-lg md:text-xl translucent text-dark-100 main-content font-normal mb-13 tracking-[0.09em]pt-[0.12em] pb-4 pl-[1em]">
+                class="text-left text-lg md:text-xl text-dark-100 main-content font-normal mb-13 tracking-[0.09em]pt-[0.12em] pb-4 pl-[1em]">
                 <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                     :initial-opacity="0" :animate-opacity="true" :scale="1" :threshold="0" :always-play="false"
                     :delay="0.2">

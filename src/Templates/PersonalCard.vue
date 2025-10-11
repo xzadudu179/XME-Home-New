@@ -175,7 +175,7 @@ a:hover,
     display: flex;
     justify-content: space-between;
     /* background-color: #2238; */
-    background-color: #080A1622;
+    background-color: #02021122;
     /* backdrop-filter: blur(10px); */
     /* background-color: var(--card-color); */
     backdrop-filter: blur(15px);

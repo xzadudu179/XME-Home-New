@@ -89,14 +89,14 @@ onMounted(() => {
                 </AnimatedContent>
 
                 <div
-                    class="about_content font-orbitron w-[100%] md:w-[80%] max-w-[1700px] md:mt-[100px] mb-[300px] m-auto flex flex-row justify-between">
+                    class="about_content font-orbitron w-[100%] md:w-[80%] max-w-[1700px] md:mt-[100px] mb-[300px] m-auto flex flex-row justify-between items-center">
                     <FadeContent :blur="true" :duration="1000" :delay="200" :threshold="0.1" :initial-opacity="0"
                         easing="ease-out">
                         <PersonalCard />
                     </FadeContent>
 
                     <div class="max-w-[800px]">
-                        <div class="text-5xl font-light about">
+                        <div class=" font-light about">
                             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
                                 ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
                                 :threshold="0" :delay="0.1">
@@ -133,10 +133,10 @@ onMounted(() => {
                     </h1>
                 </AnimatedContent>
                 <div
-                    class="about_content font-orbitron w-[80%] max-w-[1700px] mt-[100px] mb-[300px] p-10 pt-0 pb-0 m-auto flex flex-row justify-between">
+                    class="about_content font-orbitron w-[80%] max-w-[1700px] mt-[100px] mb-[300px] p-10 pt-0 pb-0 m-auto flex flex-row justify-between items-center text-center">
 
                     <div class="max-w-[800px] mb-[50px] md:mb-0">
-                        <div class="text-5xl font-light about" id="about2">
+                        <div class="font-light about" id="about2">
                             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
                                 ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
                                 :threshold="0" :delay="0.1">
@@ -188,24 +188,24 @@ onMounted(() => {
         <div class="text-5xl projects font-orbitron text-dark-200 text-center pt-[10rem]">
             <!-- <h2 class="mt-50 text-4xl md:text-8xl">/ WORK IN PROCESS /</h2>
             <h2 class="pt-5">...页面制作中...</h2> -->
-            <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="https://image.179.life/images/deon_avatar.jpg"
+            <ProjectCard class="ml-0 hg:ml-[10vw]" imageSrc="https://image.179.life/images/deon_avatar.jpg"
                 title="XME-Deon-Bot" href="https://docs.xme.179.life/#/"
                 :descs="['One of my QQ bot services, mainly offering entertainment features.', 'Built with Python and FastAPI.']"
                 date="2024.10.11"></ProjectCard>
-            <ProjectCard class="mr-0 hg:mr-[13vw]"
+            <ProjectCard class="mr-0 hg:mr-[10vw]"
                 imageSrc="https://image.179.life/images/background-dark-with-header.webp" title="XME Notes Library"
                 href="https://blog.xzadudu179.top/"
                 :descs="['Personal blog for sharing my life, introducing myself, and showcasing my personality.']"
                 date="2024.09.03"></ProjectCard>
-            <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="https://image.179.life/images/destar-cover.webp"
+            <ProjectCard class="ml-0 hg:ml-[10vw]" imageSrc="https://image.179.life/images/destar-cover.webp"
                 title="XDS-Bot (WIP)" href="https://github.com/xzadudu179/XDS-bot-qq"
                 :descs="['A QQ bot designed for group member management, with core features still under development.']"
                 date="2025.07.24"></ProjectCard>
-            <ProjectCard class="mr-0 hg:mr-[13vw]" imageSrc="https://image.179.life/images/aerno-cover.webp"
+            <ProjectCard class="mr-0 hg:mr-[10vw]" imageSrc="https://image.179.life/images/aerno-cover.webp"
                 title="Aerno Theme" href="https://github.com/xzadudu179/Aerno-Theme"
                 :descs="['A clean blue-purple Visual Studio Code theme designed for dark mode.']" date="2024.03.07">
             </ProjectCard>
-            <ProjectCard class="ml-0 hg:ml-[13vw]" imageSrc="https://image.179.life/images/home-cover.webp"
+            <ProjectCard class="ml-0 hg:ml-[10vw]" imageSrc="https://image.179.life/images/home-cover.webp"
                 title="XME-Home" href="https://www.xzadudu179.top"
                 :descs="['Homepage for showcasing my uniqueness and introducing myself, filled with everything about me.']"
                 date="2025.08.11"></ProjectCard>
@@ -461,6 +461,7 @@ onMounted(() => {
     /* font-size: 2rem; */
     line-height: 1.8em;
     letter-spacing: 0.2em;
+    font-size: max(min(3em, 2.2vw), 2.5em);
 }
 
 .about {
