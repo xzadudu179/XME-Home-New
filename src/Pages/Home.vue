@@ -171,7 +171,7 @@ onMounted(() => {
                             <FallingText
                                 text="Vue.js Javascript Typescript Python HTML CSS C++ C# Java Flutter Photoshop Unity Kotlin Axure Git TailwindCSS Node.js React"
                                 :highlight-words="['Python', 'Vue.js', 'C#', 'HTML', 'CSS']" trigger="scroll"
-                                :gravity="0.4" font-size="2rem" :mouse-constraint-stiffness="1" />
+                                :gravity="0.4" font-size="1.8rem" :mouse-constraint-stiffness="1" />
                         </div>
                     </FadeContent>
 
@@ -451,17 +451,24 @@ onMounted(() => {
 
 #subtitle2 {
     font-size: min(10vw, 10vh);
-    text-align: right;
-    max-width: 1760px;
-    margin: auto;
+
 
     @media (width >=64rem) {
+
         font-size: min(7em, 10vh);
     }
 
     @media (width <=1680px) {
         text-align: center;
     }
+
+    @media (width >=1680px) {
+        text-align: right;
+        width: 80%;
+        min-width: 1580px;
+        max-width: calc(1700px + 0.6em);
+    }
+
 }
 
 .about p {
@@ -470,7 +477,7 @@ onMounted(() => {
     letter-spacing: 0.2em;
 
     @media (width <=64rem) {
-        font-size: max(1.7rem, 5vw);
+        font-size: max(1rem, 5vw);
     }
 }
 
@@ -481,8 +488,6 @@ onMounted(() => {
 
 #about2 p {
     line-height: 1.6em;
-
-
 }
 
 .about p span {
@@ -495,8 +500,8 @@ onMounted(() => {
         justify-content: center;
         align-items: center;
         width: 100%;
-        margin-bottom: 150px;
-        margin-top: 50px;
+        margin-bottom: 5vw;
+        margin-top: 0;
         min-width: 0px !important;
     }
 
@@ -508,6 +513,7 @@ onMounted(() => {
 
     #about2 {
         font-size: min(48px, 8vw);
+        margin-top: 0;
     }
 }
 
@@ -515,7 +521,7 @@ onMounted(() => {
     .about_content {
         width: 100%;
         margin: 0;
-        margin-bottom: 100px;
+        margin-bottom: 4vw;
         flex-direction: column;
     }
 }
