@@ -84,12 +84,12 @@ onMounted(() => {
             <div class=" hg:w-[95vw] m-auto mt-[100px] md:mt-[200px] rounded-[4em] card-container">
                 <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                     :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.1">
-                    <h1 class="subtitle hg:pr-[850px]"><span class="inline-hovertrans md:mt-[100px]">- AB<i
-                                class="fa-light fa-planet-ringed text-[0.9em]"></i>UT -</span></h1>
+                    <h1 class="subtitle hg:pr-[850px]"><span class="inline-hovertrans md:mt-[100px] mb-[20px] md:mb-0">-
+                            AB<i class="fa-light fa-planet-ringed text-[0.9em]"></i>UT -</span></h1>
                 </AnimatedContent>
 
                 <div
-                    class="about_content font-orbitron w-[100%] md:w-[80%] max-w-[1700px] md:mt-[100px] mb-[300px] m-auto flex flex-row justify-between items-center">
+                    class="about_content font-orbitron w-[100%] md:w-[80%] max-w-[1700px] md:mt-[60px] lg:mt-[100px] mb-[300px] m-auto flex flex-row justify-between items-center">
                     <FadeContent :blur="true" :duration="1000" :delay="200" :threshold="0.1" :initial-opacity="0"
                         easing="ease-out">
                         <PersonalCard />
@@ -127,15 +127,15 @@ onMounted(() => {
                 </div>
                 <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                     :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.1">
-                    <h1 class="subtitle md:mt-[50px] hg:pl-[850px]" id="subtitle2">
+                    <h1 class="subtitle md:mt-[50px] m-auto p-0" id="subtitle2">
                         <span class="inline-hovertrans">-TECH
                             ST<i class="fa-light fa-cubes text-[0.8em] relative bottom-[0.06em]"></i>CKS -</span>
                     </h1>
                 </AnimatedContent>
                 <div
-                    class="about_content font-orbitron w-[80%] max-w-[1700px] mt-[100px] mb-[300px] p-10 pt-0 pb-0 m-auto flex flex-row justify-between items-center text-center">
+                    class="about_content font-orbitron w-[80%] max-w-[1700px] mt-0 hg:mt-[100px] mb-[300px] p-10 pt-0 pb-0 m-auto flex flex-row justify-between items-center text-center">
 
-                    <div class="max-w-[800px] mb-[50px] md:mb-0">
+                    <div class="max-w-[800px]  md:mb-0">
                         <div class="font-light about" id="about2">
                             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
                                 ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
@@ -160,7 +160,7 @@ onMounted(() => {
                             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
                                 ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
                                 :threshold="0" :delay="0.5">
-                                <p class="hovertrans">PRODUCER</p>
+                                <p class="hovertrans mb-[0.8em] hg:mb-0">PRODUCER</p>
                             </AnimatedContent>
                         </div>
                     </div>
@@ -443,7 +443,7 @@ onMounted(() => {
     text-align: center;
 
     @media (width >=64rem) {
-        margin-bottom: 100px;
+        margin-bottom: 50px;
         font-size: min(7em, 10vh);
         line-height: 1;
     }
@@ -451,9 +451,16 @@ onMounted(() => {
 
 #subtitle2 {
     font-size: min(10vw, 10vh);
+    text-align: right;
+    max-width: 1760px;
+    margin: auto;
 
     @media (width >=64rem) {
         font-size: min(7em, 10vh);
+    }
+
+    @media (width <=1680px) {
+        text-align: center;
     }
 }
 
@@ -461,19 +468,21 @@ onMounted(() => {
     /* font-size: 2rem; */
     line-height: 1.8em;
     letter-spacing: 0.2em;
-    font-size: max(min(3em, 2.2vw), 2.5em);
+
+    @media (width <=64rem) {
+        font-size: max(1.7rem, 5vw);
+    }
 }
 
 .about {
+    font-size: max(min(3em, 2.2vw), 2.5em);
     /* width: 80vw; */
 }
 
 #about2 p {
     line-height: 1.6em;
 
-    @media (width <=64rem) {
-        font-size: max(1.7rem, 5vw);
-    }
+
 }
 
 .about p span {
