@@ -42,7 +42,9 @@ const path = computed(() => window.location.hostname + useRoute().path);
 function addCursorClass(els: NodeListOf<Element>) {
     for (let index = 0; index < els.length; index++) {
         const element = els[index];
-        element.classList.add("cursor-target")
+        if (!element.classList.contains('cursor-target')) {
+            element.classList.add("cursor-target")
+        }
     }
 }
 onMounted(() => {
@@ -53,6 +55,10 @@ onMounted(() => {
     const gif = document.querySelector('[title="GIF"]');
     if (gif) gif.remove();
     const gifPopup = document.querySelector('.wl-gif-popup');
+    const wlSorts = document.querySelectorAll('.wl-sort');
+    wlSorts.forEach((el, i) => {
+        el.addEventListener("click", () => addCursorClass(document.querySelectorAll(".wl-sort li")))
+    })
     if (gifPopup) gifPopup.remove();
     // const wrappers = document.querySelectorAll('.wl-tab-wrapper, .wl-gallery')
 })

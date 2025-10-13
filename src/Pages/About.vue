@@ -194,7 +194,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                 :initial-opacity="0" :animate-opacity="true" :scale="1.05" :threshold="0" :always-play="true"
                 :delay="0.5">
                 <div
-                    class="text-lg md:text-lg text-dark-100 main-content font-normal mb-8 tracking-[0.09em] border-t-2 border-b-2 md:border-t-0 md:border-b-0 md:border-l-2 border-dark-600 rounded-xl pt-[0.01em] pb-3 pl-[1em]">
+                    class="text-lg md:text-lg text-dark-100 main-content font-normal mb-8 tracking-[2px] border-t-2 border-b-2 md:border-t-0 md:border-b-0 md:border-l-2 border-dark-600 rounded-xl pt-[0.01em] pb-3 pl-[1em]">
                     <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1"
                         ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1" :threshold="0"
                         :always-play="true" :delay="0.7">
