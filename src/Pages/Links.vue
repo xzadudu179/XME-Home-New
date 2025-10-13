@@ -46,12 +46,14 @@ onMounted(() => {
                 <span class="inline-hovertrans mb-1.5 md:mb-5">PINNED LINKS</span>
             </p>
         </AnimatedContent>
-        <div class="flex flex-wrap justify-center mb-4">
-            <LinkCard v-for="(item, index) in links.links[0].list" :name="item.name" :desc="item.description"
-                :avatar="item.avatar" :thumbnail="item.thumbnail ?? ''" :href="item.link" :delay="index / 10 + 0.5"
-                :always-play="true" :pinned="links.links[0].has_thumbnail"
-                :custom-position="item.custom_position ?? ''">
-            </LinkCard>
+        <div class="flex flex-wrap justify-center mb-4 w-auto m-auto">
+            <div class="flex flex-wrap justify-center md:justify-start card-container">
+                <LinkCard v-for="(item, index) in links.links[0].list" :key="index" :name="item.name"
+                    :desc="item.description" :avatar="item.avatar" :thumbnail="item.thumbnail ?? ''" :href="item.link"
+                    :delay="index / 10 + 0.5" :always-play="true" :pinned="links.links[0].has_thumbnail"
+                    :custom-position="item.custom_position ?? ''">
+                </LinkCard>
+            </div>
         </div>
         <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
             :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true" :delay="0.8">
@@ -61,11 +63,13 @@ onMounted(() => {
             </p>
         </AnimatedContent>
         <div class="flex flex-wrap justify-center mb-10">
-            <LinkCard v-for="(item, index) in links.links[1].list" :name="item.name" :desc="item.description"
-                :avatar="item.avatar" :thumbnail="item.thumbnail ?? ''" :href="item.link" :disable-maganet="true"
-                :delay="index / 10 + 0.8" :always-play="true" :pinned="links.links[1].has_thumbnail"
-                :custom-position="item.custom_position ?? ''">
-            </LinkCard>
+            <div class="flex flex-wrap justify-center md:justify-start card-container">
+                <LinkCard v-for="(item, index) in links.links[1].list" :key="index" :name="item.name"
+                    :desc="item.description" :avatar="item.avatar" :thumbnail="item.thumbnail ?? ''" :href="item.link"
+                    :disable-maganet="true" :delay="index / 10 + 0.8" :always-play="true"
+                    :pinned="links.links[1].has_thumbnail" :custom-position="item.custom_position ?? ''">
+                </LinkCard>
+            </div>
         </div>
         <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
             :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="false" :delay="0.1">
@@ -151,5 +155,14 @@ onMounted(() => {
 
 .main-content {
     line-height: 1.6em
+}
+
+.card-container {
+    @media (width >=48rem
+
+        /* 768px */
+    ) {
+        width: calc((40vw + (2 * min(calc(var(--spacing) * 5), 1.2vw)) + 8px) * 2);
+    }
 }
 </style>
