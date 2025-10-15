@@ -251,7 +251,7 @@ a:hover,
 
 .infos p,
 .infos span {
-    font-size: 1.15em;
+    font-size: min(1.15em, 4vw);
     line-height: 1.8em;
     /* font-family: 'Maiyuan'; */
 }
@@ -307,7 +307,7 @@ a:hover,
 @media (max-width: 850px) {
     .card {
         flex-direction: column;
-        max-height: 850px;
+        max-height: 700px;
         height: 70vh;
         /* height: 600px; */
         width: 75vw;
@@ -317,7 +317,7 @@ a:hover,
     .card_tilt {
         max-width: 550px;
         width: 75vw !important;
-        max-height: 850px;
+        max-height: 700px;
         height: 70vh !important;
     }
 
@@ -530,7 +530,7 @@ a:hover,
     }
 
     .card_tilt {
-        max-height: 90%;
+        /* max-height: 90%; */
         max-width: 100%;
         width: max(90vw, calc(100% - 10px)) !important;
         /* height: calc(100% - 70px); */
@@ -567,7 +567,7 @@ a:hover,
         background-color: var(--button-color);
         border-radius: 18px;
         /* margin: 0 50px; */
-        font-size: 1.1em;
+        font-size: 1.5em;
         font-weight: 500;
         text-decoration: none;
     }

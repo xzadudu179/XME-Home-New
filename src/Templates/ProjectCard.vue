@@ -5,7 +5,7 @@
             active-transition="transform 0.6s ease-out" inactive-transition="transform 0.6s ease-in-out"
             wrapper-class-name="custom-wrapper" inner-class-name="custom-inner">
             <SpotlightCard
-                class-name="custom-spotlight-card h-auto min-h-[8.5em] md:h-[30vw] hg:h-[20vw] w-[90vw] md:w-[85vw] hg:w-[75vw] flex-col md:flex-row p-0 color-on-hover bg-dark-850 max-w-[2500px] md:max-h-[630px] text-[70%]"
+                class-name="custom-spotlight-card h-auto min-h-[8.5em] md:h-[30vw] hg:h-[20vw] w-[90vw] md:w-[90vw] lg:w-[85vw] hg:w-[75vw] flex-col md:flex-row p-0 color-on-hover bg-dark-850 max-w-[2500px] md:max-h-[630px] text-[70%]"
                 spotlight-color="#3D78F232">
                 <div class="imgcard">
                     <LoadingImg :src="props.imageSrc"

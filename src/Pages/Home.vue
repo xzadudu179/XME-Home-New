@@ -84,7 +84,7 @@ onMounted(() => {
             <div class=" hg:w-[95vw] m-auto mt-[100px] md:mt-[200px] rounded-[4em] card-container">
                 <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                     :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.1">
-                    <h1 class="subtitle hg:pr-[850px]"><span class="inline-hovertrans md:mt-[100px] mb-[20px] md:mb-0">-
+                    <h1 class="subtitle hg:pr-[850px]"><span class="inline-hovertrans md:mt-[100px] md:mb-0">-
                             AB<i class="fa-light fa-planet-ringed text-[0.9em]"></i>UT -</span></h1>
                 </AnimatedContent>
 
@@ -132,8 +132,8 @@ onMounted(() => {
                             ST<i class="fa-light fa-cubes text-[0.8em] relative bottom-[0.06em]"></i>CK -</span>
                     </h1>
                 </AnimatedContent>
-                <div
-                    class="about_content font-orbitron w-[80%] max-w-[1700px] mt-0 hg:mt-[100px] mb-[300px] p-10 pt-0 pb-0 m-auto flex flex-row justify-between items-center text-center">
+                <div class="about_content font-orbitron w-[80%] max-w-[1700px] mt-0 hg:mt-[100px] mb-[300px] md:p-10 pt-0 pb-0 m-auto flex flex-row justify-between items-center text-center"
+                    id="about_content2">
 
                     <div class="max-w-[800px]  md:mb-0">
                         <div class="font-light about" id="about2">
@@ -178,7 +178,7 @@ onMounted(() => {
                 </div>
             </div>
         </div>
-        <div class="mt-60">
+        <div class="lg:mt-60 mt-[10vw]">
             <ScrollVelocity :texts="['PROJEC\u200ATS //', '\\\\ PROJEC\u200ATS']" :velocity="100" :damping="50"
                 :stiffness="400" :velocity-mapping="{ input: [0, 1000], output: [0, 5] }"
                 class-name="font-electrolize font-light text-[4rem] lg:text-[8rem]/40 select-none text-dark-200"
@@ -331,7 +331,7 @@ onMounted(() => {
 
 .text-contact-container p {
     @media (width <=48rem) {
-        font-size: 2rem !important;
+        font-size: min(max(2rem, 6vw), 2.5rem) !important;
     }
 }
 
@@ -438,7 +438,7 @@ onMounted(() => {
 }
 
 .subtitle {
-    font-size: max(6vh, 3rem);
+    font-size: min(max(14vw, 3.5rem), 7rem);
 
     text-align: center;
 
@@ -450,11 +450,12 @@ onMounted(() => {
 }
 
 #subtitle2 {
-    font-size: min(10vw, 10vh);
-
+    font-size: min(11.5vw, 10vh);
+    margin-top: 40px;
+    margin-bottom: 10px;
 
     @media (width >=64rem) {
-
+        margin: auto;
         font-size: min(7em, 10vh);
     }
 
@@ -477,7 +478,7 @@ onMounted(() => {
     letter-spacing: 0.2em;
 
     @media (width <=64rem) {
-        font-size: max(1rem, 5vw);
+        font-size: min(max(1.2rem, 5vw), 55px);
     }
 }
 
@@ -488,6 +489,10 @@ onMounted(() => {
 
 #about2 p {
     line-height: 1.6em;
+
+    @media (width <=64rem) {
+        font-size: min(max(1.5rem, 7vw), 50px);
+    }
 }
 
 .about p span {
@@ -503,6 +508,14 @@ onMounted(() => {
         margin-bottom: 5vw;
         margin-top: 0;
         min-width: 0px !important;
+    }
+
+    #about_content2 {
+        flex-direction: column-reverse;
+    }
+
+    .about_content > div {
+        margin: min(40px, 4vw) 0;
     }
 
     .about {
@@ -522,7 +535,6 @@ onMounted(() => {
         width: 100%;
         margin: 0;
         margin-bottom: 4vw;
-        flex-direction: column;
     }
 }
 
