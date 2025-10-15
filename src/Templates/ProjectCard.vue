@@ -10,7 +10,7 @@
                 <div class="imgcard">
                     <LoadingImg :src="props.imageSrc"
                         img-class="w-full md:w-auto md:h-full overflow-hidden max-w-max cardimg select-none flex-none"
-                        class="w-full h-full overflow-hidden max-w-max flex items-center justify-center">
+                        class="w-full h-full overflow-hidden max-w-max flex relative items-center justify-center">
                     </LoadingImg>
                     <!-- <img :src="props.imageSrc" alt=""
                         class="w-full md:w-auto md:h-full overflow-hidden max-w-max cardimg select-none"> -->
@@ -197,12 +197,20 @@ const props = withDefaults(defineProps<Props>(), {
     color: var(--color-dark-200);
 }
 
-.cardimg {
-    /* border-radius: calc(1.5rem - max(0.2vw, 2px) * 2); */
-    transition: transform 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
+.imgcard {
+    position: relative;
+    z-index: 2;
 }
 
-.cardimg:hover {
-    transform: scale(1.05) rotate(2deg);
+.imgcard,
+img {
+    /* border-radius: calc(1.5rem - max(0.2vw, 2px) * 2); */
+    transition: transform 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
+    z-index: 0;
 }
+
+/* .imgcard:hover,
+img {
+    transform: scale(1.05) rotate(2deg);
+} */
 </style>

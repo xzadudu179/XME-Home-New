@@ -129,6 +129,12 @@ onMounted(() => {
     max-height: 3.5em !important;
 }
 
+.wl-comment-status .wl-btn:disabled {
+    color: var(--color-primary-200) !important;
+    border-color: var(--color-primary-300) !important;
+    border-right: 1px solid var(--color-primary-300) !important;
+}
+
 .wl-emoji {
     max-width: 3em !important;
     width: 6em !important;
@@ -182,6 +188,10 @@ code .comment {
 }
 
 .wl-panel:has(textarea:focus) {
+    border-color: var(--color-primary-300);
+}
+
+.wl-panel:has(textarea:not(:placeholder-shown)) {
     border-color: var(--color-primary-200);
 }
 

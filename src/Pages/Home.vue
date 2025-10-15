@@ -129,7 +129,7 @@ onMounted(() => {
                     :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.1">
                     <h1 class="subtitle md:mt-[50px] m-auto p-0" id="subtitle2">
                         <span class="inline-hovertrans">-TECH
-                            ST<i class="fa-light fa-cubes text-[0.8em] relative bottom-[0.06em]"></i>CKS -</span>
+                            ST<i class="fa-light fa-cubes text-[0.8em] relative bottom-[0.06em]"></i>CK -</span>
                     </h1>
                 </AnimatedContent>
                 <div
@@ -464,7 +464,7 @@ onMounted(() => {
 
     @media (width >=1680px) {
         text-align: right;
-        width: 80%;
+        width: 70%;
         min-width: 1580px;
         max-width: calc(1700px + 0.6em);
     }
