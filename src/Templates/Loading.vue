@@ -335,14 +335,17 @@ const loading: loading = {
 
 
 onMounted(() => {
-    // console.log("animate")
-    // check_loading();
-    useRouter().beforeEach((to, from, next) => {
-        // console.log(to, from)
+    const router = useRouter()
+    router.beforeEach((to, from, next) => {
+        // 路径不变则不加载
+        console.log(to.path, from.path, to.hash, from.hash)
+        if (to.path === from.path) {
+            next(); // 直接放行
+            return;
+        }
         create(to, next);
-
     });
-})
+});
 
 
 defineExpose({
