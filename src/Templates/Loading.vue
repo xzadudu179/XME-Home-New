@@ -170,7 +170,7 @@ const loading: loading = {
         if (isInner) {
             starting = true
             // console.log("isinner")
-            console.log("因为状态不符，不播放 in 动画")
+            // console.log("因为状态不符，不播放 in 动画")
             currentNext!();
             // console.log("INNER切换页面...")
             // this.$parent.check_loading();
@@ -180,7 +180,7 @@ const loading: loading = {
         }
         if (isAnimatingIn) {
             // targetPath = to.fullPath
-            console.log("不播放 in 动画")
+            // console.log("不播放 in 动画")
             return
         }
         this.loop_color.clear();
@@ -264,11 +264,11 @@ const loading: loading = {
         const animate = gsap.timeline()
         // console.log("outer in out", isAnimatingIn, isAnimatingOut)
         if (!isInner) {
-            console.log("因为状态不符，不播放 out 动画")
+            // console.log("因为状态不符，不播放 out 动画")
             return
         }
         if (isAnimatingOut) {
-            console.log("不播放 out 动画")
+            // console.log("不播放 out 动画")
             return
         }
         if (!isAnimatingOut && !isAnimatingIn) {
@@ -339,7 +339,7 @@ onMounted(() => {
     const router = useRouter()
     router.beforeEach((to, from, next) => {
         // 路径不变则不加载
-        console.log(to.path, from.path, to.hash, from.hash)
+        // console.log(to.path, from.path, to.hash, from.hash)
         if (to.path === '/' && from.path === '/' && to.hash === '') {
             // create(to, next);
             // isInner = true;
