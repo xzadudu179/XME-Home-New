@@ -3,7 +3,8 @@
         viewBox="0 0 1000 1000">
         <defs>
             <polygon id="loading_hexagon" class="pointer-events-auto"
-                points="0.0, -75.0 64.95,-37.5 64.95,37.5 0.0,75.0 -64.95,37.5 -64.95,-37.5" fill="#131522" />
+                points="0.0, -75.0 64.95,-37.5 64.95,37.5 0.0,75.0 -64.95,37.5 -64.95,-37.5" fill="#131522"
+                stroke="#3D78F2" />
         </defs>
     </svg>
 </template>
@@ -263,11 +264,11 @@ const loading: loading = {
         const animate = gsap.timeline()
         // console.log("outer in out", isAnimatingIn, isAnimatingOut)
         if (!isInner) {
-            // console.log("因为状态不符，不播放 out 动画")
+            console.log("因为状态不符，不播放 out 动画")
             return
         }
         if (isAnimatingOut) {
-            // console.log("不播放 out 动画")
+            console.log("不播放 out 动画")
             return
         }
         if (!isAnimatingOut && !isAnimatingIn) {
@@ -339,10 +340,17 @@ onMounted(() => {
     router.beforeEach((to, from, next) => {
         // 路径不变则不加载
         console.log(to.path, from.path, to.hash, from.hash)
+        if (to.path === '/' && from.path === '/' && to.hash === '') {
+            // create(to, next);
+            // isInner = true;
+            create(to, next);
+            return;
+        }
         if (to.path === from.path) {
             next(); // 直接放行
             return;
         }
+        // document.querySelector("#loading-container")?.classList.remove("hidden");
         create(to, next);
     });
 });
@@ -373,7 +381,7 @@ defineExpose({
     stroke-width: 0.5;
     stroke-dasharray: 100;
     background-color: #131522;
-    stroke-opacity: 0;
+    stroke-opacity: 1;
     will-change: transform, opacity, stroke, stroke-dasharray, stroke-dashoffset;
 }
 </style>
