@@ -465,9 +465,11 @@ onMounted(() => {
 
     @media (width >=1680px) {
         text-align: right;
-        width: 70%;
+        width: 80%;
+        padding-right: 17px;
         min-width: 1580px;
-        max-width: calc(1700px + 0.6em);
+        max-width: 1700px;
+        /* max-width: calc(1700px + 0.6em); */
     }
 
 }
