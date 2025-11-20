@@ -4,7 +4,7 @@
     font-family: 'Electrolize';
     src: url('./assets/fonts/Electrolize-Regular.ttf') format('truetype');
 }
-/*
+/* 
 @font-face {
     font-family: 'Quantico';
     src: url('./assets/fonts/Quantico/Quantico-Regular.ttf') format('truetype');
@@ -26,12 +26,6 @@
     font-style: italic;
 } */
 
-@font-face {
-    font-family: 'Quantico';
-    src: url('./assets/fonts/Quantico/Quantico-BoldItalic.ttf') format('truetype');
-    font-weight: 600;
-    font-style: italic;
-}
 
 @font-face {
     font-family: 'Melete';

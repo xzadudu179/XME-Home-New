@@ -58,6 +58,7 @@ const beleft = () => {
 
 
 <template>
+  <div class="scanlines"></div>
   <Loading ref="loading"></Loading>
   <!-- Lenis -->
   <VueLenis root :options="lenisOptions" />
@@ -117,6 +118,19 @@ const beleft = () => {
   transition: all 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.4));
+  mix-blend-mode: multiply;
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 100000;
+  opacity: 0.15;
+}
 
 .xmark {
   transition: all 0.5s;
