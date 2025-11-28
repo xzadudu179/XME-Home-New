@@ -10,7 +10,7 @@ import yaml from '@rollup/plugin-yaml'
 export default defineConfig({
   plugins: [
     vue(),
-    vueDevTools(),
+    // vueDevTools(),
     tailwindcss(),
     yaml(),
   ],
