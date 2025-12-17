@@ -3,6 +3,7 @@ import DotGrid from "./Templates/Bit/DotGrid.vue";
 import NavBlock from "./Templates/NavBlock.vue";
 import TargetCursor from "./Templates/Bit/TargetCursor.vue";
 import Loading from "./Templates/Loading.vue";
+import SwitchCursorBtn from "./Templates/SwitchCursorBtn.vue";
 import MobileNavBlock from "./Templates/MobileNavBlock.vue";
 console.log(`
    ____________________________________________________________________________________________________
@@ -64,7 +65,7 @@ const beleft = () => {
     <VueLenis root :options="lenisOptions" />
     <!-- Background -->
     <div class="cursor">
-        <TargetCursor :spin-duration="2" :hide-default-cursor="true" />
+        <TargetCursor :spin-duration="2" :hide-default-cursor="false" />
     </div>
     <div class="w-full h-full fixed overflow-hidden z-[-10] bg-dots">
         <DotGrid :dot-size="10" :gap="64" base-color="#020211" active-color="#272e43" :proximity="500"
@@ -77,6 +78,8 @@ const beleft = () => {
         <NavBlock
             :navItems="[{ text: 'Home', href: '/' }, { text: 'About', href: '/about' }, { text: 'Links', href: '/links' }, { text: 'Notes', href: 'https://blog.xzadudu179.top' }]" />
     </div>
+    <!-- switch cursor btn -->
+    <!-- <SwitchCursorBtn></SwitchCursorBtn> -->
     <!-- Mobile Nav -->
     <div
         class="overflow-hidden md:hidden text-dark-100 font-orbitron items-center text-2xl pl-4 pr-5 p-3 fixed bg-dark-900 border-b-2 w-full z-101 flex flex-row  justify-between">
@@ -89,6 +92,7 @@ const beleft = () => {
       <div class="xmark border-b-2 mb-1.5" id="x2"></div>
       <div class="xmark border-b-2 mb-1.5 relative" id="x3"></div>
     </div> -->
+
     </div>
     <div id="mobile-nav"
         class="fixed w-[100vw] h-[100vh] overflow-hidden bg-dark-900 z-100 left-[100vw] mobile-nav-item md:hidden">
@@ -172,7 +176,10 @@ const beleft = () => {
     left: 0 !important
 }
 
+
 .cursor {
+    display: block;
+
     @media (pointer: coarse) {
         display: none;
     }

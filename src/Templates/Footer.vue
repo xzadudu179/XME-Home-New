@@ -6,10 +6,9 @@
             <i class="fa-regular fa-star fa-spin"></i>
             xzadudu179 All rights reserved
         </p>
-        <p><a href="https://icp.gov.moe/?keyword=20251790" class="hover:text-primary-200"
-                target="_blank">萌ICP备20251790号</a></p>
+        <p><a href="https://icp.gov.moe/?keyword=20251790" class="hover-primary" target="_blank">萌ICP备20251790号</a></p>
         <p>
-            <a class="hover:text-primary-200" target="_blank" href="https://travel.moe/go.html?travel=on">
+            <a class="hover-primary" target="_blank" href="https://travel.moe/go.html?travel=on">
                 <i class="fa-light fa-meteor"></i>
                 MoeTravel
                 <i class="fa-regular fa-chevron-right"></i>

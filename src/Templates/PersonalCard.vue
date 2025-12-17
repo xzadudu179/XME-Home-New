@@ -38,12 +38,12 @@ import Tilted from './Tilted.vue';
                         </IconNav>
                     </div>
                 </InfoItem>
-                <a class="hovertrans bloglink cursor-target cursor-none cursor-change-color text-primary-200"
+                <a class="hovertrans bloglink cursor-target no-cursor cursor-change-color text-primary-200"
                     @click="$router.push('about')">
                     <IconNav name="Learn more" icon-class="fa-regular fa-star"></IconNav>
                 </a>
             </div>
-            <a class="blogbtn cursor-target cursor-none cursor-change-color" @click="$router.push('about')">
+            <a class="blogbtn cursor-target no-cursor cursor-change-color" @click="$router.push('about')">
                 <IconNav name="Learn more" icon-class="fa-regular fa-star"></IconNav>
             </a>
         </div>

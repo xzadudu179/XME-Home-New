@@ -23,7 +23,7 @@
                 </div>
                 <div class="flex flex-col-reverse md:flex-row-reverse items-center">
                     <button type="submit"
-                        class="text-center w-full md:w-auto ml-auto border-2 md:border-0 text-3xl p-3 rounded-2xl border-dark-300 active:border-primary-200 active:text-primary-200 hover:border-primary-200 hover:text-primary-200 text-dark-100 hoverlight md:block submit font-normal cursor-target hovertrans">
+                        class="text-center w-full md:w-auto ml-auto border-2 md:border-0 text-3xl p-3 rounded-2xl border-dark-300 active:border-primary-200 active-primary hover:border-primary-200 hover-primary text-dark-100 hoverlight md:block submit font-normal cursor-target hovertrans">
                         {{ submitText }}
                         <span class="md:inline-block hidden"><i class="fa-light fa-paper-plane-top"
                                 id="submit-icon"></i></span></button>
@@ -129,7 +129,10 @@ textarea:focus {
 input,
 textarea {
     transition: all 0.3s;
-    cursor: none;
+
+    @media (pointer: fine) {
+        cursor: none !important;
+    }
 }
 
 .form:has(input:not(:placeholder-shown)) {

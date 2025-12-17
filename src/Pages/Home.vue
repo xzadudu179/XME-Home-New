@@ -250,7 +250,7 @@ onMounted(() => {
                 </div>
 
                 <div
-                    class="other-contact justify-around self-center pl-5 pr-5 lg:justify-center flex-row-reverse lg:flex-row text-[2.5rem] font-light flex text-center md:text-left mb-5 p-5 lg:pr-0 lg:pl-0">
+                    class="no-cursor other-contact justify-around self-center pl-5 pr-5 lg:justify-center flex-row-reverse lg:flex-row text-[2.5rem] font-light flex text-center md:text-left mb-5 p-5 lg:pr-0 lg:pl-0">
                     <div class="text-contact-container flex flex-col justify-center text-left">
                         <AnimatedContent :distance="30" direction="vertical" :reverse="false" :duration="1.1"
                             ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1"
@@ -364,7 +364,6 @@ onMounted(() => {
 .other-contact a {
     display: inline-block;
     padding: 0 1rem;
-    cursor: none;
 }
 
 .other-contact {

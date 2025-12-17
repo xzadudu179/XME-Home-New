@@ -27,8 +27,8 @@
                     <a v-if="item.href" :class="[
                         'inline-flex items-center no-underline rounded',
                         'duration-200 ease-linear',
-                        'hover:text-primary-200 transition-all',
-                        'focus-visible:outline focus-visible:outline-current cursor-none focus-visible:outline-offset-2'
+                        'hover-primary transition-all',
+                        'focus-visible:outline focus-visible:outline-current no-cursor focus-visible:outline-offset-2'
                     ]" :href="item.href" :aria-label="getItemAriaLabel(item) || 'logo link'" target="_blank"
                         rel="noreferrer noopener">
                         <LogoContent :item="item" :scale-on-hover="scaleOnHover" />

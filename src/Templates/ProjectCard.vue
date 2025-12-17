@@ -31,7 +31,7 @@
                     </div>
                     <div class="hidden md:flex justify-between mt-auto items-end w-full pr-4 self-center">
                         <p class="arrow hovertrans font-light text-dark-500 pt-4 pb-[0.3em]">
-                            <a :href="props.href" class="cursor-none cursor-target inline-block h-[1em]"><i
+                            <a :href="props.href" class="no-cursor cursor-target inline-block h-[1em]"><i
                                     class="fa-light fa-angle-left"></i><i class="fa-light fa-angle-left"></i><i
                                     class="fa-light fa-angle-left"></i></a>
                         </p>

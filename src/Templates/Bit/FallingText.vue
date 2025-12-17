@@ -302,7 +302,7 @@ onUnmounted(() => {
     <div ref="containerRef" class="relative z-[1] w-full h-full text-center pt-8 overflow-hidden"
         @click="props.trigger === 'click' ? handleTrigger() : undefined"
         @mouseenter="props.trigger === 'hover' ? handleTrigger() : undefined">
-        <div ref="textRef" class="inline-block" :style="{
+        <div ref="textRef" class="inline-block text" :style="{
             fontSize: props.fontSize,
             lineHeight: 1.4
         }" />
@@ -310,3 +310,13 @@ onUnmounted(() => {
         <div class="absolute top-0 left-0 z-0" ref="canvasContainerRef" />
     </div>
 </template>
+
+<style scoped>
+.text {
+    cursor: pointer;
+
+    @media (pointer: fine) {
+        cursor: none !important;
+    }
+}
+</style>
