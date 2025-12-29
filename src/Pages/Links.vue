@@ -41,7 +41,7 @@ onMounted(() => {
         </AnimatedContent>
         <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
             :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true" :delay="0.5">
-            <p class="title text-[7vw]">
+            <p class="title hg:w-[90%] text-[7vw]">
                 #
                 <span class="inline-hovertrans mb-1.5 md:mb-5">PINNED LINKS</span>
             </p>
@@ -55,8 +55,9 @@ onMounted(() => {
                 </LinkCard>
             </div>
         </div>
-        <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
-            :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true" :delay="0.8">
+        <AnimatedContent class="hg:w-[90%] m-auto" :distance="20" direction="vertical" :reverse="false" :duration="1.1"
+            ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0"
+            :always-play="true" :delay="0.8">
             <p class="title md:text-5xl text-[7vw]">
                 #
                 <span class="inline-hovertrans mb-1.5 md:mb-5">FRIENDLY LINKS</span>
@@ -71,14 +72,15 @@ onMounted(() => {
                 </LinkCard>
             </div>
         </div>
-        <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
-            :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="false" :delay="0.1">
-            <p class="title text-[6.5vw]">
-                #
-                <span class="inline-hovertrans mb-1.5 md:mb-5">APPLY FOR A LINK</span>
-            </p>
-        </AnimatedContent>
-        <div class="max-w-[1600px] m-auto">
+        <div class="max-w-[1600px] hg:w-[90%] m-auto">
+            <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
+                :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="false"
+                :delay="0.1">
+                <p class="title text-[6.5vw]">
+                    #
+                    <span class="inline-hovertrans mb-1.5 md:mb-5">APPLY FOR A LINK</span>
+                </p>
+            </AnimatedContent>
             <div
                 class="text-left text-lg md:text-xl translucent text-dark-100 main-content font-normal mb-10 tracking-[0.09em]pt-[0.12em] pb-4 pl-[1em]">
                 <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
@@ -117,7 +119,7 @@ onMounted(() => {
                     </div>
                 </AnimatedContent>
             </div>
-            <Comment path="/links/" serverURL="https://comment.xzadudu179.top/" />
+            <Comment class="hg:w-[90%] m-auto" path="/links/" serverURL="https://comment.xzadudu179.top/" />
         </div>
     </div>
     <Footer margin-top="5vh" />

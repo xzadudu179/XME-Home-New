@@ -3,7 +3,7 @@
         easing="ease-out">
         <Waline :serverURL="serverURL" :path="props.path ?? path" lang="en"
             :emoji="['https://image.179.life/deon-emoji', 'https://image.179.life/179-emoji']" :wordLimit="500"
-            class="waline font-normal" :locale="{
+            class="waline font-normal hg:w-[90%] m-auto" :locale="{
                 placeholder: 'Message here...',
                 admin: 'ADMIN',
                 sticky: 'PINNED',
