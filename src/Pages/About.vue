@@ -51,7 +51,7 @@ const techLogos = [
     {
         node: '<i class="fa-brands fa-qq"></i>',
         title: "QQ",
-        href: "tencent://snsapp/?cmd=2&ver=1&uin=1795886524"
+        href: "https://qm.qq.com/q/rDgajaqKvm"
     },
     {
         node: '<i class="fa-brands fa-bilibili"></i>',
