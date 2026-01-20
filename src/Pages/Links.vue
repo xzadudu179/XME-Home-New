@@ -22,7 +22,6 @@ router.afterEach((to, from) => {
     eventBus.emit("page-ready", to.path);
 });
 
-
 onMounted(() => {
     const route = useRoute();
     eventBus.emit("page-ready", route.fullPath);
@@ -50,8 +49,9 @@ onMounted(() => {
             <div class="flex flex-wrap justify-center md:justify-start card-container">
                 <LinkCard v-for="(item, index) in links.links[0].list" :key="index" :name="item.name"
                     :desc="item.description" :avatar="item.avatar" :thumbnail="item.thumbnail ?? ''" :href="item.link"
-                    :delay="index / 10 + 0.5" :always-play="true" :pinned="links.links[0].has_thumbnail"
+                    :delay="Number(index) / 10 + 0.5" :always-play="true" :pinned="links.links[0].has_thumbnail"
                     :custom-position="item.custom_position ?? ''">
+                    <!-- XXX: ↑ 懒得改了，理论上这个 index 只会是 Number，但是需要写一个 interface 来去除那个报错 -->
                 </LinkCard>
             </div>
         </div>
@@ -67,8 +67,9 @@ onMounted(() => {
             <div class="flex flex-wrap justify-center md:justify-start card-container">
                 <LinkCard v-for="(item, index) in links.links[1].list" :key="index" :name="item.name"
                     :desc="item.description" :avatar="item.avatar" :thumbnail="item.thumbnail ?? ''" :href="item.link"
-                    :disable-maganet="true" :delay="index / 10 + 0.8" :always-play="true"
+                    :disable-maganet="true" :delay="Number(index) / 10 + 0.8" :always-play="true"
                     :pinned="links.links[1].has_thumbnail" :custom-position="item.custom_position ?? ''">
+                    <!-- XXX: ↑ 懒得改了，理论上这个 index 只会是 Number，但是需要写一个 interface 来去除那个报错 -->
                 </LinkCard>
             </div>
         </div>
