@@ -30,7 +30,19 @@ const scrollDown = () => {
 };
 lenis!.value?.scrollTo(0, { offset: 0, easing: easeOut, duration: 0.3 });
 
+const preloadImages = () => {
+    const imagesToPreload = [
+        '../assets/img/avatar2.png'
+    ];
+
+    imagesToPreload.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+};
+
 onMounted(() => {
+    preloadImages();
     const route = useRoute();
     eventBus.emit("page-ready", route.fullPath);
     // console.log("emit page-ready", route.fullPath);

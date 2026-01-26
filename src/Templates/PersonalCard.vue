@@ -309,13 +309,14 @@ a:hover,
         flex-direction: column;
         max-height: 700px;
         height: 70vh;
+        min-height: 310px;
         /* height: 600px; */
         width: 75vw;
-        max-width: 550px;
+        max-width: 650px;
     }
 
     .card_tilt {
-        max-width: 550px;
+        max-width: 650px;
         width: 75vw !important;
         max-height: 700px;
         height: 70vh !important;
