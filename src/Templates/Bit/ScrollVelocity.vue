@@ -58,6 +58,25 @@ const props = withDefaults(defineProps<ScrollVelocityProps>(), {
 const containerRef = ref<HTMLDivElement[]>([]);
 const scrollerRef = ref<HTMLDivElement[]>([]);
 const copyRefs = ref<HTMLSpanElement[]>([]);
+let resizeObserver: ResizeObserver | null = null;
+
+onMounted(async () => {
+    await nextTick();
+
+    resizeObserver = new ResizeObserver(() => {
+        // 只要文字宽度变了（无论是因为字体加载还是窗口缩放），就重新校准
+        updateWidths();
+    });
+
+    // 监听每一行中的第一个副本
+    copyRefs.value.forEach(el => {
+        if (el) resizeObserver?.observe(el);
+    });
+});
+
+onUnmounted(() => {
+    resizeObserver?.disconnect();
+});
 
 const baseX = ref<number[]>([]);
 const scrollVelocity = ref(0);

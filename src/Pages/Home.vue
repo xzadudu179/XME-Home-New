@@ -306,6 +306,36 @@ onMounted(() => {
 </template>
 
 <style scoped>
+/* 隐藏横向滚动条但保持功能 (兼容性写法) */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* 自定义纵向滚动条样式 */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #111;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+</style>
+
+<style scoped>
 .main {
     overflow-x: hidden;
 }
