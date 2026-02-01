@@ -96,12 +96,12 @@ onMounted(() => {
             <div class=" hg:w-[95vw] m-auto mt-[100px] md:mt-[200px] rounded-[4em] card-container">
                 <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                     :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.1">
-                    <h1 class="subtitle hg:pr-[850px]"><span class="inline-hovertrans md:mt-[100px] md:mb-0">-
+                    <h1 class="subtitle hg:pr-[min(850px,37vw)]"><span class="inline-hovertrans md:mt-[100px] md:mb-0">-
                             AB<i class="fa-light fa-planet-ringed text-[0.9em]"></i>UT -</span></h1>
                 </AnimatedContent>
 
                 <div
-                    class="about_content font-orbitron w-[100%] md:w-[80%] max-w-[1700px] md:mt-[60px] lg:mt-[100px] mb-[300px] m-auto flex flex-row justify-between items-center">
+                    class="about_content font-orbitron w-[100%] md:w-[80%] max-w-[1700px] md:mt-[60px] lg:mt-[100px] mb-[300px] m-auto flex flex-row justify-around items-center">
                     <FadeContent :blur="true" :duration="1000" :delay="200" :threshold="0.1" :initial-opacity="0"
                         easing="ease-out">
                         <PersonalCard />
@@ -144,11 +144,11 @@ onMounted(() => {
                             ST<i class="fa-light fa-cubes text-[0.8em] relative bottom-[0.06em]"></i>CK -</span>
                     </h1>
                 </AnimatedContent>
-                <div class="about_content font-orbitron w-[80%] max-w-[1700px] mt-0 hg:mt-[100px] mb-[300px] md:p-10 pt-0 pb-0 m-auto flex flex-row justify-between items-center text-center"
+                <div class="about_content font-orbitron w-[80%] max-w-[1700px] mt-0 hg:mt-[100px] mb-[300px] md:p-10 pt-0 pb-0 m-auto flex flex-row justify-around items-center text-center"
                     id="about_content2">
 
                     <div class="max-w-[800px]  md:mb-0">
-                        <div class="font-light about" id="about2">
+                        <div class="font-light about1" id="about2">
                             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
                                 ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
                                 :threshold="0" :delay="0.1">
@@ -485,7 +485,7 @@ onMounted(() => {
 
     @media (width >=64rem) {
         margin-bottom: 50px;
-        font-size: min(7em, 10vh);
+        font-size: 7em;
         line-height: 1;
     }
 }
@@ -497,7 +497,7 @@ onMounted(() => {
 
     @media (width >=64rem) {
         margin: auto;
-        font-size: min(7em, 10vh);
+        font-size: 7em;
     }
 
     @media (width <=1680px) {
@@ -506,9 +506,9 @@ onMounted(() => {
 
     @media (width >=1680px) {
         text-align: right;
-        width: 80%;
+        width: calc(62vw);
         padding-right: 17px;
-        min-width: 1580px;
+        min-width: 1400px;
         max-width: 1700px;
         /* max-width: calc(1700px + 0.6em); */
     }
@@ -525,8 +525,16 @@ onMounted(() => {
     }
 }
 
+.about1 {
+    font-size: max(min(3em, 2.2vw), 2.7em);
+}
+
+.about1 p span {
+    color: var(--color-primary-200);
+}
+
 .about {
-    font-size: max(min(3em, 2.2vw), 2.5em);
+    font-size: max(min(3em, 2.2vw), 2.3em);
     /* width: 80vw; */
 }
 
