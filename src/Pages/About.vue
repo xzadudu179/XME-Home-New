@@ -262,22 +262,22 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                 <div
                     class="flex flex-col md:flex-row hg:justify-around justify-center md:justify-start m-auto flex-wrap mb-10">
                     <HrefImageCard name="Fly To Meteor"
-                        image="http://p1.music.126.net/LeRG99_-Zrsn-upcejLfQQ==/109951169357449275.jpg?param=350y350"
+                        image="https://p1.music.126.net/LeRG99_-Zrsn-upcejLfQQ==/109951169357449275.jpg?param=350y350"
                         href="https://music.163.com/#/song?id=2128847493&uct2=U2FsdGVkX19wV9mfkm5EIPy9qgdf2bfS6fOeQrLyDMw="
                         :delay="1000" :always-play="true">
                     </HrefImageCard>
                     <HrefImageCard name="Showercloud"
-                        image="http://p2.music.126.net/8w0QWOeinDsFdF6Tc2nb4A==/109951171512747475.jpg?param=350y350"
+                        image="https://p2.music.126.net/8w0QWOeinDsFdF6Tc2nb4A==/109951171512747475.jpg?param=350y350"
                         href="https://music.163.com/#/song?id=2729440788&uct2=U2FsdGVkX18KatTXxzSZSgue0vm02rNHltagY0ZYJu4="
                         :delay="1100" :always-play="true">
                     </HrefImageCard>
                     <HrefImageCard name="[For 宇喵天枢] 星芽"
-                        image="http://p1.music.126.net/LrZ3a2g-CdsKzi1K_vWuiA==/109951170145917445.jpg?param=350y350"
+                        image="https://p1.music.126.net/LrZ3a2g-CdsKzi1K_vWuiA==/109951170145917445.jpg?param=350y350"
                         href="https://music.163.com/#/song?id=2645915417&uct2=U2FsdGVkX18OCTIBRC5Vsn4MFwSxluYQaOb4dyHrqCs="
                         :delay="1200" :always-play="true">
                     </HrefImageCard>
                     <HrefImageCard name="星之记忆"
-                        image="http://p1.music.126.net/zp1RZDCJxpJlHgUzj9HMKQ==/109951168055646040.jpg?param=350y350"
+                        image="https://p1.music.126.net/zp1RZDCJxpJlHgUzj9HMKQ==/109951168055646040.jpg?param=350y350"
                         href="https://music.163.com/song?id=1988991864&uct2=U2FsdGVkX180khFedeq2GplUGrjKiTh4yv9mJURyMsI="
                         :delay="1300" :always-play="true">
                     </HrefImageCard>

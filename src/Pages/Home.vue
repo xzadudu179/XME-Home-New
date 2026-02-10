@@ -479,7 +479,7 @@ onMounted(() => {
 }
 
 .subtitle {
-    font-size: min(max(14vw, 3.5rem), 7rem);
+    font-size: min(14vw, 5.5rem);
 
     text-align: center;
 
