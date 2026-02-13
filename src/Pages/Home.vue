@@ -509,7 +509,7 @@ onMounted(() => {
         width: calc(62vw);
         padding-right: 17px;
         min-width: 1400px;
-        max-width: 1700px;
+        max-width: 1550px;
         /* max-width: calc(1700px + 0.6em); */
     }
 
