@@ -200,19 +200,19 @@ onMounted(() => {
         <div class="text-5xl projects font-orbitron text-dark-200 text-center pt-[10rem]">
             <!-- <h2 class="mt-50 text-4xl md:text-8xl">/ WORK IN PROCESS /</h2>
             <h2 class="pt-5">...页面制作中...</h2> -->
-            <ProjectCard class="ml-0 hg:ml-[8vw]" imageSrc="https://image.179.life/images/deon_avatar.jpg"
+            <ProjectCard class="ml-0 hg:ml-[8vw]" imageSrc="https://image.179.life/images/deon-avatar-big.webp"
                 title="XME-Deon-Bot" href="https://docs.xme.179.life/#/"
-                :descs="['One of my QQ bot services, mainly offering entertainment features.', 'Built with Python and FastAPI.']"
+                :descs="['One of my QQ bot services, mainly offering entertainment features.', 'Built with Python and Go (API Server).']"
                 date="2024.10.11"></ProjectCard>
             <ProjectCard class="mr-0 hg:mr-[8vw]"
                 imageSrc="https://image.179.life/images/background-dark-with-header.webp" title="XME Notes Library"
                 href="https://blog.xzadudu179.top/"
                 :descs="['Personal blog for sharing my life, introducing myself, and showcasing my personality.']"
                 date="2024.09.03"></ProjectCard>
-            <ProjectCard class="ml-0 hg:ml-[8vw]" imageSrc="https://image.179.life/images/destar-cover.webp"
-                title="XDS-Bot (WIP)" href="https://github.com/xzadudu179/XDS-bot-qq"
-                :descs="['A QQ bot designed for group member management, with core features still under development.']"
-                date="2025.07.24"></ProjectCard>
+            <ProjectCard class="ml-0 hg:ml-[8vw]" imageSrc="https://image.179.life/images/milcalc-cover.webp"
+                title="MilAerno Theme " href="https://mhtlim.top"
+                :descs="['A theme designed and created for Milthm-Calculator, intended to help players conveniently check their in-game scores.']"
+                date="2025.10.12"></ProjectCard>
             <ProjectCard class="mr-0 hg:mr-[8vw]" imageSrc="https://image.179.life/images/aerno-cover.webp"
                 title="Aerno Theme" href="https://github.com/xzadudu179/Aerno-Theme"
                 :descs="['A clean blue-purple Visual Studio Code theme designed for dark mode.']" date="2024.03.07">
