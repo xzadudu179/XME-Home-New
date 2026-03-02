@@ -142,7 +142,7 @@ onMounted(() => {
     max-width: 1600px;
     margin: auto;
     color: var(--color-dark-200);
-    text-align: center;
+    text-align: left;
     transition: all 0.3s;
 
     @media (width >=48rem) {
