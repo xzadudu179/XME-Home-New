@@ -1,7 +1,14 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
 import InfoItem from './InfoItem.vue';
 import IconNav from './IconNav.vue';
 import Tilted from './Tilted.vue';
+
+onMounted(() => {
+    // 预加载hover图片到缓存
+    const img = new Image();
+    img.src = '../assets/img/avatar2.png';
+});
 </script>
 
 <template>
@@ -13,28 +20,28 @@ import Tilted from './Tilted.vue';
                     <template #title>
                         NAME:
                     </template>
-                    <h1 id="chac-name" class="text-primary-100 hovertrans">九镹-xzadudu179</h1>
+                    <h1 id="chac-name" class="hoverlight text-primary-100 ">九镹-xzadudu179</h1>
                 </InfoItem>
                 <InfoItem>
                     <template #title>
                         DESC:
                     </template>
-                    <p class="hovertrans">正在四处游荡中...</p>
-                    <p class="hovertrans">想被别人发现，喜欢尝试新的事物</p>
-                    <p class="hovertrans">喜欢太空、科幻、像素风格一类的东西~</p>
-                    <p class="hovertrans">想做全栈，想展示自己的世界观</p>
+                    <p class="hoverlight">正在四处游荡中...</p>
+                    <p class="hoverlight">想被别人发现，喜欢尝试新的事物</p>
+                    <p class="hoverlight">喜欢太空、科幻、像素风格一类的东西~</p>
+                    <p class="hoverlight">想做全栈，想展示自己的世界观</p>
                 </InfoItem>
                 <InfoItem>
                     <template #title>
                         STUDING:
                     </template>
                     <div class="itemnavs">
-                        <IconNav class="inline-hovertrans linenav" name="Vue.js" icon-class="fa-brands fa-vuejs">
+                        <IconNav class=" linenav" name="Vue.js" icon-class="fa-brands fa-vuejs">
                         </IconNav>
-                        <IconNav class="inline-hovertrans linenav" name="CSS" icon-class="fa-brands fa-css3"></IconNav>
-                        <IconNav class="inline-hovertrans linenav" name="Python" icon-class="fa-brands fa-python">
+                        <IconNav class=" linenav" name="CSS" icon-class="fa-brands fa-css3"></IconNav>
+                        <IconNav class=" linenav" name="Python" icon-class="fa-brands fa-python">
                         </IconNav>
-                        <IconNav class="inline-hovertrans linenav" name="C-sharp" icon-class="fa-brands fa-microsoft">
+                        <IconNav class=" linenav" name="C-sharp" icon-class="fa-brands fa-microsoft">
                         </IconNav>
                     </div>
                 </InfoItem>
@@ -65,27 +72,6 @@ a {
 /* .logo {
     filter: drop-shadow(0 0 10px var(--color-primary-200));
   } */
-#dark-mode {
-    visibility: hidden;
-    display: none;
-}
-
-#darken-btn {
-    z-index: 100;
-    position: fixed;
-    right: min(2rem, 20vw);
-    top: min(2rem, 10vh);
-}
-
-/* #dark-mode:checked + #darkmode-label i {
-    color: #000;
-  } */
-
-#darkmode-label i {
-    transition: all 0.5s cubic-bezier(0.215, 0.610, 0.355, 1);
-    display: block;
-    font-size: 2.5em;
-}
 
 .copyright {
     text-align: center;
@@ -106,16 +92,9 @@ main {
     place-items: center;
 }
 
-a {
+/* a {
     transition: color 0.2s cubic-bezier(0.215, 0.610, 0.355, 1);
-}
-
-a:hover,
-#darkmode-label:hover {
-    /* text-decoration: underline; */
-    /* color: var(--color-primary-200); */
-    /* text-shadow: 0 0 2px var(--color-primary-200);+ */
-}
+} */
 
 .glow {
     position: absolute;
@@ -180,7 +159,7 @@ a:hover,
     /* background-color: var(--card-color); */
     backdrop-filter: blur(15px);
     border-radius: 30px;
-    transition: all 0.5s cubic-bezier(0.215, 0.610, 0.355, 1);
+    /* transition: all 0.5s cubic-bezier(0.215, 0.610, 0.355, 1); */
     box-shadow:
         2.4px 1.9px 3.2px -9px rgba(0, 0, 40, 0.008),
         4.3px 3.3px 7.6px -9px rgba(0, 0, 40, 0.014),
@@ -193,7 +172,7 @@ a:hover,
 
 
 .card::after {
-    transition: all 0.5s;
+    /* transition: all 0.5s; */
     content: "";
     position: absolute;
     left: 0;
@@ -246,7 +225,8 @@ a:hover,
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: -37px;
-    transition: all 0.5s cubic-bezier(0.215, 0.610, 0.355, 1);
+    transition-property: background, box-shadow, text-shadow;
+    transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 .infos p,
@@ -307,7 +287,7 @@ a:hover,
 @media (max-width: 850px) {
     .card {
         flex-direction: column;
-        max-height: 700px;
+        max-height: 850px;
         height: 70vh;
         min-height: 310px;
         /* height: 600px; */
@@ -318,7 +298,7 @@ a:hover,
     .card_tilt {
         max-width: 650px;
         width: 75vw !important;
-        max-height: 700px;
+        max-height: 850px;
         height: 70vh !important;
     }
 
@@ -327,6 +307,7 @@ a:hover,
         max-height: 275px;
         height: 100%;
         width: 100%;
+        padding: 10px;
         margin-bottom: 0;
         background-position: center;
         background-size: contain;
@@ -351,7 +332,8 @@ a:hover,
     }
 
     .blogbtn {
-        transition: all 0.5s cubic-bezier(0.215, 0.610, 0.355, 1);
+        transition-property: transform, color, box-shadow;
+        transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1);
         display: flex;
         margin: auto;
         justify-content: center;
@@ -362,8 +344,9 @@ a:hover,
         width: 90%;
         margin-bottom: 30px;
         margin-top: 0;
-        height: 80px;
-        max-height: 100%;
+        /* height: 100px; */
+        padding: 15px 0;
+        /* max-height: 100%; */
         border: 3px solid var(--button-border-color);
         background-color: var(--button-color);
         border-radius: 18px;
@@ -387,6 +370,7 @@ a:hover,
         background-image: url("/src/assets/img/avatar.png");
         max-width: 200px;
         height: 250px;
+        padding: 20px;
         margin: 0;
         background-position: center;
         background-position-x: -10px;
@@ -551,7 +535,8 @@ a:hover,
     }
 
     .blogbtn {
-        transition: all 0.5s cubic-bezier(0.215, 0.610, 0.355, 1);
+        transition-property: color, background, box-shadow;
+        transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1);
         display: flex;
         margin: auto;
         justify-content: center;
@@ -573,7 +558,8 @@ a:hover,
         text-decoration: none;
     }
 
-    .blogbtn:active {
+    .blogbtn:active,
+    .blogbtn:hover {
         background-color: var(--button-border-color);
     }
 

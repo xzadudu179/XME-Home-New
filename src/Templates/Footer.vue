@@ -37,7 +37,7 @@ footer {
 }
 
 footer a {
-    transition: all 0.3s;
+    transition: color 0.3s;
 }
 
 footer p {

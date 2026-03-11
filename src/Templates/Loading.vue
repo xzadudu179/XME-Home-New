@@ -79,9 +79,9 @@ let isAnimatingOut = false
 
 let currentNext: CallableFunction | null = null
 
-const create = (to: RouteLocationNormalizedGeneric, next: CallableFunction) => {
+const create = (to: RouteLocationNormalizedGeneric, next: CallableFunction, fastshow: boolean) => {
     // console.log("开始切换页面")
-    loading.show(to, next)
+    loading.show(to, next, fastshow)
 }
 const hide = () => {
     // console.log("hiding")
@@ -161,7 +161,7 @@ const loading: loading = {
         }
         this.isBlockCreated = true
     },
-    show(to: RouteLocationNormalizedGeneric, next: CallableFunction) {
+    show(to: RouteLocationNormalizedGeneric, next: CallableFunction, fastshow = true) {
         // loop_color.restart()
         this.create_blocks()
         currentNext = next
@@ -207,37 +207,72 @@ const loading: loading = {
         }
         // console.log("播放 in 动画")
         isAnimatingIn = true
-        const tween = animate
-            .to(this.blocks, {
-                "stroke-dashoffset": 0,
-                "stroke-opacity": 1,
-                scale: 1,
-                duration: 0.4,
-                autoAlpha: 1,
-                ease: "power2.out",
-                stagger: {
-                    from: "start",
-                    each: 0.003
-                },
-                onComplete: () => {
-                    isAnimatingIn = false;
-                    // console.log("IN 播放完成")
-                    currentNext!();
-                    isInner = true
-                    // console.log("切换页面...")
-                    // this.$parent.check_loading();
-                    // targetPath = to.fullPath
-                    // check();
-                }, onStart: () => {
-                    this.container?.classList.remove("hidden")
-                    starting = false;
-                }, onUpdate: () => {
-                    if (starting) {
-                        // console.log("kill in")
-                        tween.kill();
+        if (fastshow) {
+            const tween = animate
+                .to(this.blocks, {
+                    "stroke-dashoffset": 0,
+                    "stroke-opacity": 1,
+                    scale: 1,
+                    duration: 0,
+                    autoAlpha: 1,
+                    ease: "power2.out",
+                    stagger: {
+                        from: "start",
+                        each: 0.000001
+                    },
+                    onComplete: () => {
+                        isAnimatingIn = false;
+                        // console.log("IN 播放完成")
+                        currentNext!();
+                        isInner = true
+                        // console.log("切换页面...")
+                        // this.$parent.check_loading();
+                        // targetPath = to.fullPath
+                        // check();
+                    }, onStart: () => {
+                        this.container?.classList.remove("hidden")
+                        starting = false;
+                    }, onUpdate: () => {
+                        if (starting) {
+                            // console.log("kill in")
+                            tween.kill();
+                        }
                     }
-                }
-            })
+                })
+        } else {
+            const tween = animate
+                .to(this.blocks, {
+                    "stroke-dashoffset": 0,
+                    "stroke-opacity": 1,
+                    scale: 1,
+                    duration: 0.4,
+                    autoAlpha: 1,
+                    ease: "power2.out",
+                    stagger: {
+                        from: "start",
+                        each: 0.003
+                    },
+                    onComplete: () => {
+                        isAnimatingIn = false;
+                        // console.log("IN 播放完成")
+                        currentNext!();
+                        isInner = true
+                        // console.log("切换页面...")
+                        // this.$parent.check_loading();
+                        // targetPath = to.fullPath
+                        // check();
+                    }, onStart: () => {
+                        this.container?.classList.remove("hidden")
+                        starting = false;
+                    }, onUpdate: () => {
+                        if (starting) {
+                            // console.log("kill in")
+                            tween.kill();
+                        }
+                    }
+                })
+        }
+
         this.blocks.forEach((block: Element) => {
             const currentStroke = gsap.getProperty(block, "stroke") as string;
 
@@ -343,7 +378,11 @@ onMounted(() => {
         if (to.path === '/' && from.path === '/' && to.hash === '') {
             // create(to, next);
             // isInner = true;
-            create(to, next);
+            if (!from.name) {
+                create(to, next, true);
+            } else {
+                create(to, next, false);
+            }
             return;
         }
         if (to.path === from.path) {
@@ -351,7 +390,7 @@ onMounted(() => {
             return;
         }
         // document.querySelector("#loading-container")?.classList.remove("hidden");
-        create(to, next);
+        create(to, next, false);
     });
 });
 

@@ -3,9 +3,8 @@
         :initial-opacity="0" :animate-opacity="true" :scale="1.05" :threshold="0.1" :always-play="false" :delay="0.2">
         <form @submit.prevent="sendEmail"
             class="translucent p-5 md:pl-10 md:pr-10 border-t-4 border-b-4 md:border-t-0 border-t-dark-700 border-b-dark-700 md:border-b-0 md:border-l-4 md:border-r-4 rounded-3xl border-dark-500 md:text-xl text-[0.8rem] form">
-            <p class="text-xl md:text-5xl m-2 md:m-5 mt-0 ml-2 text-dark-100"><span
-                    class="inline-hovertrans font-light">Get in Touch <i
-                        class="fa-light fa-message-dots text-[0.9em]"></i></span></p>
+            <p class="text-xl md:text-5xl m-2 md:m-5 mt-0 ml-2 text-dark-100"><span class="hoverlight font-light">Get in
+                    Touch <i class="fa-light fa-message-dots text-[0.9em]"></i></span></p>
             <p class="ml-3 mb-6 text-primary-200 font-normal">Say hello, ask questions, collaborations, or share your
                 thoughts!</p>
             <div class="content">
@@ -23,7 +22,7 @@
                 </div>
                 <div class="flex flex-col-reverse md:flex-row-reverse items-center">
                     <button type="submit"
-                        class="text-center w-full md:w-auto ml-auto border-2 md:border-0 text-3xl p-3 rounded-2xl border-dark-300 active:border-primary-200 active-primary hover:border-primary-200 hover-primary text-dark-100 hoverlight md:block submit font-normal cursor-target hovertrans">
+                        class="text-center w-full md:w-auto ml-auto border-2 md:border-0 text-3xl p-3 rounded-2xl border-dark-300 active:border-primary-200 active-primary hover:border-primary-200 hover-primary text-dark-100 hoverlight md:block submit font-normal cursor-target hoverlight">
                         {{ submitText }}
                         <span class="md:inline-block hidden"><i class="fa-light fa-paper-plane-top"
                                 id="submit-icon"></i></span></button>
@@ -119,16 +118,17 @@ textarea:focus {
 .form {
     line-height: 1.3em;
     /* letter-spacing: 0.2em; */
-    transition: all 0.5s;
+    transition: border 0.5s;
 }
 
 .submit {
-    transition: all 0.3s;
+    transition-property: border, color, background, text-shadow;
+    transition: 0.3s;
 }
 
 input,
 textarea {
-    transition: all 0.3s;
+    transition: border 0.3s;
 
     @media (pointer: fine) {
         cursor: none !important;

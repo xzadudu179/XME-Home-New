@@ -120,7 +120,8 @@ const beleft = () => {
 
 <style scoped>
 .mobile-nav-item {
-    transition: all 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
+    transition-property: text-shadow, color, background;
+    transition: 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 .scanlines {
@@ -137,9 +138,9 @@ const beleft = () => {
     opacity: 0.15;
 }
 
-.xmark {
+/* .xmark {
     transition: all 0.5s;
-}
+} */
 
 .rt {
     rotate: 45deg;

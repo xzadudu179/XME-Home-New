@@ -1,6 +1,6 @@
 <template>
-    <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
-        :initial-opacity="0" :animate-opacity="true" :scale="0.94" :threshold="0.1" :delay="0.1">
+    <AnimatedContent :distance="50" direction="horizontal" :reverse="props.reverseAnimationDirection" :duration="1.1"
+        ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1" :threshold="0.1" :delay="0.1">
         <Magnet class="m-[3vh] md:m-[4vw] lg:m-[5vw] ml-0 mr-0" :padding="200" :disabled="false" :magnet-strength="30"
             active-transition="transform 0.6s ease-out" inactive-transition="transform 0.6s ease-in-out"
             wrapper-class-name="custom-wrapper" inner-class-name="custom-inner">
@@ -18,7 +18,7 @@
                 <div
                     class="w-full p-3 pt-5 md:pt-8 border-t-8 md:border-t-0 md:border-l-8 border-dark-700 z-5 md:flex flex-col">
                     <div>
-                        <p class="hovertrans text-[1.8rem] card-title pb-5 md:pb-8 md:font-light">
+                        <p class="hoverlight text-[1.8rem] card-title pb-5 md:pb-8 md:font-light">
                             {{ props.title }}
                         </p>
 
@@ -30,7 +30,7 @@
                         <p class="md:hidden text-[0.7rem] pt-3 text-right"> Started in {{ props.date }} </p>
                     </div>
                     <div class="hidden md:flex justify-between mt-auto items-end w-full pr-4 self-center">
-                        <p class="arrow hovertrans font-light text-dark-500 pt-4 pb-[0.3em]">
+                        <p class="arrow hoverlight font-light text-dark-500 pt-4 pb-[0.3em]">
                             <a :href="props.href" class="no-cursor cursor-target inline-block h-[1em]"><i
                                     class="fa-light fa-angle-left"></i><i class="fa-light fa-angle-left"></i><i
                                     class="fa-light fa-angle-left"></i></a>
@@ -67,6 +67,7 @@ interface Props {
     title?: string,
     descs?: Array<string>,
     date?: string,
+    reverseAnimationDirection?: boolean,
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -74,7 +75,8 @@ const props = withDefaults(defineProps<Props>(), {
     title: "TITLE",
     href: "#",
     descs: () => ["DESC"],
-    date: "0000.00.00"
+    date: "0000.00.00",
+    reverseAnimationDirection: false,
 });
 </script>
 
@@ -93,7 +95,8 @@ const props = withDefaults(defineProps<Props>(), {
 .arrow {
     font-size: max(3rem, min(3em, 3vw));
     /* bottom: 1.25rem; */
-    transition: all 0.5s ease;
+    transition-property: color, text-shadow;
+    transition: 0.5s ease;
     padding-left: min(1em, 1.5vw);
     /* padding-top: -15px; */
 }
@@ -128,8 +131,18 @@ const props = withDefaults(defineProps<Props>(), {
     margin: 1rem;
     margin-top: 0;
     border-radius: calc(1.5rem - 1rem);
-    cursor: none;
-    transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+    cursor: default;
+
+    @media (cursor: fine) {
+        cursor: none;
+    }
+
+    transition-property: background,
+    color,
+    border,
+    text-shadow,
+    box-shadow;
+    transition: 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 .btn:active,
@@ -188,7 +201,7 @@ const props = withDefaults(defineProps<Props>(), {
 
     display: flex;
     z-index: 5;
-    transition: all 0.5s;
+    /* transition: all 0.5s; */
 }
 
 .custom-spotlight-card:hover {

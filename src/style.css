@@ -211,7 +211,7 @@
 
 .hovertrans,
 .inline-hovertrans {
-    transition: all 0.3s;
+    transition: transform 0.3s, text-shadow 0.3s, color 0.3s;
     user-select: none;
 }
 
@@ -226,7 +226,8 @@
         background: var(--color-dark-100);
         /* backdrop-filter: ; */
         backdrop-filter: grayscale(50%);
-        transition: all .8s cubic-bezier(0.215, 0.610, 0.355, 1);
+        transition-property: mix-blend-mode, background, backdrop-filter;
+        transition: .8s cubic-bezier(0.215, 0.610, 0.355, 1);
         /* 正片叠底 */
         mix-blend-mode: multiply;
     }
@@ -380,7 +381,7 @@ html {
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--color-dark-700);
-    transition: all 0.2s;
+    transition: background-color 0.2s;
     border-radius: 0;
 }
 

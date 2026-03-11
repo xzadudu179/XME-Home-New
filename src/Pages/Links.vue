@@ -34,7 +34,7 @@ onMounted(() => {
     <div class="text-[8vw] lg:text-5xl min-h-[70vh] font-orbitron text-dark-50 m-auto mt-20 max-w-[1800px] w-[90vw]">
         <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
             :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true" :delay="0.4">
-            <p class="text-center font-melete mb-1 md:mb-10 hg:mb-5 font-light"><span class="inline-hovertrans">- LINKS
+            <p class="text-center font-melete mb-1 md:mb-10 hg:mb-5 font-light"><span class="hoverlight">- LINKS
                     -</span>
             </p>
         </AnimatedContent>
@@ -42,7 +42,7 @@ onMounted(() => {
             :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true" :delay="0.5">
             <p class="title hg:w-[90%] text-[7vw]">
                 #
-                <span class="inline-hovertrans mb-1.5 md:mb-5">PINNED LINKS</span>
+                <span class="hoverlight mb-1.5 md:mb-5">PINNED LINKS</span>
             </p>
         </AnimatedContent>
         <div class="flex flex-wrap justify-center mb-4 w-auto m-auto">
@@ -60,7 +60,7 @@ onMounted(() => {
             :always-play="true" :delay="0.8">
             <p class="title md:text-5xl text-[7vw]">
                 #
-                <span class="inline-hovertrans mb-1.5 md:mb-5">FRIENDLY LINKS</span>
+                <span class="hoverlight mb-1.5 md:mb-5">FRIENDLY LINKS</span>
             </p>
         </AnimatedContent>
         <div class="flex flex-wrap justify-center mb-10">
@@ -79,7 +79,7 @@ onMounted(() => {
                 :delay="0.1">
                 <p class="title text-[6.5vw]">
                     #
-                    <span class="inline-hovertrans mb-1.5 md:mb-5">APPLY FOR A LINK</span>
+                    <span class="hoverlight mb-1.5 md:mb-5">APPLY FOR A LINK</span>
                 </p>
             </AnimatedContent>
             <div
@@ -133,7 +133,7 @@ onMounted(() => {
 }
 
 .btn {
-    transition: all 0.3s;
+    transition: color 0.3s;
 }
 
 .title {
@@ -141,9 +141,10 @@ onMounted(() => {
     user-select: none;
     max-width: 1600px;
     margin: auto;
+    margin-bottom: 15px;
     color: var(--color-dark-200);
     text-align: left;
-    transition: all 0.3s;
+    transition: color 0.3s;
 
     @media (width >=48rem) {
         font-size: var(--text-5xl);

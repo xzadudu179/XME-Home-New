@@ -8,7 +8,7 @@
                 admin: 'ADMIN',
                 sticky: 'PINNED',
                 hottest: 'Popular',
-                latest: 'Newest',
+                latest: 'Latest',
                 unsticky: 'UNPINNED',
                 word: ''
             }" />
@@ -70,7 +70,7 @@ onMounted(() => {
 <style>
 .waline {
     letter-spacing: 0.12em;
-    transition: all 0.3s;
+    /* transition: all 0.3s; */
 }
 
 .wl-card .wl-badge {
@@ -161,7 +161,8 @@ code {
     border: 2px solid var(--color-dark-500);
     border-top: 0;
     border-bottom: 0;
-    transition: all 0.3s;
+    transition-property: border, color;
+    transition: 0.3s;
     border-radius: 20px;
 }
 
@@ -206,7 +207,7 @@ code .comment {
     background-color: #00000000;
     padding-right: 15px;
     border: 2px solid var(--color-dark-500);
-    transition: all 0.3s;
+    transition: border 0.3s;
     border-top: none;
     border-bottom: none;
 }
@@ -251,6 +252,11 @@ button.primary:active {
 .wl-close {
     margin-right: 20px;
     top: 20px;
+}
+
+
+.wl-login-nick:not(:has(*)) {
+    padding-top: 10px
 }
 
 .wl-user-avatar,
@@ -302,7 +308,8 @@ button.primary:active {
 
 .wl-action,
 .wl-nick {
-    transition: all 0.2s;
+    transition-property: border, background, color;
+    transition: 0.2s;
 }
 
 .wl-header-item {

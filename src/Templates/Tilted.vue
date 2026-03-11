@@ -48,7 +48,7 @@ function handleMouse(e: MouseEvent) {
 }
 
 function handleMouseEnter() {
-    state.scale = 1.05;
+    state.scale = 1.02;
 }
 
 function handleMouseLeave() {

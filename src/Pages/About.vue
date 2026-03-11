@@ -99,7 +99,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                 :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true"
                 :delay="0.4">
                 <p class="text-[min(30px,7vw)] md:text-5xl font-light select-none font-melete text-center mb-2"><span
-                        class="inline-hovertrans mb-5">- ABOUT -</span>
+                        class="hoverlight mb-5">- ABOUT -</span>
                 </p>
             </AnimatedContent>
             <div class="flex justify-between">
@@ -109,10 +109,10 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                         :always-play="true" :delay="0.4">
                         <ElectricBorder v-if="!isSafari" :color="'#4CD0F1'" :speed="1" :chaos="0.3" :thickness="3"
                             :style="{ borderRadius: '25px' }"
-                            class="m-auto md:m-0 max-h-[250px] max-w-[250px] md:max-h-[300px] md:max-w-[300px] h-[90vw] w-[90vw] avatar hovertrans">
+                            class="m-auto md:m-0 max-h-[250px] max-w-[250px] md:max-h-[300px] md:max-w-[300px] h-[90vw] w-[90vw] avatar">
                         </ElectricBorder>
                         <div v-else
-                            class="m-auto md:m-0 max-h-[250px] max-w-[250px] md:max-h-[300px] md:max-w-[300px] h-[90vw] w-[90vw] avatar hovertrans rounded-[25px] border-avatar">
+                            class="m-auto md:m-0 max-h-[250px] max-w-[250px] md:max-h-[300px] md:max-w-[300px] h-[90vw] w-[90vw] avatar rounded-[25px] border-avatar">
                         </div>
                     </AnimatedContent>
                     <div class="text-2xl md:ml-10 flex flex-col self-center mt-5 md:mt-0">
@@ -125,7 +125,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                             ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.05" :threshold="0"
                             :always-play="true" :delay="0.6">
                             <p class="ml-[1em] lg:ml-0 text-3xl lg:text-4xl mt-2 mb-2"><span
-                                    class="inline-hovertrans">xzadudu179</span></p>
+                                    class="hoverlight">xzadudu179</span></p>
                         </AnimatedContent>
                         <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1"
                             ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.05" :threshold="0"
@@ -136,9 +136,9 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                             ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.05" :threshold="0"
                             :always-play="true" :delay="0.8">
                             <p class="ml-[1em] lg:ml-0 text-3xl lg:text-4xl mt-2"><span
-                                    class="inline-hovertrans">Yangzhou</span>,
-                                <span class="inline-hovertrans">Jiangsu</span>,
-                                <span class="inline-hovertrans">China</span>
+                                    class="hoverlight">Yangzhou</span>,
+                                <span class="hoverlight">Jiangsu</span>,
+                                <span class="hoverlight">China</span>
                             </p>
                         </AnimatedContent>
                         <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1"
@@ -150,7 +150,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                             ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.05" :threshold="0"
                             :always-play="true" :delay="1">
                             <p class="ml-[1em] lg:ml-0 text-3xl lg:text-4xl mt-2 mb-2"><span
-                                    class="inline-hovertrans">2007-04-04</span></p>
+                                    class="hoverlight">2007-04-04</span></p>
                         </AnimatedContent>
                     </div>
                 </div>
@@ -177,14 +177,14 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                 :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true"
                 :delay="0.5">
                 <p class="text-[min(30px,8vw)] md:text-5xl font-light select-none "># <span
-                        class="inline-hovertrans mb-5">INTRODUCTION</span>
+                        class="hoverlight mb-5">INTRODUCTION</span>
                 </p>
             </AnimatedContent>
             <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                 :initial-opacity="0" :animate-opacity="true" :scale="1.05" :threshold="0" :always-play="true"
                 :delay="0.6">
                 <p
-                    class="font-normal font-firacode text-[min(18px,4.5vw)] md:text-2xl mb-5 select-none text-primary-200 text-center md:text-left">
+                    class="font-normal font-firacode text-[min(18px,4.5vw)] md:text-2xl mt-[min(15px,4vw)] mb-5 select-none text-primary-200 text-center md:text-left">
                     <span class="inline-block mr-1">&gt;</span>
                     <TextType :text="type_texts" :typingSpeed="100" :pauseDuration="2000" :showCursor="true"
                         cursorCharacter="_" :textColors="['#78B9FF']" class="" />
@@ -242,7 +242,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                 :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true"
                 :delay="0.5">
                 <p class="text-[min(30px,8vw)] md:text-5xl font-light mb-7 select-none "># <span
-                        class="inline-hovertrans">INTERESTS</span>
+                        class="hoverlight">INTERESTS</span>
                 </p>
             </AnimatedContent>
             <div class="text-lg md:text-lg main-content font-normal mb-15 tracking-[0.09em] text-dark-100">
@@ -294,7 +294,7 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                 :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0" :always-play="true"
                 :delay="0.2">
                 <p class="text-[min(30px,8vw)] md:text-5xl font-light mb-7 select-none"># <span
-                        class="inline-hovertrans">CONTACT</span>
+                        class="hoverlight">CONTACT</span>
                 </p>
             </AnimatedContent>
             <AnimatedContent :distance="20" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
@@ -339,10 +339,10 @@ const type_texts = ['printf("Hello, World.");', 'print("Hello, World.")', 'conso
                 :initial-opacity="0" :animate-opacity="true" :scale="1" :threshold="0" :always-play="false"
                 :delay="0.2">
                 <p class="hidden md:block md:text-4xl select-none mb-7 mt-20 font-light "># <span
-                        class="inline-hovertrans">LEAVE A
+                        class="hoverlight">LEAVE A
                         MESSAGE <i class="fa-light fa-message-lines text-[0.9em] relative"></i></span></p>
                 <p class="block text-[min(30px,8vw)] md:hidden md:text-5xl select-none mb-7 mt-20 font-light "># <span
-                        class="inline-hovertrans">MESSAGES <i
+                        class="hoverlight">MESSAGES <i
                             class="fa-light fa-message-lines text-[0.9em] relative"></i></span></p>
             </AnimatedContent>
             <div

@@ -63,16 +63,14 @@ onMounted(() => {
             <div class="flex-col flex justify-center content-center items-center h-full select-none">
                 <AnimatedContent :distance="100" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                     :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.5">
-                    <p><span class="inline-hovertrans">CREATING</span> <i
-                            class="fa-light fa-sparkles inline-hovertrans"></i> <span
-                            class="text-primary-200 inline-hovertrans">DREAMS</span><span
-                            class="inline-hovertrans">,</span>
+                    <p><span class="hoverlight">CREATING</span> <i class="fa-light fa-sparkles hoverlight"></i> <span
+                            class="text-primary-200 hoverlight">DREAMS</span><span class="hoverlight">,</span>
                     </p>
                 </AnimatedContent>
                 <AnimatedContent :distance="100" direction="vertical" :reverse="false" :duration="1.5" ease="power3.out"
                     :initial-opacity="0" :animate-opacity="true" :scale="1.2" :threshold="0.1" :delay="0.9">
-                    <p><span class="inline-hovertrans">ACROSS</span> <span class="inline-hovertrans">THE</span> <span
-                            class="text-primary-200 inline-hovertrans">W<i
+                    <p><span class="hoverlight">ACROSS</span> <span class="hoverlight">THE</span> <span
+                            class="text-primary-200 hoverlight">W<i
                                 class="fa-light fa-earth-asia text-[0.8em] relative bottom-[0.05em]"></i>RLD</span>
                     </p>
                 </AnimatedContent>
@@ -96,7 +94,7 @@ onMounted(() => {
             <div class=" hg:w-[95vw] m-auto mt-[100px] md:mt-[200px] rounded-[4em] card-container">
                 <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                     :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.1">
-                    <h1 class="subtitle hg:pr-[min(850px,37vw)]"><span class="inline-hovertrans md:mt-[100px] md:mb-0">-
+                    <h1 class="subtitle hg:pr-[min(850px,37vw)]"><span class="hoverlight md:mt-[100px] md:mb-0">-
                             AB<i class="fa-light fa-planet-ringed text-[0.9em]"></i>UT -</span></h1>
                 </AnimatedContent>
 
@@ -112,35 +110,35 @@ onMounted(() => {
                             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
                                 ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
                                 :threshold="0" :delay="0.1">
-                                <p class="hovertrans">NAME: <span>XZADUDU179</span></p>
+                                <p class="hoverlight">NAME: <span>XZADUDU179</span></p>
                             </AnimatedContent>
                             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
                                 ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
                                 :threshold="0" :delay="0.2">
-                                <p class="hovertrans">BIRTH: <span>2007-04-04</span></p>
+                                <p class="hoverlight">BIRTH: <span>2007-04-04</span></p>
                             </AnimatedContent>
                             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
                                 ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
                                 :threshold="0" :delay="0.3">
-                                <p class="hovertrans">FIELD: <span>PROGRAM</span></p>
+                                <p class="hoverlight">FIELD: <span>PROGRAM</span></p>
                             </AnimatedContent>
                             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
                                 ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
                                 :threshold="0" :delay="0.4">
-                                <p class="hovertrans">INTEREST: <span>CREATION</span></p>
+                                <p class="hoverlight">INTEREST: <span>CREATION</span></p>
                             </AnimatedContent>
                             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
                                 ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
                                 :threshold="0" :delay="0.5">
-                                <p class="hovertrans">LOCATION: <span>CHINA</span></p>
+                                <p class="hoverlight">LOCATION: <span>CHINA</span></p>
                             </AnimatedContent>
                         </div>
                     </div>
                 </div>
                 <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                     :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.1">
-                    <h1 class="subtitle md:mt-[50px] m-auto p-0" id="subtitle2">
-                        <span class="inline-hovertrans">-TECH
+                    <h1 class="subtitle md:mt-[50px] m-auto hoverlight p-0" id="subtitle2">
+                        <span class="hoverlight">-TECH
                             ST<i class="fa-light fa-cubes text-[0.8em] relative bottom-[0.06em]"></i>CK -</span>
                     </h1>
                 </AnimatedContent>
@@ -152,27 +150,27 @@ onMounted(() => {
                             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
                                 ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
                                 :threshold="0" :delay="0.1">
-                                <p class="hovertrans"><span>DEVELOPER</span></p>
+                                <p class="hoverlight"><span>DEVELOPER</span></p>
                             </AnimatedContent>
                             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
                                 ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
                                 :threshold="0" :delay="0.2">
-                                <p class="hovertrans"><span>COMPOSER</span></p>
+                                <p class="hoverlight"><span>COMPOSER</span></p>
                             </AnimatedContent>
                             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
                                 ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
                                 :threshold="0" :delay="0.3">
-                                <p class="hovertrans">UX DESIGNER</p>
+                                <p class="hoverlight">UX DESIGNER</p>
                             </AnimatedContent>
                             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
                                 ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
                                 :threshold="0" :delay="0.4">
-                                <p class="hovertrans">PHOTOGRAPHER</p>
+                                <p class="hoverlight">PHOTOGRAPHER</p>
                             </AnimatedContent>
                             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1"
                                 ease="power3.out" :initial-opacity="0" :animate-opacity="true" :scale="1.1"
                                 :threshold="0" :delay="0.5">
-                                <p class="hovertrans mb-[0.8em] hg:mb-0">PRODUCER</p>
+                                <p class="hoverlight mb-[0.8em] hg:mb-0">PRODUCER</p>
                             </AnimatedContent>
                         </div>
                     </div>
@@ -204,7 +202,7 @@ onMounted(() => {
                 title="XME-Deon-Bot" href="https://docs.xme.179.life/#/"
                 :descs="['One of my QQ bot services, mainly offering entertainment features.', 'Built with Python and Go (API Server).']"
                 date="2024.10.11"></ProjectCard>
-            <ProjectCard class="mr-0 hg:mr-[8vw]"
+            <ProjectCard :reverse-animation-direction="true" class="mr-0 hg:mr-[8vw]"
                 imageSrc="https://image.179.life/images/background-dark-with-header.webp" title="XME Notes Library"
                 href="https://blog.xzadudu179.top/"
                 :descs="['Personal blog for sharing my life, introducing myself, and showcasing my personality.']"
@@ -213,8 +211,9 @@ onMounted(() => {
                 title="MilAerno Theme " href="https://mhtlim.top"
                 :descs="['A theme designed and created for Milthm-Calculator, intended to help players conveniently check their in-game scores.']"
                 date="2025.10.12"></ProjectCard>
-            <ProjectCard class="mr-0 hg:mr-[8vw]" imageSrc="https://image.179.life/images/aerno-cover.webp"
-                title="Aerno Theme" href="https://github.com/xzadudu179/Aerno-Theme"
+            <ProjectCard :reverse-animation-direction="true" class="mr-0 hg:mr-[8vw]"
+                imageSrc="https://image.179.life/images/aerno-cover.webp" title="Aerno Theme"
+                href="https://github.com/xzadudu179/Aerno-Theme"
                 :descs="['A clean blue-purple Visual Studio Code theme designed for dark mode.']" date="2024.03.07">
             </ProjectCard>
             <ProjectCard class="ml-0 hg:ml-[8vw]" imageSrc="https://image.179.life/images/home-cover.webp"
@@ -232,7 +231,7 @@ onMounted(() => {
         <div class="max-w-[1280px] w-full m-auto mt-60 font-orbitron select-none">
             <AnimatedContent :distance="50" direction="vertical" :reverse="false" :duration="1.1" ease="power3.out"
                 :initial-opacity="0" :animate-opacity="true" :scale="1.1" :threshold="0.1" :delay="0.1">
-                <h1 class="subtitle font-electrolize hovertrans">- CONT<i
+                <h1 class="subtitle font-electrolize hoverlight">- CONT<i
                         class="fa-light fa-paper-plane text-[0.85em] relative bottom-[0.05em] pr-[0.03em]"></i><span
                         class="pr-2">C</span>T
                     -
@@ -343,7 +342,7 @@ onMounted(() => {
 #first-header {
     /* padding: 0 10px; */
     /* font-size: 5.5vh; */
-    font-size: min(3em, max(5.7vh, 5.7vw));
+    font-size: min(3.5em, 13vw);
     text-align: center;
 
 
@@ -353,7 +352,7 @@ onMounted(() => {
     }
 
     @media (max-height: 64rem) {
-        padding: 3rem;
+        padding: 5vw;
     }
 
 }
@@ -434,7 +433,6 @@ onMounted(() => {
     }
 
     padding-top: 44px;
-    transition: all 0.5s ease;
 }
 
 .qr-text {
@@ -467,7 +465,7 @@ onMounted(() => {
 }
 
 .matter-box {
-    transition: all 0.3s;
+    transition: box-shadow 0.3s;
 }
 
 .matter-box:hover {
