@@ -218,7 +218,7 @@ onMounted(() => {
             </ProjectCard>
             <ProjectCard class="ml-0 hg:ml-[8vw]" imageSrc="https://image.179.life/images/home-cover.webp"
                 title="XME-Home" href="https://www.xzadudu179.top"
-                :descs="['Homepage for showcasing my uniqueness and introducing myself, filled with everything about me.']"
+                :descs="['Homepage for introducing myself, filled with everything about me. Some components from Vue-Bits.']"
                 date="2025.08.11"></ProjectCard>
         </div>
         <div class="mt-[10rem]">
