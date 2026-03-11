@@ -369,20 +369,18 @@ const loading: loading = {
 
 // const loading = ref<InstanceType<typeof Loading> | null>(null);
 
-
 onMounted(() => {
+    let firstLoad = true;
     const router = useRouter()
     router.beforeEach((to, from, next) => {
         // 路径不变则不加载
         // console.log(to.path, from.path, to.hash, from.hash)
+        console.log(firstLoad)
         if (to.path === '/' && from.path === '/' && to.hash === '') {
             // create(to, next);
             // isInner = true;
-            if (!from.name) {
-                create(to, next, true);
-            } else {
-                create(to, next, false);
-            }
+            create(to, next, firstLoad);
+            firstLoad = false
             return;
         }
         if (to.path === from.path) {
@@ -390,7 +388,8 @@ onMounted(() => {
             return;
         }
         // document.querySelector("#loading-container")?.classList.remove("hidden");
-        create(to, next, false);
+        create(to, next, firstLoad);
+        firstLoad = false
     });
 });
 
