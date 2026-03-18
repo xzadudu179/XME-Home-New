@@ -201,7 +201,11 @@ const props = withDefaults(defineProps<Props>(), {
 
     display: flex;
     z-index: 5;
-    /* transition: all 0.5s; */
+    transition-property: border,
+    box-shadow,
+    background,
+    color;
+    transition-duration: 0.5s;
 }
 
 .custom-spotlight-card:hover {
