@@ -12,9 +12,8 @@
                         {{ props.name }}
                     </p>
                 </div>
-                <div
-                    class="overlay-content hoverlight hover-primary active-primary shadow-2xs rounded-xl text-[0.9rem] p-2 absolute top-56 left-45 cursor-target no-cursor">
-                    <a :href="props.href" class="no-cursor">visit &gt;&gt;</a>
+                <div>
+                    <a :href="props.href" class="overlay-content hoverlight hover-primary active-primary shadow-2xs rounded-xl text-[0.9rem] p-2 absolute top-56 left-45 cursor-target no-cursor">visit &gt;&gt;</a>
                 </div>
             </template>
         </TiltedCard>
